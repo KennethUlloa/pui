@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Components | PUI Design System</title>
+    <link rel="stylesheet" href="./dist/css/index.css" />
+  </head>
+  <body class="bg-gray-50 text-gray-900 font-sans">
+    <header class="bg-white border-b border-gray-200">
+      <div class="mx-auto max-w-6xl px-lg py-md flex items-center justify-between gap-md">
+        <a href="./" class="text-lg font-bold text-gray-900 no-underline">PUI <span class="text-cyan-700">/</span> Design system</a>
+        <nav aria-label="Main navigation" class="flex items-center gap-lg text-sm font-semibold">
+          <a href="./" class="text-gray-600 no-underline hover-bg-gray-100 px-sm py-xs rounded-sm">Foundations</a>
+          <a href="./components.html" class="text-cyan-800 no-underline" aria-current="page">Components</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-lg pt-5xl pb-6xl">
+      <section class="mb-5xl">
+        <p class="text-cyan-700 text-xs font-bold uppercase">PUI / 02</p>
+        <h1 class="text-5xl font-bold leading-tight text-balance mt-sm">Components</h1>
+        <p class="text-gray-600 max-w-prose mt-md text-lg leading-relaxed text-pretty">A working view of the controls and feedback patterns in the PUI system.</p>
+      </section>
+
+      <section class="mb-5xl">
+        <div class="flex items-center justify-between gap-md mb-md">
+          <h2 class="text-2xl font-semibold">Buttons</h2>
+          <span class="text-sm text-gray-500">Variants, semantic colors, and sizes</span>
+        </div>
+        <div class="border border-gray-200 rounded-lg bg-white p-xl grid gap-xl">
+          <div class="grid gap-sm">
+            <h3 class="text-sm font-semibold text-gray-600">Variants</h3>
+            <div class="flex flex-wrap items-center gap-md">
+              <button class="btn btn-primary">Primary</button>
+              <button class="btn btn-outline">Outline</button>
+              <button class="btn btn-ghost">Ghost</button>
+              <button class="btn btn-primary" disabled>Disabled</button>
+            </div>
+          </div>
+          <div class="grid gap-sm">
+            <h3 class="text-sm font-semibold text-gray-600">Semantic colors</h3>
+            <div class="flex flex-wrap items-center gap-md">
+              <button class="btn btn-primary">Primary</button>
+              <button class="btn btn-secondary">Secondary</button>
+              <button class="btn btn-tertiary">Tertiary</button>
+              <button class="btn btn-success">Success</button>
+              <button class="btn btn-warning">Warning</button>
+              <button class="btn btn-error">Error</button>
+              <button class="btn btn-info">Info</button>
+            </div>
+            <div class="flex flex-wrap items-center gap-md">
+              <button class="btn btn-outline-primary">Outline primary</button>
+              <button class="btn btn-outline-secondary">Outline secondary</button>
+              <button class="btn btn-outline-tertiary">Outline tertiary</button>
+              <button class="btn btn-outline-success">Outline success</button>
+              <button class="btn btn-outline-warning">Outline warning</button>
+              <button class="btn btn-outline-error">Outline error</button>
+              <button class="btn btn-outline-info">Outline info</button>
+            </div>
+            <div class="flex flex-wrap items-center gap-md">
+              <button class="btn btn-ghost-primary">Ghost primary</button>
+              <button class="btn btn-ghost-secondary">Ghost secondary</button>
+              <button class="btn btn-ghost-tertiary">Ghost tertiary</button>
+              <button class="btn btn-ghost-success">Ghost success</button>
+              <button class="btn btn-ghost-warning">Ghost warning</button>
+              <button class="btn btn-ghost-error">Ghost error</button>
+              <button class="btn btn-ghost-info">Ghost info</button>
+            </div>
+          </div>
+          <div class="grid gap-sm">
+            <h3 class="text-sm font-semibold text-gray-600">Sizes</h3>
+            <div class="flex flex-wrap items-center gap-md">
+              <button class="btn btn-primary btn-sm">Small</button>
+              <button class="btn btn-primary">Default</button>
+              <button class="btn btn-primary btn-lg">Large</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-5xl">
+        <div class="flex items-center justify-between gap-md mb-md">
+          <h2 class="text-2xl font-semibold">Chips</h2>
+          <span class="text-sm text-gray-500">Labels and semantic status</span>
+        </div>
+        <div class="border border-gray-200 rounded-lg bg-white p-xl grid gap-lg">
+          <div class="flex flex-wrap items-center gap-sm">
+            <span class="chip">Design</span>
+            <span class="chip chip-primary">Primary</span>
+            <span class="chip chip-secondary">Secondary</span>
+            <span class="chip chip-tertiary">Tertiary</span>
+            <span class="chip chip-success">Active</span>
+            <span class="chip chip-warning">Review</span>
+            <span class="chip chip-error">Blocked</span>
+            <span class="chip chip-info">New</span>
+          </div>
+          <div class="flex flex-wrap items-center gap-sm">
+            <span class="chip chip-sm">Small</span>
+            <span class="chip">Default</span>
+            <span class="chip chip-lg">Large</span>
+          </div>
+          <div class="grid gap-sm">
+            <h3 class="text-sm font-semibold text-gray-600">Outlined</h3>
+            <div class="flex flex-wrap items-center gap-sm">
+              <span class="chip chip-outline">Neutral</span>
+              <span class="chip chip-outline-primary">Primary</span>
+              <span class="chip chip-outline-secondary">Secondary</span>
+              <span class="chip chip-outline-tertiary">Tertiary</span>
+              <span class="chip chip-outline-success">Success</span>
+              <span class="chip chip-outline-warning">Warning</span>
+              <span class="chip chip-outline-error">Error</span>
+              <span class="chip chip-outline-info">Info</span>
+            </div>
+          </div>
+          <div class="grid gap-sm">
+            <h3 class="text-sm font-semibold text-gray-600">Soft background</h3>
+            <div class="flex flex-wrap items-center gap-sm">
+              <span class="chip chip-soft">Neutral</span>
+              <span class="chip chip-soft-primary">Primary</span>
+              <span class="chip chip-soft-secondary">Secondary</span>
+              <span class="chip chip-soft-tertiary">Tertiary</span>
+              <span class="chip chip-soft-success">Success</span>
+              <span class="chip chip-soft-warning">Warning</span>
+              <span class="chip chip-soft-error">Error</span>
+              <span class="chip chip-soft-info">Info</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid grid-cols-1 md-grid-cols-2 gap-xl mb-5xl">
+        <div>
+          <h2 class="text-2xl font-semibold mb-md">Striped table</h2>
+          <div class="overflow-auto border border-gray-200 rounded-md bg-white">
+            <table class="table table-striped">
+              <thead>
+                <tr><th scope="col">Project</th><th scope="col">Owner</th><th scope="col">Status</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Northstar</td><td>Morgan Lee</td><td>In progress</td></tr>
+                <tr><td>Atlas</td><td>Sam Rivera</td><td>Review</td></tr>
+                <tr><td>Waypoint</td><td>Jordan Kim</td><td>Planned</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <h2 class="text-2xl font-semibold mb-md">Hoverable rows</h2>
+          <div class="overflow-auto border border-gray-200 rounded-md bg-white">
+            <table class="table table-hoverable">
+              <thead>
+                <tr><th scope="col">Project</th><th scope="col">Owner</th><th scope="col">Status</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Northstar</td><td>Morgan Lee</td><td>In progress</td></tr>
+                <tr><td>Atlas</td><td>Sam Rivera</td><td>Review</td></tr>
+                <tr><td>Waypoint</td><td>Jordan Kim</td><td>Planned</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-5xl">
+        <h2 class="text-2xl font-semibold mb-md">Striped, hoverable, and selected rows</h2>
+        <div class="overflow-auto border border-gray-200 rounded-md bg-white">
+          <table class="table table-striped table-hoverable">
+            <thead>
+              <tr><th scope="col">...</th><th scope="col">Project</th><th scope="col">Owner</th><th scope="col">Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><input type="checkbox" class="checkbox"></td> <td>Northstar</td><td>Morgan Lee</td><td>In progress</td></tr> <tr><td><input type="checkbox"></td> <td>Northstar</td><td>Morgan Lee</td><td>In progress</td></tr>
+              <tr data-state="selected"><td><input type="checkbox" class="checkbox" checked></td><td>Atlas</td><td>Sam Rivera</td><td>Review</td></tr>
+              <tr class="selected"><td><input type="checkbox" class="checkbox" checked></td><td>Waypoint</td><td>Jordan Kim</td><td>Planned</td></tr>
+              <tr><td><input type="checkbox" class="checkbox"></td><td>Artemis</td><td>Ethan Kim</td><td>In progress</td></tr>
+              <tr><td><input type="checkbox" class="checkbox"></td><td>Atlas</td><td>Sam Rivera</td><td>Review</td></tr>
+              <tr><td><input type="checkbox" class="checkbox"></td><td>Waypoint</td><td>Jordan Kim</td><td>Planned</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="grid grid-cols-1 md-grid-cols-2 gap-xl mb-5xl">
+        <div>
+          <h2 class="text-2xl font-semibold mb-md">Form controls</h2>
+          <form class="border border-gray-200 rounded-lg bg-white p-xl grid gap-md">
+            <label class="grid gap-xs text-sm font-semibold">Project name
+              <input type="text" value="Northstar refresh" class="input" />
+            </label>
+            <label class="grid gap-xs text-sm font-semibold">Visibility
+              <select class="select">
+                <option>Private</option>
+                <option>Team</option>
+                <option>Public</option>
+              </select>
+            </label>
+            <label class="grid gap-xs text-sm font-semibold">Description
+              <textarea rows="3" placeholder="Add a short description" class="textarea"></textarea>
+            </label>
+            <label class="flex items-center gap-sm text-sm"><input type="checkbox" class="checkbox" checked /> Notify collaborators</label>
+            <label class="flex items-center gap-sm text-sm"><input type="radio" name="radio-example" value="1" class="radio" checked /> Daily</label>
+            <label class="flex items-center gap-sm text-sm"><input type="radio" name="radio-example" value="2" class="radio" checked /> Weekly</label>
+            <label class="flex items-center gap-sm text-sm"><input type="radio" name="radio-example" value="3" class="radio" checked /> Daily</label>
+            <div class="flex flex-wrap items-center gap-md">
+              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="reset" class="btn btn-ghost">Cancel</button>
+            </div>
+          </form>
+        </div>
+
+        <div id="feedback">
+          <h2 class="text-2xl font-semibold mb-md">Feedback</h2>
+          <div class="grid gap-md">
+            <div class="bg-success text-gray-50 rounded-md p-md" role="status"><strong>Saved</strong><br /><span class="text-sm">Your changes are up to date.</span></div>
+            <div class="bg-warning text-gray-900 rounded-md p-md" role="status"><strong>Review needed</strong><br /><span class="text-sm">One item needs your attention.</span></div>
+            <div class="bg-error text-gray-50 rounded-md p-md" role="alert"><strong>Could not save</strong><br /><span class="text-sm">Check your connection and retry.</span></div>
+            <div class="bg-info text-gray-50 rounded-md p-md" role="status"><strong>New update</strong><br /><span class="text-sm">A new version is available.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-5xl">
+        <div class="flex items-center justify-between gap-md mb-md">
+          <h2 class="text-2xl font-semibold">Popovers</h2>
+          <span class="text-sm text-gray-500">Native popover API, zero JS</span>
+        </div>
+        <div class="border border-gray-200 rounded-lg bg-white p-xl grid gap-lg">
+          <div class="grid gap-sm">
+            <h3 class="text-sm font-semibold text-gray-600">Basics</h3>
+            <div class="flex flex-wrap items-center gap-md">
+              <button class="btn btn-outline" popovertarget="popover-default">Open popover</button>
+              <button class="btn btn-outline" popovertarget="popover-dismiss">Open with close button</button>
+              <button class="btn btn-outline" popovertarget="popover-no-backdrop">Without backdrop</button>
+            </div>
+            <div id="popover-default" popover class="popover">
+              <strong>Popover title</strong>
+              <p>Click outside or press Esc to dismiss. The browser handles everything.</p>
+            </div>
+            <div id="popover-dismiss" popover class="popover">
+              <div class="popover-header">
+                <h4 class="popover-title">Notifications</h4>
+                <button class="popover-close" popovertarget="popover-dismiss" popovertargetaction="hide" aria-label="Close">&#10005;</button>
+              </div>
+              <p>You have 3 unread updates waiting for review.</p>
+            </div>
+            <div id="popover-no-backdrop" popover="manual" class="popover">
+              <p>This one uses <code>popover="manual"</code>: no backdrop, no light dismiss, stays open until toggled again.</p>
+            </div>
+          </div>
+          <div class="grid gap-sm">
+            <h3 class="text-sm font-semibold text-gray-600">Sizes</h3>
+            <div class="flex flex-wrap items-center gap-md">
+              <button class="btn btn-outline" popovertarget="popover-sm">Small</button>
+              <button class="btn btn-outline" popovertarget="popover-default-size">Default</button>
+              <button class="btn btn-outline" popovertarget="popover-lg">Large</button>
+            </div>
+            <div id="popover-sm" popover class="popover popover-sm">
+              <p>Small popover for compact content.</p>
+            </div>
+            <div id="popover-default-size" popover class="popover">
+              <p>Default popover size for typical content and short descriptions.</p>
+            </div>
+            <div id="popover-lg" popover class="popover popover-lg">
+              <p>Large popover for richer content, longer messages, or inline forms that need more room to breathe.</p>
+            </div>
+          </div>
+          <div class="grid gap-sm">
+            <h3 class="text-sm font-semibold text-gray-600">Anchored placement</h3>
+            <p class="text-xs text-gray-500">Uses CSS anchor positioning where supported; falls back to the centered default elsewhere.</p>
+            <div class="flex flex-wrap items-center gap-md">
+              <button class="btn btn-outline" popovertarget="popover-anchored">Toggle anchored</button>
+            </div>
+            <div id="popover-anchored" popover class="popover popover-block-end">
+              <strong>Anchored to its trigger</strong>
+              <p>Rendered below the button via <code>position-area</code> when the browser supports it.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-5xl">
+        <div class="flex items-center justify-between gap-md mb-md">
+          <h2 class="text-2xl font-semibold">Dropdowns</h2>
+          <span class="text-sm text-gray-500">Popover-based menu, transparent backdrop</span>
+        </div>
+        <div class="border border-gray-200 rounded-lg bg-white p-xl grid gap-lg">
+          <div class="grid gap-sm">
+            <h3 class="text-sm font-semibold text-gray-600">Menu with sections</h3>
+            <div class="flex flex-wrap items-center gap-md">
+              <button class="btn btn-outline" popovertarget="dropdown-menu">Account menu</button>
+              <button class="btn btn-outline" popovertarget="dropdown-disabled">With disabled item</button>
+              <button class="btn btn-outline" popovertarget="dropdown-end">End aligned</button>
+            </div>
+            <nav id="dropdown-menu" popover class="dropdown">
+              <span class="dropdown-label">Signed in as Morgan</span>
+              <ul>
+                <li><a class="dropdown-item" href="#profile">Profile</a></li>
+                <li><a class="dropdown-item selected" href="#billing" aria-current="page"><span class="dropdown-item-check">&#10003;</span>Billing</a></li>
+                <li><a class="dropdown-item" href="#settings">Settings</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item dropdown-item-danger" href="#sign-out">Sign out</a></li>
+              </ul>
+            </nav>
+            <nav id="dropdown-disabled" popover class="dropdown">
+              <ul>
+                <li><a class="dropdown-item" href="#duplicate">Duplicate</a></li>
+                <li><a class="dropdown-item" href="#rename">Rename</a></li>
+                <li><a class="dropdown-item" href="#archive" aria-disabled="true">Archive (locked)</a></li>
+              </ul>
+            </nav>
+            <nav id="dropdown-end" popover class="dropdown dropdown-end">
+              <ul>
+                <li><a class="dropdown-item" href="#view">View details</a></li>
+                <li><a class="dropdown-item" href="#share">Share</a></li>
+                <li><a class="dropdown-item" href="#delete" aria-disabled="true">Delete</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="grid gap-sm">
+            <h3 class="text-sm font-semibold text-gray-600">Sizes</h3>
+            <div class="flex flex-wrap items-center gap-md">
+              <button class="btn btn-outline" popovertarget="dropdown-sm">Small</button>
+              <button class="btn btn-outline" popovertarget="dropdown-default">Default</button>
+              <button class="btn btn-outline" popovertarget="dropdown-lg">Large</button>
+            </div>
+            <nav id="dropdown-sm" popover class="dropdown dropdown-sm">
+              <ul>
+                <li><a class="dropdown-item" href="#one">Small item</a></li>
+                <li><a class="dropdown-item" href="#two">Another item</a></li>
+              </ul>
+            </nav>
+            <nav id="dropdown-default" popover class="dropdown">
+              <ul>
+                <li><a class="dropdown-item" href="#one">Default item</a></li>
+                <li><a class="dropdown-item" href="#two">Another item</a></li>
+              </ul>
+            </nav>
+            <nav id="dropdown-lg" popover class="dropdown dropdown-lg">
+              <ul>
+                <li><a class="dropdown-item" href="#one">Large item</a></li>
+                <li><a class="dropdown-item" href="#two">Another item</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="grid gap-sm">
+            <h3 class="text-sm font-semibold text-gray-600">Scrollable</h3>
+            <div class="flex flex-wrap items-center gap-md">
+              <button class="btn btn-outline" popovertarget="dropdown-scroll">Long menu</button>
+            </div>
+            <nav id="dropdown-scroll" popover class="dropdown dropdown-scroll">
+              <ul>
+                <li><a class="dropdown-item" href="#1">Item one</a></li>
+                <li><a class="dropdown-item" href="#2">Item two</a></li>
+                <li><a class="dropdown-item" href="#3">Item three</a></li>
+                <li><a class="dropdown-item" href="#4">Item four</a></li>
+                <li><a class="dropdown-item" href="#5">Item five</a></li>
+                <li><a class="dropdown-item" href="#6">Item six</a></li>
+                <li><a class="dropdown-item" href="#7">Item seven</a></li>
+                <li><a class="dropdown-item" href="#8">Item eight</a></li>
+                <li><a class="dropdown-item" href="#9">Item nine</a></li>
+                <li><a class="dropdown-item" href="#10">Item ten</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-md">Surface</h2>
+        <article class="border border-gray-200 rounded-lg bg-white p-xl max-w-xl">
+          <div class="flex items-start justify-between gap-md">
+            <div>
+              <p class="text-gray-500 text-xs font-bold uppercase">Workspace</p>
+              <h3 class="mt-xs text-xl font-semibold">Product design</h3>
+            </div>
+            <span class="bg-green-100 text-green-800 rounded-md text-xs font-semibold px-sm py-xs">Active</span>
+          </div>
+          <p class="text-gray-600 mt-md text-sm leading-relaxed">A compact surface pairs neutral structure with clear hierarchy and a status marker.</p>
+          <div class="flex items-center justify-between gap-md mt-lg pt-md border-t border-gray-200">
+            <span class="text-gray-500 text-xs">Updated today</span>
+            <a href="#top" class="btn btn-ghost-primary btn-sm">Open workspace</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

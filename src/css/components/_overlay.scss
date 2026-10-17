@@ -1,0 +1,21 @@
+@mixin panel-transition($duration: 150ms, $distance: 0.5rem) {
+	opacity: 0;
+	translate: 0 $distance;
+	transition:
+		opacity $duration ease,
+		translate $duration ease,
+		display $duration allow-discrete,
+		overlay $duration allow-discrete;
+
+	&:popover-open {
+		opacity: 1;
+		translate: 0 0;
+	}
+
+	@starting-style {
+		&:popover-open {
+			opacity: 0;
+			translate: 0 $distance;
+		}
+	}
+}

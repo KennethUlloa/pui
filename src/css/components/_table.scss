@@ -1,0 +1,72 @@
+@mixin tokens() {
+	--pui-table-text-color: var(--pui-color-gray-800);
+	--pui-table-border-color: var(--pui-color-gray-200);
+	--pui-table-header-background: var(--pui-color-gray-100);
+	--pui-table-header-text-color: var(--pui-color-gray-900);
+	--pui-table-stripe-background: var(--pui-color-gray-50);
+	--pui-table-hover-background: var(--pui-color-gray-100);
+	--pui-table-striped-hover-background: var(--pui-color-gray-200);
+	--pui-table-selected-background: var(--pui-color-blue-100);
+	--pui-table-selected-hover-background: var(--pui-color-blue-200);
+	--pui-table-striped-selected-background: var(--pui-color-blue-200);
+	--pui-table-striped-selected-hover-background: var(--pui-color-blue-300);
+}
+
+.table {
+	border-collapse: collapse;
+	color: var(--pui-table-text-color);
+	font-size: var(--pui-font-size-sm, 0.875rem);
+	line-height: var(--pui-line-height-normal, 1.5);
+	text-align: left;
+	width: 100%;
+
+	th,
+	td {
+		border-bottom: 1px solid var(--pui-table-border-color);
+		padding: 0.75rem 1rem;
+		vertical-align: middle;
+	}
+
+	thead th {
+		background-color: var(--pui-table-header-background);
+		color: var(--pui-table-header-text-color);
+		font-size: var(--pui-font-size-xs, 0.75rem);
+		font-weight: var(--pui-font-weight-semibold, 600);
+	}
+
+	tbody tr:last-child td {
+		border-bottom: 0;
+	}
+}
+
+.table-striped tbody tr:nth-child(even) {
+	background-color: var(--pui-table-stripe-background);
+}
+
+.table-hoverable tbody tr:hover {
+	background-color: var(--pui-table-hover-background);
+}
+
+.table-striped.table-hoverable tbody tr:nth-child(even):hover {
+	background-color: var(--pui-table-striped-hover-background);
+}
+
+.table tbody tr[data-state="selected"],
+.table tbody tr.selected {
+	background-color: var(--pui-table-selected-background);
+}
+
+.table-striped tbody tr:nth-child(even)[data-state="selected"],
+.table-striped tbody tr:nth-child(even).selected {
+	background-color: var(--pui-table-striped-selected-background);
+}
+
+.table tbody tr[data-state="selected"]:hover,
+.table tbody tr.selected:hover {
+	background-color: var(--pui-table-selected-hover-background);
+}
+
+.table-striped tbody tr:nth-child(even)[data-state="selected"]:hover,
+.table-striped tbody tr:nth-child(even).selected:hover {
+	background-color: var(--pui-table-striped-selected-hover-background);
+}

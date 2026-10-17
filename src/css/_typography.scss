@@ -1,0 +1,121 @@
+$font-sizes: (
+    "xs": 0.75rem,
+    "sm": 0.875rem,
+    "base": 1rem,
+    "lg": 1.125rem,
+    "xl": 1.25rem,
+    "2xl": 1.5rem,
+    "3xl": 1.875rem,
+    "4xl": 2.25rem,
+    "5xl": 3rem,
+    "6xl": 3.75rem
+);
+
+$font-weights: (
+    "normal": 400,
+    "medium": 500,
+    "semibold": 600,
+    "bold": 700,
+    "extrabold": 800
+);
+
+$line-heights: (
+    "none": 1,
+    "tight": 1.25,
+    "snug": 1.375,
+    "normal": 1.5,
+    "relaxed": 1.625,
+    "loose": 2
+);
+
+$font-families: (
+    "sans": ("Avenir Next", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif),
+    "mono": ("SFMono-Regular", Consolas, "Liberation Mono", monospace)
+);
+
+@mixin tokens() {
+    @each $name, $value in $font-sizes {
+        --pui-font-size-#{$name}: #{$value};
+    }
+
+    @each $name, $value in $font-weights {
+        --pui-font-weight-#{$name}: #{$value};
+    }
+
+    @each $name, $value in $line-heights {
+        --pui-line-height-#{$name}: #{$value};
+    }
+
+    @each $name, $value in $font-families {
+        --pui-font-family-#{$name}: #{$value};
+    }
+}
+
+@mixin utilities() {
+    @each $name, $value in $font-sizes {
+        .text-#{$name} {
+            font-size: var(--pui-font-size-#{$name}, #{$value});
+        }
+    }
+
+    @each $name, $value in $font-weights {
+        .font-#{$name} {
+            font-weight: var(--pui-font-weight-#{$name}, #{$value});
+        }
+    }
+
+    @each $name, $value in $line-heights {
+        .leading-#{$name} {
+            line-height: var(--pui-line-height-#{$name}, #{$value});
+        }
+    }
+
+    @each $name, $value in $font-families {
+        .font-#{$name} {
+            font-family: var(--pui-font-family-#{$name}, #{$value});
+        }
+    }
+
+    .text-wrap {
+        text-wrap: wrap;
+    }
+
+    .text-nowrap {
+        text-wrap: nowrap;
+    }
+
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    .text-pretty {
+        text-wrap: pretty;
+    }
+
+    .uppercase {
+        text-transform: uppercase;
+    }
+
+    .no-underline {
+        text-decoration: none;
+    }
+
+    .break-normal {
+        overflow-wrap: normal;
+        word-break: normal;
+    }
+
+    .break-words {
+        overflow-wrap: break-word;
+    }
+
+    .break-all {
+        word-break: break-all;
+    }
+
+    .truncate {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}

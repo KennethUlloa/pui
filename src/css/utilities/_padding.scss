@@ -1,0 +1,65 @@
+@use "../_sizing.scss" as sizing;
+
+@mixin padding-classes() {
+    @each $name, $value in sizing.$sizes {
+        .p-#{$name} {
+            padding: sizing.token($name);
+        }
+
+        .px-#{$name} {
+            padding-left: sizing.token($name);
+            padding-right: sizing.token($name);
+        }
+
+        .py-#{$name} {
+            padding-top: sizing.token($name);
+            padding-bottom: sizing.token($name);
+        }
+
+        .pt-#{$name} {
+            padding-top: sizing.token($name);
+        }
+
+        .pb-#{$name} {
+            padding-bottom: sizing.token($name);
+        }
+
+        .pl-#{$name} {
+            padding-left: sizing.token($name);
+        }
+
+        .pr-#{$name} {
+            padding-right: sizing.token($name);
+        }
+
+        .-p-#{$name} {
+            padding: calc(-1 * sizing.token($name));
+        }
+
+        .-px-#{$name} {
+            padding-left: calc(-1 * sizing.token($name));
+            padding-right: calc(-1 * sizing.token($name));
+        }
+
+        .-py-#{$name} {
+            padding-top: calc(-1 * sizing.token($name));
+            padding-bottom: calc(-1 * sizing.token($name));
+        }
+
+        .-pt-#{$name} {
+            padding-top: calc(-1 * sizing.token($name));
+        }
+
+        .-pb-#{$name} {
+            padding-bottom: calc(-1 * sizing.token($name));
+        }
+
+        .-pl-#{$name} {
+            padding-left: calc(-1 * sizing.token($name));
+        }
+
+        .-pr-#{$name} {
+            padding-right: calc(-1 * sizing.token($name));
+        }
+    }
+}

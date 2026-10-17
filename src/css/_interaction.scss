@@ -1,0 +1,89 @@
+@use "colors" as colors;
+
+@mixin tokens() {
+    --pui-focus-ring-width: 3px;
+    --pui-focus-ring-offset: 2px;
+    --pui-disabled-opacity: 0.55;
+}
+
+@mixin focus-ring($color: var(--pui-color-primary-main)) {
+    &:focus-visible {
+        outline: var(--pui-focus-ring-width, 3px) solid $color;
+        outline-offset: var(--pui-focus-ring-offset, 2px);
+    }
+}
+
+@mixin disabled-state() {
+    &:disabled,
+    &[aria-disabled="true"] {
+        cursor: not-allowed;
+        opacity: var(--pui-disabled-opacity, 0.55);
+    }
+}
+
+@mixin invalid-state() {
+    &:invalid,
+    &[aria-invalid="true"] {
+        border-color: var(--pui-color-error-main);
+    }
+}
+
+@mixin interactive-states(
+    $hover-background: null,
+    $active-background: null,
+    $focus-color: var(--pui-color-primary-main)
+) {
+    transition: background-color 120ms ease, border-color 120ms ease, opacity 120ms ease;
+
+    @if $hover-background != null {
+        &:hover:not(:disabled):not([aria-disabled="true"]) {
+            background-color: $hover-background;
+        }
+    }
+
+    @if $active-background != null {
+        &:active:not(:disabled):not([aria-disabled="true"]) {
+            background-color: $active-background;
+        }
+    }
+
+    @include focus-ring($focus-color);
+    @include disabled-state();
+    @include invalid-state();
+}
+
+@mixin state-utilities() {
+    .focus-ring {
+        @include focus-ring();
+    }
+
+    .disabled-state {
+        @include disabled-state();
+    }
+
+    .invalid-state {
+        @include invalid-state();
+    }
+
+    .interactive {
+        @include interactive-states();
+    }
+
+    @each $name, $color in colors.$colors {
+        @each $level, $value in $color {
+            $color-path: colors.color-path($name, $level);
+
+            .hover-bg-#{$color-path} {
+                &:hover:not(:disabled):not([aria-disabled="true"]) {
+                    background-color: colors.var_token($name, $level);
+                }
+            }
+
+            .active-bg-#{$color-path} {
+                &:active:not(:disabled):not([aria-disabled="true"]) {
+                    background-color: colors.var_token($name, $level);
+                }
+            }
+        }
+    }
+}

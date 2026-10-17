@@ -1,0 +1,65 @@
+@use "../_sizing" as sizing;
+
+@mixin margin-classes() {
+    @each $name, $value in sizing.$sizes {
+        .m-#{$name} {
+            margin: sizing.token($name);
+        }
+
+        .mx-#{$name} {
+            margin-left: sizing.token($name);
+            margin-right: sizing.token($name);
+        }
+
+        .my-#{$name} {
+            margin-top: sizing.token($name);
+            margin-bottom: sizing.token($name);
+        }
+
+        .mt-#{$name} {
+            margin-top: sizing.token($name);
+        }
+
+        .mb-#{$name} {
+            margin-bottom: sizing.token($name);
+        }
+
+        .ml-#{$name} {
+            margin-left: sizing.token($name);
+        }
+
+        .mr-#{$name} {
+            margin-right: sizing.token($name);
+        }
+
+        .-m-#{$name} {
+            margin: calc(-1 * sizing.token($name));
+        }
+
+        .-mx-#{$name} {
+            margin-left: calc(-1 * sizing.token($name));
+            margin-right: calc(-1 * sizing.token($name));
+        }
+
+        .-my-#{$name} {
+            margin-top: calc(-1 * sizing.token($name));
+            margin-bottom: calc(-1 * sizing.token($name));
+        }
+
+        .-mt-#{$name} {
+            margin-top: calc(-1 * sizing.token($name));
+        }
+
+        .-mb-#{$name} {
+            margin-bottom: calc(-1 * sizing.token($name));
+        }
+
+        .-ml-#{$name} {
+            margin-left: calc(-1 * sizing.token($name));
+        }
+
+        .-mr-#{$name} {
+            margin-right: calc(-1 * sizing.token($name));
+        }
+    }
+}

@@ -1,0 +1,17 @@
+@use "../_colors" as colors;
+
+
+@mixin bg-colors() {
+    @each $name, $color in colors.$colors {
+        @each $level, $value in $color {
+            .bg-#{colors.color-path($name, $level)} {
+                background: colors.var_token($name, $level);
+            }
+        }
+    }
+}
+
+
+@mixin bg-classes() {
+    @include bg-colors();
+}

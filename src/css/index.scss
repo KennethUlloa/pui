@@ -1,0 +1,42 @@
+@use "colors" as colors;
+@use "sizing" as sizing;
+@use "typography" as typography;
+@use "interaction" as interaction;
+@use "utilities/padding" as padding;
+@use "utilities/margin" as margin;
+@use "utilities/text" as text;
+@use "utilities/background" as background;
+@use "utilities/border" as border;
+@use "utilities/layout" as layout;
+@use "components";
+@use "components/dropdown" as dropdown;
+@use "components/popover" as popover;
+@use "components/table" as table;
+
+:root {
+    @include colors.tokens();
+    @include sizing.tokens();
+    @include typography.tokens();
+    @include interaction.tokens();
+    @include border.tokens();
+    @include dropdown.tokens();
+    @include popover.tokens();
+    @include table.tokens();
+    font-family: var(--pui-font-family-sans);
+}
+
+html * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Utilities */
+@include padding.padding-classes();
+@include margin.margin-classes();
+@include text.text-classes();
+@include typography.utilities();
+@include interaction.state-utilities();
+@include background.bg-classes();
+@include border.border-classes();
+@include layout.layout-utilities();

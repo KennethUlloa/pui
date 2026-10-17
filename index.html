@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PUI Design System</title>
+    <link rel="stylesheet" href="./dist/css/index.css" />
+  </head>
+  <body class="bg-gray-50 text-gray-900 font-sans">
+    <header class="bg-white border-b border-gray-200">
+      <div class="mx-auto max-w-6xl px-lg py-md flex items-center justify-between gap-md">
+        <a href="#top" class="text-lg font-bold text-gray-900 no-underline">PUI <span class="text-cyan-700">/</span> Design system</a>
+        <nav aria-label="Main navigation" class="flex items-center gap-lg text-sm font-semibold">
+          <a href="./" class="text-cyan-800 no-underline" aria-current="page">Foundations</a>
+          <a href="./components.html" class="text-gray-600 no-underline hover-bg-gray-100 px-sm py-xs rounded-sm">Components</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top" class="mx-auto max-w-6xl px-lg pt-5xl pb-6xl">
+      <section class="mb-5xl">
+        <p class="text-cyan-700 text-xs font-bold uppercase">PUI / 01</p>
+        <h1 class="text-5xl font-bold leading-tight text-balance mt-sm">A practical UI toolkit</h1>
+        <p class="text-gray-600 max-w-prose mt-md text-lg leading-relaxed text-pretty">A working preview of the color, spacing, border, and component foundations currently available in the system.</p>
+      </section>
+
+      <section class="mb-5xl">
+        <div class="flex items-center justify-between gap-md mb-md">
+          <h2 class="text-2xl font-semibold">Typography</h2>
+          <span class="text-sm text-gray-500">Type scale and text behavior</span>
+        </div>
+        <div class="border border-gray-200 rounded-lg bg-white p-xl grid gap-lg">
+          <div>
+            <p class="text-xs font-semibold text-gray-500">Display / 5xl</p>
+            <p class="text-5xl font-bold leading-tight text-balance">Clarity at every size</p>
+          </div>
+          <div class="grid grid-cols-1 md-grid-cols-2 gap-lg">
+            <div>
+              <p class="text-xs font-semibold text-gray-500">Heading / 2xl</p>
+              <p class="text-2xl font-semibold leading-snug">A useful hierarchy</p>
+            </div>
+            <div>
+              <p class="text-xs font-semibold text-gray-500">Body / base, relaxed</p>
+              <p class="text-base leading-relaxed text-pretty">Readable body copy uses a comfortable line height and wraps naturally across narrow layouts.</p>
+            </div>
+          </div>
+          <p class="text-sm font-medium leading-normal text-gray-600">Metadata / sm, medium weight, normal line height</p>
+        </div>
+      </section>
+
+      <section class="mb-5xl">
+        <div class="flex items-center justify-between gap-md mb-md">
+          <h2 class="text-2xl font-semibold">Color palette</h2>
+          <span class="text-sm text-gray-500">Scale: 50–900</span>
+        </div>
+        <div class="border border-gray-200 rounded-lg bg-white p-lg">
+          <div id="color-palette" class="grid gap-lg"></div>
+            <p class="text-gray-500 mt-md text-xs">The complete named palette is available as Sass maps and generated utility tokens.</p>
+        </div>
+      </section>
+
+      <section class="grid grid-cols-1 md-grid-cols-2 gap-xl mb-5xl">
+        <div>
+          <h2 class="text-2xl font-semibold mb-md">Actions</h2>
+          <div class="border border-gray-200 rounded-lg bg-white p-lg flex flex-wrap items-center gap-md">
+            <button class="bg-blue-600 text-gray-50 rounded-md text-sm font-semibold px-md py-sm font-sans border-0 hover-bg-blue-700 active-bg-blue-800 focus-ring" style="cursor: pointer;">Create project</button>
+            <button class="bg-white border border-blue-600 text-blue-700 rounded-md text-sm font-semibold px-md py-sm font-sans hover-bg-blue-50 active-bg-blue-100 focus-ring" style="cursor: pointer;">View details</button>
+            <button class="text-gray-600 rounded-md text-sm px-sm py-sm font-sans border-0 hover-bg-gray-100 active-bg-gray-200 focus-ring" style="background: transparent; cursor: pointer;">Cancel</button>
+            <button class="bg-gray-100 text-gray-500 rounded-md text-sm px-md py-sm font-sans border-0 disabled-state" style="cursor: not-allowed;" disabled>Disabled</button>
+          </div>
+        </div>
+        <div>
+          <h2 class="text-2xl font-semibold mb-md">Form fields</h2>
+          <form class="border border-gray-200 rounded-lg bg-white p-lg grid gap-md">
+            <label class="grid gap-xs text-sm font-semibold">Project name
+              <input type="text" value="Northstar refresh" class="w-full border border-gray-300 rounded-md px-md py-sm text-gray-900 text-base font-normal font-sans focus-ring" />
+            </label>
+            <label class="grid gap-xs text-sm font-semibold">Description
+              <textarea rows="2" placeholder="Add a short description" class="w-full border border-gray-300 rounded-md px-md py-sm text-gray-900 text-base font-normal font-sans focus-ring" style="resize: vertical;"></textarea>
+            </label>
+            <label class="grid gap-xs text-sm font-semibold">Work email
+              <input type="email" value="not-an-email" aria-invalid="true" class="w-full border border-gray-300 rounded-md px-md py-sm text-gray-900 text-base font-normal font-sans invalid-state focus-ring" />
+              <span class="text-error text-xs font-normal">Enter a valid email address.</span>
+            </label>
+            <label class="flex items-center gap-sm text-sm"><input type="checkbox" checked /> Notify collaborators</label>
+          </form>
+        </div>
+      </section>
+
+      <section class="mb-5xl">
+        <h2 class="text-2xl font-semibold mb-md">Semantic feedback</h2>
+        <div class="grid grid-cols-1 sm-grid-cols-2 lg-grid-cols-4 gap-md">
+          <div class="bg-success text-gray-50 rounded-md p-md" role="status"><strong>Saved</strong><br /><span class="text-sm">Your changes are up to date.</span></div>
+          <div class="bg-warning text-gray-900 rounded-md p-md" role="status"><strong>Review needed</strong><br /><span class="text-sm">One item needs your attention.</span></div>
+          <div class="bg-error text-gray-50 rounded-md p-md" role="alert"><strong>Could not save</strong><br /><span class="text-sm">Check your connection and retry.</span></div>
+          <div class="bg-info text-gray-50 rounded-md p-md" role="status"><strong>New update</strong><br /><span class="text-sm">A new version is available.</span></div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-md">Surface and border</h2>
+        <article class="border border-gray-200 rounded-lg bg-white p-xl max-w-xl">
+          <div class="flex items-start justify-between gap-md">
+            <div>
+              <p class="text-gray-500 text-xs font-bold uppercase">Workspace</p>
+              <h3 class="mt-xs text-xl font-semibold">Product design</h3>
+            </div>
+            <span class="bg-green-100 text-green-800 rounded-md text-xs font-semibold" style="padding: 5px 9px;">Active</span>
+          </div>
+          <p class="text-gray-600 mt-md text-sm leading-relaxed">A restrained surface combines neutral borders, clear hierarchy, and semantic color for status.</p>
+          <div class="flex items-center justify-between gap-md mt-lg pt-md border-t border-gray-200">
+            <span class="text-gray-500 text-xs">Updated today</span>
+            <a href="#top" class="text-blue-700 text-sm font-semibold no-underline px-sm py-xs rounded-sm hover-bg-blue-50 active-bg-blue-100 focus-ring">Open workspace</a>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script type="module">
+      const shadeLevels = ["50", "100", "200", "300", "400", "500", "600", "700", "800", "900"];
+      const familyOrder = ["gray", "red", "orange", "amber", "yellow", "lime", "green", "teal", "cyan", "blue", "indigo", "violet", "purple", "pink"];
+      const rootStyles = getComputedStyle(document.documentElement);
+      const families = new Map();
+
+      for (let index = 0; index < rootStyles.length; index += 1) {
+        const tokenName = rootStyles.item(index);
+        const match = tokenName.match(/^--pui-color-(.+)-(50|100|200|300|400|500|600|700|800|900)$/);
+
+        if (match) {
+          const [, family, shade] = match;
+          const shades = families.get(family) ?? new Map();
+          shades.set(shade, rootStyles.getPropertyValue(tokenName).trim());
+          families.set(family, shades);
+        }
+      }
+
+      const palette = document.getElementById("color-palette");
+      for (const family of familyOrder) {
+        const shades = families.get(family);
+        if (!shades) continue;
+
+        const row = document.createElement("div");
+        row.className = "grid grid-cols-1 gap-md items-start";
+
+        const label = document.createElement("span");
+        label.className = "text-sm font-semibold";
+        label.textContent = family[0].toUpperCase() + family.slice(1);
+        row.append(label);
+
+        const swatches = document.createElement("div");
+        swatches.className = "grid grid-cols-4 sm-grid-cols-10 gap-sm";
+
+        for (const shade of shadeLevels) {
+          const value = shades.get(shade);
+          const swatch = document.createElement("div");
+          swatch.className = "grid gap-xs";
+
+          const shadeLabel = document.createElement("span");
+          shadeLabel.className = "text-xs text-gray-500";
+          shadeLabel.textContent = shade;
+
+          const block = document.createElement("span");
+          block.setAttribute("aria-hidden", "true");
+          block.className = "block rounded-sm";
+          block.style.cssText = `height: 20px; background: ${value};`;
+
+          const hex = document.createElement("code");
+          hex.className = "text-xs text-gray-600 text-nowrap";
+          hex.textContent = value;
+
+          swatch.setAttribute("title", `${family} ${shade}: ${value}`);
+          swatch.append(shadeLabel, block, hex);
+          swatches.append(swatch);
+        }
+
+        row.append(swatches);
+        palette.append(row);
+      }
+    </script>
+  </body>
+</html>

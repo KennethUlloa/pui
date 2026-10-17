@@ -1,0 +1,68 @@
+@use "sass:map";
+@use "../colors" as colors;
+
+$semantic-colors: ("primary", "secondary", "tertiary", "success", "warning", "error", "info");
+
+.chip {
+	align-items: center;
+	background-color: colors.var_token("gray", "100");
+	border: 1px solid colors.var_token("gray", "200");
+	border-radius: 9999px;
+	box-sizing: border-box;
+	color: colors.var_token("gray", "800");
+	display: inline-flex;
+	font-size: var(--pui-font-size-xs, 0.75rem);
+	font-weight: var(--pui-font-weight-semibold, 600);
+	gap: 0.375rem;
+	justify-content: center;
+	line-height: 1.25;
+	max-width: 100%;
+	padding: 0.25rem 0.625rem;
+	white-space: nowrap;
+}
+
+.chip-sm {
+	font-size: 0.6875rem;
+	padding: 0.1875rem 0.5rem;
+}
+
+.chip-lg {
+	font-size: var(--pui-font-size-sm, 0.875rem);
+	padding: 0.375rem 0.75rem;
+}
+
+.chip-outline {
+	background-color: transparent;
+	border-color: colors.var_token("gray", "300");
+}
+
+.chip-soft {
+	background-color: colors.var_token("gray", "100");
+	border-color: colors.var_token("gray", "200");
+}
+
+@each $name in $semantic-colors {
+	$foreground: colors.var_token("white", "main");
+	$dark-foreground: color-mix(in srgb, colors.var_token($name, "main") 68%, colors.var_token("gray", "900"));
+	@if map.has-key(map.get(colors.$colors, $name), "contrast") {
+		$foreground: colors.var_token($name, "contrast");
+	}
+
+	.chip-#{$name} {
+		background-color: colors.var_token($name, "main");
+		border-color: colors.var_token($name, "main");
+		color: $foreground;
+	}
+
+	.chip-outline-#{$name} {
+		background-color: transparent;
+		border-color: colors.var_token($name, "main");
+		color: $dark-foreground;
+	}
+
+	.chip-soft-#{$name} {
+		background-color: color-mix(in srgb, colors.var_token($name, "main") 12%, colors.var_token("white", "main"));
+		border-color: color-mix(in srgb, colors.var_token($name, "main") 24%, colors.var_token("white", "main"));
+		color: $dark-foreground;
+	}
+}

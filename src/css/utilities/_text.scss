@@ -1,0 +1,17 @@
+@use "../_colors" as colors;
+
+
+@mixin text-colors() {
+    @each $name, $color in colors.$colors {
+        @each $level, $value in $color {
+            .text-#{colors.color-path($name, $level)} {
+                color: colors.var_token($name, $level);
+            }
+        }
+    }
+}
+
+
+@mixin text-classes() {
+    @include text-colors();
+}
