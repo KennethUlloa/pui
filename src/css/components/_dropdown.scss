@@ -154,13 +154,13 @@
 @supports (position-area: block-end) {
 	.dropdown {
 		inset: auto;
-		justify-self: anchor-start;
+		justify-self: start;
 		margin: 0.25rem 0;
-		position-area: block-end;
+		position-area: block-end center;
 		position-try-fallbacks: flip-block;
 	}
 
 	.dropdown-end {
-		justify-self: anchor-end;
+		justify-self: end;
 	}
 }

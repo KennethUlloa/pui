@@ -1,59 +1,107 @@
 @use "../colors" as colors;
 @use "../interaction" as interaction;
 
-.input,
-.select,
-.textarea {
-	background-color: colors.var_token("white", "main");
-	border: 1px solid colors.var_token("gray", "300");
-	border-radius: var(--pui-border-radius-md, 0.375rem);
-	box-sizing: border-box;
-	color: colors.var_token("gray", "900");
-	display: block;
-	font-family: var(--pui-font-family-sans, sans-serif);
-	font-size: var(--pui-font-size-base, 1rem);
-	font-weight: var(--pui-font-weight-normal, 400);
-	line-height: var(--pui-line-height-normal, 1.5);
-	padding: 0.625rem 0.75rem;
-	transition: background-color 120ms ease, border-color 120ms ease, opacity 120ms ease;
-	width: 100%;
+@mixin input-props() {
+  background-color: colors.var_token("white", "main");
+  border: 1px solid colors.var_token("gray", "300");
+  border-radius: var(--pui-border-radius-md, 0.375rem);
+  box-sizing: border-box;
+  color: colors.var_token("gray", "900");
+  font-family: var(--pui-font-family-sans, sans-serif);
+  font-size: var(--pui-font-size-base, 1rem);
+  font-weight: var(--pui-font-weight-normal, 400);
+  line-height: var(--pui-line-height-normal, 1.5);
+  padding: 0.625rem 0.75rem;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease,
+    opacity 120ms ease;
+  width: 100%;
+}
 
-	&:hover:not(:disabled):not([aria-disabled="true"]) {
-		border-color: colors.var_token("gray", "400");
+@mixin input-classes() {
+  .input,
+  .select,
+  .textarea {
+    @include input-props();
+    display: block;
+    &:hover:not(:disabled):not([aria-disabled="true"]) {
+      border-color: colors.var_token("gray", "400");
+    }
+
+    &::placeholder {
+      color: colors.var_token("gray", "500");
+      opacity: 1;
+    }
+
+    @include interaction.focus-ring();
+    @include interaction.disabled-state();
+    @include interaction.invalid-state();
+  }
+
+  .input-container {
+    display: flex;
+	align-items: center;
+    gap: 0.25rem;
+    @include input-props();
+    padding: 0 0.25rem;
+
+    input {
+      padding: 0.625rem 0.5rem;
+      flex: 1;
+      outline: none;
+      border: none;
+
+      &::placeholder {
+        color: colors.var_token("gray", "500");
+        opacity: 1;
+      }
+    }
+
+	&:has(input:focus-visible) {
+		@include interaction.focus-ring-props();
 	}
 
-	&::placeholder {
-		color: colors.var_token("gray", "500");
-		opacity: 1;
+	&:has(input:disabled),
+	&:has(input[aria-disabled="true"]) {
+		@include interaction.disabled-state-props();
 	}
 
-	@include interaction.focus-ring();
-	@include interaction.disabled-state();
-	@include interaction.invalid-state();
+	&:invalid {
+		@include interaction.invalid-state-props();
+	}
+  }
+
+  .select {
+    cursor: pointer;
+  }
+
+  .textarea {
+    min-height: 8rem;
+    resize: vertical;
+  }
 }
 
-.select {
-	cursor: pointer;
+@mixin checkbox-radio-classes() {
+  .checkbox,
+  .radio {
+    accent-color: colors.var_token("primary", "main");
+    block-size: 1rem;
+    cursor: pointer;
+    flex: 0 0 auto;
+    inline-size: 1rem;
+    margin: 0;
+
+    @include interaction.focus-ring();
+    @include interaction.disabled-state();
+  }
+
+  .radio {
+    border-radius: 50%;
+  }
 }
 
-.textarea {
-	min-height: 8rem;
-	resize: vertical;
-}
-
-.checkbox,
-.radio {
-	accent-color: colors.var_token("primary", "main");
-	block-size: 1rem;
-	cursor: pointer;
-	flex: 0 0 auto;
-	inline-size: 1rem;
-	margin: 0;
-
-	@include interaction.focus-ring();
-	@include interaction.disabled-state();
-}
-
-.radio {
-	border-radius: 50%;
+@mixin all() {
+  @include input-classes();
+  @include checkbox-radio-classes();
 }

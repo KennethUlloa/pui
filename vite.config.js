@@ -51,6 +51,13 @@ function sassPlugin() {
 
 export default defineConfig({
   plugins: [sassPlugin()],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        quietDeps: true,
+      },
+    },
+  },
   build: {
     rollupOptions: {
       input: {

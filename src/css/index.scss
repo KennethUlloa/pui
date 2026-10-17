@@ -31,6 +31,10 @@ html * {
     box-sizing: border-box;
 }
 
+a {
+    color: colors.var_token("primary", "main");
+    text-decoration: none;
+}
 /* Utilities */
 @include padding.padding-classes();
 @include margin.margin-classes();

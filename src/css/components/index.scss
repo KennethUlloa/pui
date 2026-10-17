@@ -1,6 +1,10 @@
 @use "button";
 @use "chip";
 @use "dropdown";
-@use "input";
+@use "input" as input;
 @use "popover";
-@use "table";
+@use "table" as table;
+
+
+@include input.all();
+@include table.all();
