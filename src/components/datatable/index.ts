@@ -67,6 +67,9 @@ export class DataTable<T extends object> extends LitElement {
   @property({ type: Boolean })
   loading = false;
 
+  @property({ type: Boolean })
+  allCheckable = false;
+
   #rows: Row<T>[] = [];
 
   @state()
@@ -112,68 +115,83 @@ export class DataTable<T extends object> extends LitElement {
       (this.checkable ? 1 : 0);
 
     return html`
-        <table
-          class="table ${this.hoverable ? "table-hoverable" : ""} ${this.striped
-            ? "table-striped"
-            : ""}"
-        >
-          <thead>
-            <tr>
-              ${this.checkable
-                ? html`<th scope="col" class="select-control"><input type="checkbox" class="checkbox" @change="${this.#selectAll}"></th></th>`
-                : ""}
-              ${this.columns.map((column) => this.#renderColumn(column))}
-              ${this.rowActions &&
-              html`<th scope="col" class="action-control">
-                ...
-              </th>`}
-            </tr>
-          </thead>
-          <tbody>
-            ${!this.loading && !this.rows?.length
-              ? html`<tr>
-                  <td
-                    colspan="${columnCount}"
-                    class="text-center px-2 py-1 text-3"
-                  >
-                    ${this.labels.empty}
-                  </td>
-                </tr>`
+      <table
+        class="table ${this.hoverable ? "table-hoverable" : ""} ${this.striped
+          ? "table-striped"
+          : ""}"
+      >
+        <thead>
+          <tr>
+            ${this.checkable
+              ? this.allCheckable
+                ? html`<th scope="col" class="select-control">
+                    <input
+                      type="checkbox"
+                      class="checkbox"
+                      @change="${this.#selectAll}"
+                    />
+                  </th>`
+                : html`<th scope="col" class="select-control"></th>`
               : ""}
-            ${!this.loading ? repeat(this.rows, this.rowId, (row) => {
-              const actions = this.rowActions?.(row);
-
-              return html`
-                <tr
-                  data-rowid="${row._rowid}"
-                  class="${this.isSelected(row) ? "selected" : ""}"
+            ${this.columns.map((column) => this.#renderColumn(column))}
+            ${this.rowActions &&
+            html`<th scope="col" class="action-control">...</th>`}
+          </tr>
+        </thead>
+        <tbody>
+          ${!this.loading && !this.rows?.length
+            ? html`<tr>
+                <td
+                  colspan="${columnCount}"
+                  class="text-center px-2 py-1 text-3"
                 >
-                  ${this.checkable
-                    ? html`<td class="text-center">
-                        <input
-                          type="checkbox"
-                          class="checkbox"
-                          .checked=${this.isSelected(row)}
-                          @change="${(event: InputEvent) =>
-                            this.#selectRow(event, row)}"
-                        />
-                      </td>`
-                    : ""}
-                  ${this.columns.map((column) => {
-                    return html`
-                      <td>
-                        ${column.render
-                          ? unsafeHTML(column.render(row))
-                          : row[column.key as keyof T]}
-                      </td>
-                    `;
-                  })}
-                  ${actions?.length && this.#renderActions(actions, row)}
-                </tr>
-              `;
-            }): Array.from({ length: 5}).map(() => html`<tr>${Array.from({ length: columnCount }).map(() => html`<td><span class="loading">&zwnj;</span></td>`)}</tr>`)}
-          </tbody>
-        </table>
+                  ${this.labels.empty}
+                </td>
+              </tr>`
+            : ""}
+          ${!this.loading
+            ? repeat(this.rows, this.rowId, (row) => {
+                const actions = this.rowActions?.(row);
+
+                return html`
+                  <tr
+                    data-rowid="${row._rowid}"
+                    class="${this.isSelected(row) ? "selected" : ""}"
+                  >
+                    ${this.checkable
+                      ? html`<td class="text-center">
+                          <input
+                            type="checkbox"
+                            class="checkbox"
+                            .checked=${this.isSelected(row)}
+                            @change="${(event: InputEvent) =>
+                              this.#selectRow(event, row)}"
+                          />
+                        </td>`
+                      : ""}
+                    ${this.columns.map((column) => {
+                      return html`
+                        <td>
+                          ${column.render
+                            ? unsafeHTML(column.render(row))
+                            : row[column.key as keyof T]}
+                        </td>
+                      `;
+                    })}
+                    ${actions?.length && this.#renderActions(actions, row)}
+                  </tr>
+                `;
+              })
+            : Array.from({ length: 5 }).map(
+                () =>
+                  html`<tr>
+                    ${Array.from({ length: columnCount }).map(
+                      () => html`<td><span class="loading">&zwnj;</span></td>`,
+                    )}
+                  </tr>`,
+              )}
+        </tbody>
+      </table>
     `;
   }
 

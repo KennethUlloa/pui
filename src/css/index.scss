@@ -15,6 +15,7 @@
 @use "components/searchbar" as searchbar;
 @use "components/navbar" as navbar;
 @use "components/breadcrumb" as breadcrumb;
+@use "themes" as themes;
 
 :root {
     @include colors.tokens();
@@ -50,3 +51,4 @@ a {
 @include background.bg-classes();
 @include border.border-classes();
 @include layout.layout-utilities();
+@include themes.color-mode-overrides();

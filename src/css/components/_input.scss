@@ -20,6 +20,13 @@
 }
 
 @mixin input-classes() {
+  input:not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea {
+    background-color: colors.var_token("white", "main");
+    color: colors.var_token("gray", "900");
+  }
+
   .input,
   .select,
   .textarea {

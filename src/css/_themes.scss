@@ -1,0 +1,67 @@
+$dark-theme-colors: (
+  "gray": (
+    "50": #0b1120,
+    "100": #111827,
+    "200": #1f2937,
+    "300": #334155,
+    "400": #64748b,
+    "500": #94a3b8,
+    "600": #b7c3d1,
+    "700": #cbd5e1,
+    "800": #e2e8f0,
+    "900": #f8fafc,
+  ),
+  "white": (
+    "main": #111827,
+  ),
+  "error": (
+    "main": #ef4444,
+  ),
+  "success": (
+    "main": #22c55e,
+  ),
+  "warning": (
+    "main": #fbbf24,
+    "contrast": #0b1120,
+  ),
+  "info": (
+    "main": #38bdf8,
+  ),
+  "secondary": (
+    "main": #94a3b8,
+  ),
+  "tertiary": (
+    "main": #cbd5e1,
+    "contrast": #0f172a,
+  ),
+  "body": (
+    "main": #cbd5e1,
+  ),
+  "border": (
+    "main": #475569,
+    "transparent": rgba(148, 163, 184, 0.25),
+  ),
+  "background": (
+    "main": #0b1120,
+    "contrast": #f8fafc,
+    "transparent": rgba(15, 23, 42, 0.5),
+  ),
+);
+
+@mixin color-mode-overrides() {
+  html[data-theme="dark"] {
+    color-scheme: dark;
+    --pui-dropdown-item-hover-background: var(--pui-color-gray-200);
+    --pui-dropdown-item-active-background: var(--pui-color-gray-300);
+    --pui-searchbar-option-hover-background: var(--pui-color-gray-200);
+    --pui-table-hover-background: var(--pui-color-gray-200);
+    --pui-searchbar-option-hover-background: var(--pui-color-gray-200);
+    --pui-table-hover-background: var(--pui-color-gray-200);
+
+    @each $name, $color in $dark-theme-colors {
+      @each $level, $value in $color {
+        --pui-color-#{$name}-#{$level}: #{$value};
+      }
+    }
+  }
+}

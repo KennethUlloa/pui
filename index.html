@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -24,6 +24,12 @@
               <option value="teal">Teal</option>
               <option value="violet">Violet</option>
               <option value="orange">Orange</option>
+            </select>
+          </label>
+          <label class="demo-theme-control">Appearance
+            <select class="demo-theme-select" data-theme-mode>
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
             </select>
           </label>
         </div>
@@ -104,7 +110,7 @@
         <h2 class="text-5 font-semibold mb-2">Semantic feedback</h2>
         <div class="grid grid-cols-1 sm-grid-cols-2 lg-grid-cols-4 gap-2">
           <div class="bg-success text-gray-50 rounded-2 p-2" role="status"><strong>Saved</strong><br /><span class="text-1">Your changes are up to date.</span></div>
-          <div class="bg-warning text-gray-900 rounded-2 p-2" role="status"><strong>Review needed</strong><br /><span class="text-1">One item needs your attention.</span></div>
+          <div class="bg-warning text-warning-contrast rounded-2 p-2" role="status"><strong>Review needed</strong><br /><span class="text-1">One item needs your attention.</span></div>
           <div class="bg-error text-gray-50 rounded-2 p-2" role="alert"><strong>Could not save</strong><br /><span class="text-1">Check your connection and retry.</span></div>
           <div class="bg-info text-gray-50 rounded-2 p-2" role="status"><strong>New update</strong><br /><span class="text-1">A new version is available.</span></div>
         </div>
