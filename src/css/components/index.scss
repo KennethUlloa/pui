@@ -6,6 +6,8 @@
 @use "searchbar";
 @use "table" as table;
 @use "spinner";
+@use "navbar";
+@use "breadcrumb";
 
 
 @include input.all();

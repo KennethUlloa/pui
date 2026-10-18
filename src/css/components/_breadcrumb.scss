@@ -1,0 +1,54 @@
+@mixin tokens() {
+  --pui-breadcrumb-text-color: var(--pui-color-gray-600);
+  --pui-breadcrumb-link-color: var(--pui-color-primary-main);
+  --pui-breadcrumb-separator-color: var(--pui-color-gray-400);
+  --pui-breadcrumb-current-color: var(--pui-color-gray-900);
+  --pui-breadcrumb-separator: "/";
+}
+
+.breadcrumb {
+  color: var(--pui-breadcrumb-text-color);
+  font-size: var(--pui-font-size-1, 0.875rem);
+}
+
+.breadcrumb-list {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumb-item {
+  align-items: center;
+  display: inline-flex;
+  min-width: 0;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: var(--pui-breadcrumb-separator-color);
+  content: var(--pui-breadcrumb-separator, "/");
+  margin-inline: 0.625rem;
+}
+
+.breadcrumb a {
+  border-radius: var(--pui-border-radius-1, 0.25rem);
+  color: var(--pui-breadcrumb-link-color);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.breadcrumb a:focus-visible {
+  outline: var(--pui-focus-ring-width, 3px) solid var(--pui-color-primary-main);
+  outline-offset: 2px;
+}
+
+.breadcrumb [aria-current="page"] {
+  color: var(--pui-breadcrumb-current-color);
+  font-weight: var(--pui-font-weight-semibold, 600);
+}

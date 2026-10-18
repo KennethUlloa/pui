@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="./dist/css/index.css" />
   </head>
   <body class="bg-gray-50 text-gray-900 font-sans">
-    <header class="bg-white border-b border-gray-200">
-      <div class="mx-auto max-w-9 px-3 py-2 flex items-center justify-between gap-2">
-        <a href="./" class="text-3 font-bold text-gray-900 no-underline">PUI <span class="text-cyan-700">/</span> Design system</a>
-        <nav aria-label="Main navigation" class="flex items-center gap-3 text-1 font-semibold">
-          <a href="./" class="text-gray-600 no-underline hover-bg-gray-100 px-1 py-0 rounded-1">Foundations</a>
-          <a href="./components.html" class="text-cyan-800 no-underline" aria-current="page">Components</a>
-          <a href="./web-components.html" class="text-cyan-800 no-underline" aria-current="page">Web Components</a>
+    <header class="navbar">
+      <div class="navbar-inner">
+        <a href="./" class="navbar-brand">PUI <span class="navbar-brand-divider">/</span> Design system</a>
+        <nav aria-label="Main navigation" class="navbar-links">
+          <a href="./" class="navbar-link">Foundations</a>
+          <a href="./components.html" class="navbar-link" aria-current="page">Components</a>
+          <a href="./web-components.html" class="navbar-link">Web Components</a>
         </nav>
       </div>
     </header>
@@ -23,6 +23,22 @@
         <p class="text-cyan-700 text-0 font-bold uppercase">PUI / 02</p>
         <h1 class="text-8 font-bold leading-tight text-balance mt-1">Components</h1>
         <p class="text-gray-600 max-w-prose mt-2 text-3 leading-relaxed text-pretty">A working view of the controls and feedback patterns in the PUI system.</p>
+      </section>
+
+      <section class="mb-8">
+        <div class="flex items-center justify-between gap-2 mb-2">
+          <h2 class="text-5 font-semibold">Breadcrumbs</h2>
+          <span class="text-1 text-gray-500">Page hierarchy and current location</span>
+        </div>
+        <div class="border border-gray-200 rounded-3 bg-white p-3">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol class="breadcrumb-list">
+              <li class="breadcrumb-item"><a href="./">Home</a></li>
+              <li class="breadcrumb-item"><a href="#projects">Projects</a></li>
+              <li class="breadcrumb-item" aria-current="page">Northstar</li>
+            </ol>
+          </nav>
+        </div>
       </section>
 
       <section class="mb-8">
@@ -366,24 +382,6 @@
             </nav>
           </div>
         </div>
-      </section>
-
-      <section>
-        <h2 class="text-5 font-semibold mb-2">Surface</h2>
-        <article class="border border-gray-200 rounded-3 bg-white p-4 max-w-4">
-          <div class="flex items-start justify-between gap-2">
-            <div>
-              <p class="text-gray-500 text-0 font-bold uppercase">Workspace</p>
-              <h3 class="mt-0 text-4 font-semibold">Product design</h3>
-            </div>
-            <span class="bg-green-100 text-green-800 rounded-2 text-0 font-semibold px-1 py-0">Active</span>
-          </div>
-          <p class="text-gray-600 mt-2 text-1 leading-relaxed">A compact surface pairs neutral structure with clear hierarchy and a status marker.</p>
-          <div class="flex items-center justify-between gap-2 mt-3 pt-2 border-t border-gray-200">
-            <span class="text-gray-500 text-0">Updated today</span>
-            <a href="#top" class="btn btn-ghost-primary btn-0">Open workspace</a>
-          </div>
-        </article>
       </section>
     </main>
   </body>

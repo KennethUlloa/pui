@@ -13,6 +13,8 @@
 @use "components/popover" as popover;
 @use "components/table" as table;
 @use "components/searchbar" as searchbar;
+@use "components/navbar" as navbar;
+@use "components/breadcrumb" as breadcrumb;
 
 :root {
     @include colors.tokens();
@@ -24,6 +26,8 @@
     @include popover.tokens();
     @include table.tokens();
     @include searchbar.tokens();
+    @include navbar.tokens();
+    @include breadcrumb.tokens();
     font-family: var(--pui-font-family-sans);
 }
 

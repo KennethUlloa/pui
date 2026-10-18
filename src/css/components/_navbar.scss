@@ -1,0 +1,87 @@
+@mixin tokens() {
+  --pui-navbar-background: var(--pui-color-white-main);
+  --pui-navbar-border-color: var(--pui-color-gray-200);
+  --pui-navbar-text-color: var(--pui-color-gray-900);
+  --pui-navbar-link-color: var(--pui-color-gray-700);
+  --pui-navbar-link-hover-background: color-mix(in srgb, var(--pui-color-primary-main) 8%, var(--pui-color-white-main));
+  --pui-navbar-link-active-background: color-mix(in srgb, var(--pui-color-primary-main) 12%, var(--pui-color-white-main));
+}
+
+.navbar {
+  background-color: var(--pui-navbar-background);
+  border-bottom: 1px solid var(--pui-navbar-border-color);
+}
+
+.navbar-inner {
+  align-items: center;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  margin-inline: auto;
+  max-width: 72rem;
+  min-height: 4rem;
+  padding: 0.75rem 1rem;
+}
+
+.navbar-brand {
+  align-items: center;
+  color: var(--pui-navbar-text-color);
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: var(--pui-font-size-3, 1.125rem);
+  font-weight: var(--pui-font-weight-bold, 700);
+  gap: 0.375rem;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.navbar-brand-divider {
+  color: var(--pui-color-primary-main);
+}
+
+.navbar-links {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  justify-content: flex-end;
+}
+
+.navbar-link {
+  border-radius: var(--pui-border-radius-1, 0.25rem);
+  color: var(--pui-navbar-link-color);
+  font-size: var(--pui-font-size-1, 0.875rem);
+  font-weight: var(--pui-font-weight-semibold, 600);
+  line-height: 1.25;
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+.navbar-link:hover {
+  background-color: var(--pui-navbar-link-hover-background);
+  color: var(--pui-color-primary-main);
+}
+
+.navbar-link[aria-current="page"] {
+  background-color: var(--pui-navbar-link-active-background);
+  color: var(--pui-color-primary-main);
+}
+
+.navbar-link:focus-visible {
+  outline: var(--pui-focus-ring-width, 3px) solid var(--pui-color-primary-main);
+  outline-offset: 2px;
+}
+
+@media (max-width: 40rem) {
+  .navbar-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .navbar-links {
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
