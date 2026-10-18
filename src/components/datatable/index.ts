@@ -134,7 +134,7 @@ export class DataTable<T extends object> extends LitElement {
               ? html`<tr>
                   <td
                     colspan="${columnCount}"
-                    class="text-center px-md py-sm text-lg"
+                    class="text-center px-2 py-1 text-3"
                   >
                     ${this.labels.empty}
                   </td>
@@ -203,7 +203,7 @@ export class DataTable<T extends object> extends LitElement {
   #renderActions(actions: Action<T>[], row: Row<T>) {
     return html`<td>
       <button
-        class="btn btn-ghost-primary btn-sm"
+        class="btn btn-ghost-primary btn-0"
         popovertarget="dropdown-end-row-${row._rowid}"
       >
         ${unsafeHTML(ArrowDown)}
@@ -261,7 +261,7 @@ export class DataTable<T extends object> extends LitElement {
           class="cursor-pointer focus-ring"
           @click="${() => this.#sendSortEvent(column)}"
         >
-          <span class="flex items-center gap-sm w-fit"
+          <span class="flex items-center gap-1 w-fit"
             >${column.title}${icon}</span
           >
         </th>

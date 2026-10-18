@@ -3,7 +3,7 @@ PUI design system improvements
 1. DONE: Added display, flex/grid, gap, alignment, width, max-width, overflow, and responsive breakpoint utilities; updated the examples to use them.
 2. DONE: Added font-size, weight, line-height, and family tokens with matching utilities for text sizes, wrapping, breaking, and truncation; updated the showcase with typography specimens.
 3. DONE: Added reusable Sass state mixins and opt-in CSS utilities for hover, active, focus-visible, disabled, and invalid behavior; demonstrated the states on buttons, links, and fields.
-4. DONE: Separated radius tokens from spacing sizes. `rounded-sm` now uses 0.25rem while `p-sm` retains its 0.875rem spacing value.
+4. DONE: Separated radius tokens from spacing sizes. `rounded-1` now uses 0.25rem while `p-1` retains its 0.875rem spacing value.
 5. DONE: Adjusted the info color for readable light text and added Sass-backed WCAG AA contrast checks for body copy, status surfaces, and the primary button.
 6. DONE: Generated all 14 palette families and their 140 visible shade hex values directly from the Sass color tokens.
 7. DONE: Replaced repeated surface, border, layout, spacing, sizing, and typography styles with utility classes. Inline styles remain only for control cursors, textarea resizing, compact badge padding, and dynamic swatch colors.

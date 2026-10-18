@@ -4,11 +4,11 @@
 @mixin input-props() {
   background-color: colors.var_token("white", "main");
   border: 1px solid colors.var_token("gray", "300");
-  border-radius: var(--pui-border-radius-md, 0.375rem);
+  border-radius: var(--pui-border-radius-2, 0.375rem);
   box-sizing: border-box;
   color: colors.var_token("gray", "900");
   font-family: var(--pui-font-family-sans, sans-serif);
-  font-size: var(--pui-font-size-base, 1rem);
+  font-size: var(--pui-font-size-2, 1rem);
   font-weight: var(--pui-font-weight-normal, 400);
   line-height: var(--pui-line-height-normal, 1.5);
   padding: 0.625rem 0.75rem;

@@ -139,7 +139,7 @@ export class Searchbar<T extends object> extends LitElement {
       <div class="input-container searchbar-input">
         ${this.loading
           ? html`<span class="flex items-center loading"
-              ><span class="spinner spinner-xs"></span
+              ><span class="spinner spinner-0"></span
             ></span>`
           : html`<span class="text-gray-400 flex items-center"
               >${unsafeHTML(Search)}</span
@@ -161,7 +161,7 @@ export class Searchbar<T extends object> extends LitElement {
         @toggle=${this.handleOptionsToggle}
       >
         ${!this.options.length
-          ? html`<p class="text-gray-400 p-sm">
+          ? html`<p class="text-gray-400 p-1">
               ${this.labels.noResults?.(this.input?.value)}
             </p>`
           : html`<ul class="option-list">
@@ -183,7 +183,7 @@ export class Searchbar<T extends object> extends LitElement {
                 ? html`<li class="show-more">
                     <button
                       @click=${() => this.#showMore()}
-                      class="btn btn-ghost-primary btn-sm"
+                      class="btn btn-ghost-primary btn-0"
                     >
                       ${this.loading
                         ? html`<span

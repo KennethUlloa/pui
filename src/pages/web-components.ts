@@ -68,7 +68,7 @@ function datatableDemo() {
     {
       title: "Name",
       key: "name",
-      render: (row) => `<div>${row.name}<br/><span class="chip chip-soft chip-sm">@${row.username}</span></div>`,
+      render: (row) => `<div>${row.name}<br/><span class="chip chip-soft chip-0">@${row.username}</span></div>`,
       sortable: true,
       sortDirection: () => sortModel.name,
     },

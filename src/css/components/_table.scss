@@ -5,9 +5,9 @@
   --pui-table-header-text-color: var(--pui-color-gray-900);
   --pui-table-stripe-background: var(--pui-color-gray-50);
   --pui-table-hover-background: var(--pui-color-gray-100);
-  --pui-table-selected-background: var(--pui-color-blue-100);
-  --pui-table-selected-hover-background: var(--pui-color-blue-200);
-  --pui-table-selected-border-color: var(--pui-color-blue-200);
+  --pui-table-selected-background: color-mix(in srgb, var(--pui-color-primary-main) 10%, var(--pui-color-white-main));
+  --pui-table-selected-hover-background: color-mix(in srgb, var(--pui-color-primary-main) 16%, var(--pui-color-white-main));
+  --pui-table-selected-border-color: color-mix(in srgb, var(--pui-color-primary-main) 24%, var(--pui-color-white-main));
 }
 
 @mixin all() {
@@ -26,7 +26,7 @@
   .table {
     border-collapse: collapse;
     color: var(--pui-table-text-color);
-    font-size: var(--pui-font-size-sm, 0.875rem);
+    font-size: var(--pui-font-size-1, 0.875rem);
     line-height: var(--pui-line-height-normal, 1.5);
     text-align: left;
     width: 100%;
@@ -41,7 +41,7 @@
     thead th {
       background-color: var(--pui-table-header-background);
       color: var(--pui-table-header-text-color);
-      font-size: var(--pui-font-size-xs, 0.75rem);
+      font-size: var(--pui-font-size-0, 0.75rem);
       font-weight: var(--pui-font-weight-semibold, 600);
     }
 

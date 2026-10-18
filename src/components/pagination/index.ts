@@ -53,16 +53,16 @@ export class Pagination extends LitElement {
   }
 
   render() {
-    return html`<div class="flex p-sm justify-center items-center">
+    return html`<div class="flex p-1 justify-center items-center">
       <button class="btn btn-ghost-primary" @click=${() => this.previousPage()}>
         ${this.#renderPrevious()}
       </button>
-      <span class="mx-sm">${this.#renderIndicator()}</span>
+      <span class="mx-1">${this.#renderIndicator()}</span>
       <button class="btn btn-ghost-primary" @click=${() => this.nextPage()}>
         ${this.#renderNext()}
       </button>
       <select
-        class="ml-sm select w-fit"
+        class="ml-1 select w-fit"
         @change=${(e: Event) =>
           this.setPageSize(parseInt((e.target as HTMLSelectElement).value))}
       >

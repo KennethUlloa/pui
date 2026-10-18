@@ -18,7 +18,7 @@ const pairs = [
   { label: "primary semantic color", foreground: "primary-contrast", background: "primary-main" },
   { label: "secondary semantic color", foreground: "gray-50", background: "secondary-main" },
   { label: "tertiary semantic color", foreground: "tertiary-contrast", background: "tertiary-main" },
-  { label: "primary button", foreground: "gray-50", background: "blue-600" },
+  { label: "primary button", foreground: "primary-contrast", background: "primary-main" },
 ];
 
 function relativeLuminance(hex) {
