@@ -5,16 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Components | PUI Design System</title>
     <link rel="stylesheet" href="./dist/css/index.css" />
+    <link rel="stylesheet" href="./src/css/demo.css" />
   </head>
   <body class="bg-gray-50 text-gray-900 font-sans">
     <header class="navbar">
       <div class="navbar-inner">
         <a href="./" class="navbar-brand">PUI <span class="navbar-brand-divider">/</span> Design system</a>
-        <nav aria-label="Main navigation" class="navbar-links">
-          <a href="./" class="navbar-link">Foundations</a>
-          <a href="./components.html" class="navbar-link">Components</a>
-          <a href="./web-components.html" class="navbar-link" aria-current="page">Web Components</a>
-        </nav>
+        <div class="demo-navbar-controls">
+          <nav aria-label="Main navigation" class="navbar-links">
+            <a href="./" class="navbar-link">Foundations</a>
+            <a href="./components.html" class="navbar-link">Components</a>
+            <a href="./web-components.html" class="navbar-link" aria-current="page">Web Components</a>
+          </nav>
+          <label class="demo-theme-control">Primary scheme
+            <select class="demo-theme-select" data-primary-scheme>
+              <option value="blue">Blue</option>
+              <option value="teal">Teal</option>
+              <option value="violet">Violet</option>
+              <option value="orange">Orange</option>
+            </select>
+          </label>
+        </div>
       </div>
     </header>
 
@@ -57,6 +68,7 @@
         </div>
       </section>
     </main>
+    <script type="module" src="./src/pages/theme.ts"></script>
     <script type="module" src="./src/pages/web-components.ts"></script>
   </body>
 </html>
