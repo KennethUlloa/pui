@@ -229,9 +229,41 @@ $colors: (
     ),
     "border": (
         "main": #94a3b8,
+		"transparent": rgba(148, 163, 184, 0.25),
     ),
+	"background": (
+		"main": #f8fafc,
+		"contrast": #0f172a,
+		"transparent": rgba(248, 250, 252, 0.5),
+	),
 );
 
+$semantic-colors: (
+	"error",
+	"success",
+	"warning",
+	"info",
+	"primary",
+	"secondary",
+	"tertiary",
+);
+
+$named-colors: (
+	"gray",
+	"red",
+	"orange",
+	"amber",
+	"yellow",
+	"lime",
+	"green",
+	"teal",
+	"cyan",
+	"blue",
+	"indigo",
+	"violet",
+	"purple",
+	"pink",
+);
 
 @function var_token($name, $level) {
     @return var(--pui-color-#{$name}-#{$level}, map.get($colors, $name, $level));

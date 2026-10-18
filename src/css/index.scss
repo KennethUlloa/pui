@@ -12,6 +12,7 @@
 @use "components/dropdown" as dropdown;
 @use "components/popover" as popover;
 @use "components/table" as table;
+@use "components/searchbar" as searchbar;
 
 :root {
     @include colors.tokens();
@@ -22,6 +23,7 @@
     @include dropdown.tokens();
     @include popover.tokens();
     @include table.tokens();
+    @include searchbar.tokens();
     font-family: var(--pui-font-family-sans);
 }
 

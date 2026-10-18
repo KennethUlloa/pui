@@ -1,0 +1,51 @@
+@use "../colors" as colors;
+@use "../interaction" as interaction;
+@use "../sizing" as sizing;
+
+@mixin tokens() {
+    --pui-searchbar-background: var(--pui-color-white-main);
+    --pui-searchbar-option-hover-background: var(--pui-color-gray-100);
+}
+
+.searchbar-options {
+	inset: auto;
+    justify-self: stretch;
+    margin: 0.25rem 0;
+    max-height: min(24rem, calc(100vh - 2rem));
+	max-width: none;
+    overscroll-behavior: contain;
+    overflow-y: auto;
+	padding: 0.25rem;
+	position: fixed;
+    position-anchor: --searchbar-control;
+    position-area: block-end span-inline;
+    position-try-fallbacks: flip-block;
+    position-try-order: most-height;
+    width: auto;
+
+	&::backdrop {
+		background-color: transparent;
+	}
+
+    .option {
+        @include interaction.focus-ring();
+        &:hover {
+            background-color: var(--pui-searchbar-option-hover-background);
+        }
+
+        padding: sizing.token("xs") sizing.token("sm");
+    }
+
+    .show-more {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+pui-searchbar {
+    anchor-scope: --searchbar-control;
+}
+
+.searchbar-input {
+    anchor-name: --searchbar-control;
+}

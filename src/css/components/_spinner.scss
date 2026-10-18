@@ -1,0 +1,100 @@
+@use "../colors" as colors;
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+$sizes: (
+    "inline": 1.2em,
+    "xs": 1.5rem,
+    "sm": 3rem,
+    "md": 5rem,
+    "lg": 7rem
+);
+
+$widths: (
+    "xxs": 0.18rem,
+    "xs": 0.25rem,
+    "sm": 0.5rem,
+    "md": 0.75rem
+);
+
+.spinner {
+    --s-size: 5rem;
+    --s-width: 0.25rem;
+    --s-bg-color: #{colors.var_token("border", "transparent")};
+    --s-fg-color: #{colors.var_token("primary", "main")};
+    border: var(--s-width) solid var(--s-bg-color);
+    border-radius: 50%;
+    border-right-color: var(--s-fg-color);
+    width: var(--s-size);
+    height: var(--s-size);
+    animation: spin 1s infinite linear;
+
+    @each $color in colors.$semantic-colors {
+        &-#{$color} {
+            --s-fg-color: #{colors.var_token($color, "main")};
+        }
+    }
+
+    @each $size, $value in $sizes {
+        &-#{$size} {
+            --s-size: #{$value};
+        }
+    }
+
+    @each $width, $value in $widths {
+        &-w-#{$width} {
+            --s-width: #{$value};
+        }
+    }
+
+    &-0 {
+        border-right-color: var(--s-bg-color);
+        border-bottom-color: var(--s-bg-color);
+        border-left-color: var(--s-bg-color);
+        border-top-color: var(--s-bg-color);
+    }
+
+    &-25 {
+        border-right-color: var(--s-fg-color);
+        border-bottom-color: var(--s-bg-color);
+        border-left-color: var(--s-bg-color);
+        border-top-color: var(--s-bg-color);
+    }
+
+    &-50 {
+        border-right-color: var(--s-fg-color);
+        border-bottom-color: var(--s-fg-color);
+        border-left-color: var(--s-bg-color);
+        border-top-color: var(--s-bg-color);
+    }
+
+    &-75 {
+        border-right-color: var(--s-fg-color);
+        border-bottom-color: var(--s-fg-color);
+        border-left-color: var(--s-fg-color);
+        border-top-color: var(--s-bg-color);
+    }
+
+    &-100 {
+        border-right-color: var(--s-fg-color);
+        border-bottom-color: var(--s-fg-color);
+        border-left-color: var(--s-fg-color);
+        border-top-color: var(--s-fg-color);
+    }
+
+    &-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: colors.var_token("background", "transparent");
+    }
+}

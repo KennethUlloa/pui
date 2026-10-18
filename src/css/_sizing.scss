@@ -10,10 +10,15 @@ $sizes: (
     "3xl": 1.875rem,
     "4xl": 2.25rem,
     "5xl": 3rem,
-    "6xl": 3.75rem
+    "6xl": 3.75rem,
+    "auto": auto,
+    "none": 0
 );
 
 @function token($name) {
+    @if ($name == "auto") {
+        @return auto;
+    }
     @return var(--pui-size-#{$name}, map.get($sizes, $name));
 }
 
@@ -23,6 +28,8 @@ $sizes: (
 
 @mixin tokens() {
     @each $name, $value in $sizes {
-        --pui-size-#{$name}: #{$value};
+        @if ($name != "auto") {
+            --pui-size-#{$name}: #{$value};
+        }
     }
 }

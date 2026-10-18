@@ -1,5 +1,6 @@
 @use "../_colors" as colors;
 
+$alignments: ("left", "center", "right");
 
 @mixin text-colors() {
     @each $name, $color in colors.$colors {
@@ -11,7 +12,16 @@
     }
 }
 
+@mixin text-align-classes() {
+    @each $alignment in $alignments {
+        .text-#{$alignment} {
+            text-align: #{$alignment};
+        }
+    }
+}
+
 
 @mixin text-classes() {
     @include text-colors();
+    @include text-align-classes();
 }

@@ -5,14 +5,24 @@
   --pui-table-header-text-color: var(--pui-color-gray-900);
   --pui-table-stripe-background: var(--pui-color-gray-50);
   --pui-table-hover-background: var(--pui-color-gray-100);
-  --pui-table-striped-hover-background: var(--pui-color-gray-200);
   --pui-table-selected-background: var(--pui-color-blue-100);
   --pui-table-selected-hover-background: var(--pui-color-blue-200);
-  --pui-table-striped-selected-background: var(--pui-color-blue-200);
-  --pui-table-striped-selected-hover-background: var(--pui-color-blue-300);
+  --pui-table-selected-border-color: var(--pui-color-blue-200);
 }
 
 @mixin all() {
+  @keyframes breath {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   .table {
     border-collapse: collapse;
     color: var(--pui-table-text-color);
@@ -38,37 +48,50 @@
     tbody tr:last-child td {
       border-bottom: 0;
     }
+
+    tbody tr[data-state="selected"],
+    tbody tr.selected {
+      background-color: var(--pui-table-selected-background);
+      &:hover {
+        background-color: var(--pui-table-selected-hover-background);
+      }
+
+      td {
+        border-bottom-color: var(--pui-table-selected-border-color);
+      }
+    }
+
+    td .loading {
+      background-color: var(--pui-table-border-color);
+      display: inline-block;
+      border-radius: 0.5em;
+      width: 100%;
+      animation: breath 1.6s ease-in-out infinite;
+    }
+
+    th.select-control {
+      width: 3.5rem;
+      text-align: center;
+    }
+
+    th.action-control {
+      width: 4.5rem;
+      text-align: center;
+    }
   }
 
   .table-striped tbody tr:nth-child(even) {
     background-color: var(--pui-table-stripe-background);
+    &.selected,
+    &[data-state="selected"] {
+      background-color: var(--pui-table-selected-background);
+      &:hover {
+        background-color: var(--pui-table-selected-hover-background);
+      }
+    }
   }
 
   .table-hoverable tbody tr:hover {
     background-color: var(--pui-table-hover-background);
-  }
-
-  .table-striped.table-hoverable tbody tr:nth-child(even):hover {
-    background-color: var(--pui-table-striped-hover-background);
-  }
-
-  .table tbody tr[data-state="selected"],
-  .table tbody tr.selected {
-    background-color: var(--pui-table-selected-background);
-  }
-
-  .table-striped tbody tr:nth-child(even)[data-state="selected"],
-  .table-striped tbody tr:nth-child(even).selected {
-    background-color: var(--pui-table-striped-selected-background);
-  }
-
-  .table tbody tr[data-state="selected"]:hover,
-  .table tbody tr.selected:hover {
-    background-color: var(--pui-table-selected-hover-background);
-  }
-
-  .table-striped tbody tr:nth-child(even)[data-state="selected"]:hover,
-  .table-striped tbody tr:nth-child(even).selected:hover {
-    background-color: var(--pui-table-striped-selected-hover-background);
   }
 }

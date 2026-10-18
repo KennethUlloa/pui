@@ -2,6 +2,9 @@ import { LitElement, html } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
 import { repeat } from "lit/directives/repeat.js";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
+import Asc from "@/assets/asc.svg?raw";
+import Desc from "@/assets/desc.svg?raw";
+import ArrowDown from "@/assets/arrow-down.svg?raw";
 
 type Action<T extends object> = {
   label: string;
@@ -20,6 +23,8 @@ type Action<T extends object> = {
 type Column<T extends object> = {
   key: string;
   title: string;
+  sortable?: boolean;
+  sortDirection?: () => "asc" | "desc";
 } & (
   | {
       key: "actions";
@@ -37,6 +42,14 @@ type Row<T extends object> = T & {
   _rowid: string;
 };
 
+type DatatableLabels = {
+  empty: string;
+};
+
+const defaultLabels: DatatableLabels = {
+  empty: "No results found",
+};
+
 @customElement("pui-datatable")
 export class DataTable<T extends object> extends LitElement {
   @property({ type: Array })
@@ -51,6 +64,9 @@ export class DataTable<T extends object> extends LitElement {
   @property({ type: Boolean })
   checkable = false;
 
+  @property({ type: Boolean })
+  loading = false;
+
   #rows: Row<T>[] = [];
 
   @state()
@@ -59,6 +75,21 @@ export class DataTable<T extends object> extends LitElement {
   }
   set rows(rows: T[]) {
     this.#rows = rows.map((row) => ({ ...row, _rowid: this.rowId(row) }));
+    this.requestUpdate();
+  }
+
+  #labels: DatatableLabels = defaultLabels;
+
+  @state()
+  get labels() {
+    return this.#labels;
+  }
+
+  set labels(labels: Partial<DatatableLabels>) {
+    this.#labels = {
+      ...defaultLabels,
+      ...labels,
+    };
     this.requestUpdate();
   }
 
@@ -75,61 +106,74 @@ export class DataTable<T extends object> extends LitElement {
   }
 
   render() {
-    return html`
-      <table
-        class="table ${this.hoverable ? "table-hoverable" : ""} ${this.striped
-          ? "table-striped"
-          : ""}"
-      >
-        <thead>
-          <tr>
-            ${this.checkable
-              ? html`<th scope="col"><input type="checkbox" class="checkbox" @change="${this.#selectAll}"></th></th>`
-              : ""}
-            ${this.columns.map(
-              (column) => html` <th scope="col">${column.title}</th> `,
-            )}
-            ${this.rowActions &&
-            html`<th scope="col" style="width: 4em; text-align: center">
-              ...
-            </th>`}
-          </tr>
-        </thead>
-        <tbody>
-          ${repeat(this.rows, this.rowId, (row) => {
-            const actions = this.rowActions?.(row);
+    const columnCount =
+      this.columns.length +
+      (this.rowActions ? 1 : 0) +
+      (this.checkable ? 1 : 0);
 
-            return html`
-              <tr
-                data-rowid="${row._rowid}"
-                class="${this.isSelected(row) ? "selected" : ""}"
-              >
-                ${this.checkable
-                  ? html`<td>
-                      <input
-                        type="checkbox"
-                        class="checkbox"
-                        .checked=${this.isSelected(row)}
-                        @change="${(event: InputEvent) =>
-                          this.#selectRow(event, row)}"
-                      />
-                    </td>`
-                  : ""}
-                ${this.columns.map((column) => {
-                  return html`
-                    <td>
-                      ${column.render
-                        ? unsafeHTML(column.render(row))
-                        : row[column.key as keyof T]}
-                    </td>
-                  `;
-                })}
-                ${actions?.length && this.#renderActions(actions, row)}
-              </tr>
-            `;
-          })}
-        </tbody>
-      </table>
+    return html`
+        <table
+          class="table ${this.hoverable ? "table-hoverable" : ""} ${this.striped
+            ? "table-striped"
+            : ""}"
+        >
+          <thead>
+            <tr>
+              ${this.checkable
+                ? html`<th scope="col" class="select-control"><input type="checkbox" class="checkbox" @change="${this.#selectAll}"></th></th>`
+                : ""}
+              ${this.columns.map((column) => this.#renderColumn(column))}
+              ${this.rowActions &&
+              html`<th scope="col" class="action-control">
+                ...
+              </th>`}
+            </tr>
+          </thead>
+          <tbody>
+            ${!this.loading && !this.rows?.length
+              ? html`<tr>
+                  <td
+                    colspan="${columnCount}"
+                    class="text-center px-md py-sm text-lg"
+                  >
+                    ${this.labels.empty}
+                  </td>
+                </tr>`
+              : ""}
+            ${!this.loading ? repeat(this.rows, this.rowId, (row) => {
+              const actions = this.rowActions?.(row);
+
+              return html`
+                <tr
+                  data-rowid="${row._rowid}"
+                  class="${this.isSelected(row) ? "selected" : ""}"
+                >
+                  ${this.checkable
+                    ? html`<td class="text-center">
+                        <input
+                          type="checkbox"
+                          class="checkbox"
+                          .checked=${this.isSelected(row)}
+                          @change="${(event: InputEvent) =>
+                            this.#selectRow(event, row)}"
+                        />
+                      </td>`
+                    : ""}
+                  ${this.columns.map((column) => {
+                    return html`
+                      <td>
+                        ${column.render
+                          ? unsafeHTML(column.render(row))
+                          : row[column.key as keyof T]}
+                      </td>
+                    `;
+                  })}
+                  ${actions?.length && this.#renderActions(actions, row)}
+                </tr>
+              `;
+            }): Array.from({ length: 5}).map(() => html`<tr>${Array.from({ length: columnCount }).map(() => html`<td><span class="loading">&zwnj;</span></td>`)}</tr>`)}
+          </tbody>
+        </table>
     `;
   }
 
@@ -162,27 +206,7 @@ export class DataTable<T extends object> extends LitElement {
         class="btn btn-ghost-primary btn-sm"
         popovertarget="dropdown-end-row-${row._rowid}"
       >
-        <svg
-          width="1.5em"
-          height="1.5em"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-          <g
-            id="SVGRepo_tracerCarrier"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          ></g>
-          <g id="SVGRepo_iconCarrier">
-            <path
-              d="M17.9188 8.17969H11.6888H6.07877C5.11877 8.17969 4.63877 9.33969 5.31877 10.0197L10.4988 15.1997C11.3288 16.0297 12.6788 16.0297 13.5088 15.1997L15.4788 13.2297L18.6888 10.0197C19.3588 9.33969 18.8788 8.17969 17.9188 8.17969Z"
-              fill="currentColor"
-            ></path>
-          </g>
-        </svg>
+        ${unsafeHTML(ArrowDown)}
       </button>
       <nav
         id="dropdown-end-row-${row._rowid}"
@@ -217,6 +241,44 @@ export class DataTable<T extends object> extends LitElement {
         </ul>
       </nav>
     </td>`;
+  }
+
+  #renderColumn(column: Column<T>) {
+    const sortDirection = column.sortDirection?.();
+    const icon =
+      sortDirection === "asc"
+        ? unsafeHTML(Asc)
+        : sortDirection === "desc"
+          ? unsafeHTML(Desc)
+          : null;
+
+    if (column.sortable) {
+      return html`
+        <th
+          tabindex="0"
+          role="button"
+          scope="col"
+          class="cursor-pointer focus-ring"
+          @click="${() => this.#sendSortEvent(column)}"
+        >
+          <span class="flex items-center gap-sm w-fit"
+            >${column.title}${icon}</span
+          >
+        </th>
+      `;
+    }
+    return html` <th scope="col">${column.title}</th> `;
+  }
+
+  #sendSortEvent(column: Column<T>) {
+    this.dispatchEvent(
+      new CustomEvent("column-sort", {
+        detail: {
+          key: column.key,
+          column,
+        },
+      }),
+    );
   }
 }
 

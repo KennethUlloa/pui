@@ -6,6 +6,19 @@
   --pui-disabled-opacity: 0.55;
 }
 
+$cursors: (
+  "pointer": pointer,
+  "not-allowed": not-allowed,
+  "none": none,
+  "text": text,
+  "wait": wait,
+  "progress": progress,
+  "default": default,
+  "crosshair": crosshair,
+  "move": move,
+  "help": help
+);
+
 @mixin focus-ring-props($color: var(--pui-color-primary-main)) {
   outline: var(--pui-focus-ring-width, 3px) solid $color;
   outline-offset: var(--pui-focus-ring-offset, 2px);
@@ -67,6 +80,14 @@
   @include invalid-state();
 }
 
+@mixin cursor-classes() {
+  @each $name, $cursor in $cursors {
+    .cursor-#{$name} {
+      cursor: $cursor;
+    }
+  }
+}
+
 @mixin state-utilities() {
   .focus-ring {
     @include focus-ring();
@@ -101,4 +122,6 @@
       }
     }
   }
+
+  @include cursor-classes();
 }
