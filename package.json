@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:redirect": "tsc && vite build && node create-redirect.js",
     "preview": "vite preview",
     "check:sass": "node check-sass.mjs",
     "test:contrast": "node check-color-contrast.mjs"

@@ -1,68 +1,28 @@
-import { mkdirSync, writeFileSync, readdirSync } from "node:fs";
-import { dirname, resolve } from "node:path";
-import { compile } from "sass";
+import { resolve } from "node:path";
 import { defineConfig } from "vite";
+import { sassPlugin } from "./plugins/sass.js";
+import { modifyHtmlFiles } from "./plugins/modifiers.js";
 
-const sassEntry = resolve("src/css/index.scss");
-const cssOutput = resolve("dist/css/index.css");
+const { PUI_VERSION, BASE_URL } = process.env;
 
-function compileStylesheet() {
-  const { css } = compile(sassEntry, { style: "compressed" });
-  mkdirSync(dirname(cssOutput), { recursive: true });
-  writeFileSync(cssOutput, css);
+const outDir = PUI_VERSION ? "dist/" + PUI_VERSION : "dist";
+
+const cssOutput = resolve(`${outDir}/css/index.css`);
+let basePath = [BASE_URL, PUI_VERSION].filter(Boolean).join("/");
+
+if (basePath.endsWith("/")) {
+  basePath = basePath.slice(0, -1);
 }
 
-function sassPlugin() {
-  return {
-    name: "pui-sass",
-    configureServer(server) {
-      const compileAndLog = () => {
-        try {
-          compileStylesheet();
-          server.config.logger.info("Sass stylesheet compiled.");
-          server.ws.send({ type: "full-reload" });
-        } catch (error) {
-          server.config.logger.error(`Sass compilation failed: ${error.message}`);
-        }
-      };
-
-      compileAndLog();
-      server.watcher.add(resolve("src/css"));
-      server.watcher.on("change", (filePath) => {
-        if (filePath.endsWith(".scss")) compileAndLog();
-      });
-    },
-    transformIndexHtml(html, context) {
-      if (!context.server) return html;
-
-      return html.replace(
-        /href="(?:\.\/|\/)?dist\/css\/index\.css(?:\?[^\"]*)?"/,
-        `href="/dist/css/index.css?v=${Date.now()}"`,
-      );
-    },
-    buildStart() {
-      compileStylesheet();
-    },
-    closeBundle() {
-      compileStylesheet();
-    },
-  };
-}
-
-function inspectFiles(dir, prefix) {
-  const files = readdirSync(dir);
-  const resolved = {};
-  for (const file of files) {
-    if (file.endsWith(".js") || file.endsWith(".ts")) {
-      resolved[prefix + file] = resolve(dir, file);
-    }
-  }
-
-  return resolved
+if (basePath && !basePath.startsWith("/")) {
+  basePath = `/${basePath}`;
 }
 
 export default defineConfig({
-  plugins: [sassPlugin()],
+  plugins: [
+    sassPlugin({ cssOutput }),
+    modifyHtmlFiles((html) => html.replaceAll("{{version}}", PUI_VERSION)),
+  ],
   css: {
     preprocessorOptions: {
       scss: {
@@ -70,7 +30,9 @@ export default defineConfig({
       },
     },
   },
+  base: basePath,
   build: {
+    outDir,
     rollupOptions: {
       output: {
         assetFileNames: (assetInfo) => {
@@ -79,14 +41,24 @@ export default defineConfig({
             if (name.endsWith(".css")) {
               return "css/[name]-[hash][extname]";
             }
-            if (name.endsWith(".svg") || name.endsWith(".png") || name.endsWith(".jpg") || name.endsWith(".jpeg") || name.endsWith(".webp") || name.endsWith(".gif")) {
+            if (
+              name.endsWith(".svg") ||
+              name.endsWith(".png") ||
+              name.endsWith(".jpg") ||
+              name.endsWith(".jpeg") ||
+              name.endsWith(".webp") ||
+              name.endsWith(".gif")
+            ) {
               return "assets/[name]-[hash][extname]";
             }
           }
           return "assets/[name]-[hash][extname]";
         },
         chunkFileNames: (chunkInfo) => {
-          if (chunkInfo.name.startsWith("wc/") || chunkInfo.name.startsWith("vendor")) {
+          if (
+            chunkInfo.name.startsWith("wc/") ||
+            chunkInfo.name.startsWith("vendor")
+          ) {
             return `js/${chunkInfo.name}.js`;
           }
           return "js/[name]-[hash].js";
@@ -96,8 +68,14 @@ export default defineConfig({
         },
         advancedChunks: {
           groups: [
-            { name: 'vendor', test: /[\\/]node_modules[\\/]/ },
-            { debugName: "components", name: (id) => { const m = id.match(/\/src\/components\/([^/]+)\//); return m ? 'wc/' + m[1] : undefined; } },
+            { name: "vendor", test: /[\\/]node_modules[\\/]/ },
+            {
+              debugName: "components",
+              name: (id) => {
+                const m = id.match(/\/src\/components\/([^/]+)\//);
+                return m ? "wc/" + m[1] : undefined;
+              },
+            },
           ],
         },
       },
