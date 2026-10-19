@@ -141,7 +141,7 @@ export class Searchbar<T extends object> extends LitElement {
           ? html`<span class="flex items-center loading"
               ><span class="spinner spinner-0"></span
             ></span>`
-          : html`<span class="text-gray-400 flex items-center"
+          : html`<span class="text-muted flex items-center"
               >${unsafeHTML(Search)}</span
             >`}
         <input
@@ -161,7 +161,7 @@ export class Searchbar<T extends object> extends LitElement {
         @toggle=${this.handleOptionsToggle}
       >
         ${!this.options.length
-          ? html`<p class="text-gray-400 p-1">
+          ? html`<p class="text-muted p-1">
               ${this.labels.noResults?.(this.input?.value)}
             </p>`
           : html`<ul class="option-list">

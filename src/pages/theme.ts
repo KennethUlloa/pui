@@ -29,7 +29,7 @@ const applyTheme = (name: string, mode: "light" | "dark") => {
   document.documentElement.style.setProperty("--pui-color-primary-main", scheme[mode]);
   document.documentElement.style.setProperty(
     "--pui-color-primary-contrast",
-    mode === "dark" ? "var(--pui-color-gray-50)" : "var(--pui-color-white-main)",
+    mode === "dark" ? "var(--pui-color-background-main)" : "var(--pui-color-white-main)",
   );
   themeSelect.value = name;
   return true;

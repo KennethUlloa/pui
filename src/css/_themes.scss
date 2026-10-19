@@ -1,24 +1,14 @@
+// Only semantic colors and role tokens may change between color modes.
+// Base palette colors (gray, white, red, blue, ...) must keep the same
+// value in every theme so utilities stay predictable.
 $dark-theme-colors: (
-  "gray": (
-    "50": #0b1120,
-    "100": #111827,
-    "200": #1f2937,
-    "300": #334155,
-    "400": #64748b,
-    "500": #94a3b8,
-    "600": #b7c3d1,
-    "700": #cbd5e1,
-    "800": #e2e8f0,
-    "900": #f8fafc,
-  ),
-  "white": (
-    "main": #111827,
-  ),
   "error": (
     "main": #ef4444,
+    "contrast": #0b1120,
   ),
   "success": (
     "main": #22c55e,
+    "contrast": #0b1120,
   ),
   "warning": (
     "main": #fbbf24,
@@ -26,37 +16,48 @@ $dark-theme-colors: (
   ),
   "info": (
     "main": #38bdf8,
+    "contrast": #0b1120,
+  ),
+  "primary": (
+    "main": #60a5fa,
+    "contrast": #0b1120,
   ),
   "secondary": (
     "main": #94a3b8,
+    "contrast": #0b1120,
   ),
   "tertiary": (
     "main": #cbd5e1,
-    "contrast": #0f172a,
-  ),
-  "body": (
-    "main": #cbd5e1,
-  ),
-  "border": (
-    "main": #475569,
-    "transparent": rgba(148, 163, 184, 0.25),
+    "contrast": #0b1120,
   ),
   "background": (
     "main": #0b1120,
     "contrast": #f8fafc,
     "transparent": rgba(15, 23, 42, 0.5),
   ),
+  "surface": (
+    "main": #111827,
+    "hover": #1f2937,
+    "active": #334155,
+    "contrast": #f8fafc,
+  ),
+  "body": (
+    "main": #e2e8f0,
+  ),
+  "muted": (
+    "main": #94a3b8,
+  ),
+  "border": (
+    "subtle": #1f2937,
+    "main": #334155,
+    "strong": #64748b,
+    "transparent": rgba(148, 163, 184, 0.25),
+  ),
 );
 
 @mixin color-mode-overrides() {
   html[data-theme="dark"] {
     color-scheme: dark;
-    --pui-dropdown-item-hover-background: var(--pui-color-gray-200);
-    --pui-dropdown-item-active-background: var(--pui-color-gray-300);
-    --pui-searchbar-option-hover-background: var(--pui-color-gray-200);
-    --pui-table-hover-background: var(--pui-color-gray-200);
-    --pui-searchbar-option-hover-background: var(--pui-color-gray-200);
-    --pui-table-hover-background: var(--pui-color-gray-200);
     --pui-dialog-backdrop: rgba(55, 61, 78, 0.5);
 
     @each $name, $color in $dark-theme-colors {

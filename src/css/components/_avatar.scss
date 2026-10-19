@@ -22,8 +22,8 @@ $avatar-sizes: (
   justify-content: center;
   border-radius: 50%;
   overflow: hidden;
-  background-color: var(--pui-avatar-bg, var(--pui-color-gray-200));
-  color: var(--pui-avatar-fg, var(--pui-color-gray-800));
+  background-color: var(--pui-avatar-bg, var(--pui-color-surface-active));
+  color: var(--pui-avatar-fg, var(--pui-color-body-main));
   font-weight: var(--pui-font-weight-semibold, 600);
   font-family: var(--pui-font-family-sans, sans-serif);
   vertical-align: middle;

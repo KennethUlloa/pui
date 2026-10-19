@@ -53,13 +53,13 @@ $semantic-colors: ("primary", "secondary", "tertiary", "success", "warning", "er
 		color: $foreground;
 
 		&:hover:not(:disabled):not([aria-disabled="true"]) {
-			background-color: color-mix(in srgb, colors.var_token($name, "main") 88%, colors.var_token("gray", "900"));
-			border-color: color-mix(in srgb, colors.var_token($name, "main") 88%, colors.var_token("gray", "900"));
+			background-color: color-mix(in srgb, colors.var_token($name, "main") 88%, colors.var_token("background", "contrast"));
+			border-color: color-mix(in srgb, colors.var_token($name, "main") 88%, colors.var_token("background", "contrast"));
 		}
 
 		&:active:not(:disabled):not([aria-disabled="true"]) {
-			background-color: color-mix(in srgb, colors.var_token($name, "main") 78%, colors.var_token("gray", "900"));
-			border-color: color-mix(in srgb, colors.var_token($name, "main") 78%, colors.var_token("gray", "900"));
+			background-color: color-mix(in srgb, colors.var_token($name, "main") 78%, colors.var_token("background", "contrast"));
+			border-color: color-mix(in srgb, colors.var_token($name, "main") 78%, colors.var_token("background", "contrast"));
 		}
 	}
 
@@ -94,12 +94,12 @@ $semantic-colors: ("primary", "secondary", "tertiary", "success", "warning", "er
 
 .btn-outline {
 	background-color: transparent;
-	border-color: colors.var_token("border", "main");
-	color: colors.var_token("gray", "900");
+	border-color: colors.var_token("border", "strong");
+	color: colors.var_token("body", "main");
 }
 
 .btn-ghost {
 	background-color: transparent;
 	border-color: transparent;
-	color: colors.var_token("gray", "700");
+	color: colors.var_token("body", "main");
 }

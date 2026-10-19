@@ -1,8 +1,8 @@
 @mixin tokens() {
-  --pui-sidebar-background: var(--pui-color-white-main);
-  --pui-sidebar-border-color: var(--pui-color-gray-200);
-  --pui-sidebar-text-color: var(--pui-color-gray-700);
-  --pui-sidebar-active-background: color-mix(in srgb, var(--pui-color-primary-main) 10%, var(--pui-color-white-main));
+  --pui-sidebar-background: var(--pui-color-surface-main);
+  --pui-sidebar-border-color: var(--pui-color-border-subtle);
+  --pui-sidebar-text-color: var(--pui-color-body-main);
+  --pui-sidebar-active-background: color-mix(in srgb, var(--pui-color-primary-main) 10%, var(--pui-color-surface-main));
 }
 
 .sidebar {

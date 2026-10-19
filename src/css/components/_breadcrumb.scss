@@ -1,8 +1,8 @@
 @mixin tokens() {
-  --pui-breadcrumb-text-color: var(--pui-color-gray-600);
+  --pui-breadcrumb-text-color: var(--pui-color-muted-main);
   --pui-breadcrumb-link-color: var(--pui-color-primary-main);
-  --pui-breadcrumb-separator-color: var(--pui-color-gray-400);
-  --pui-breadcrumb-current-color: var(--pui-color-gray-900);
+  --pui-breadcrumb-separator-color: var(--pui-color-muted-main);
+  --pui-breadcrumb-current-color: var(--pui-color-body-main);
   --pui-breadcrumb-separator: "/";
 }
 

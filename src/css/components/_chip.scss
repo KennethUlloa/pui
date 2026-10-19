@@ -5,11 +5,11 @@ $semantic-colors: ("primary", "secondary", "tertiary", "success", "warning", "er
 
 .chip {
 	align-items: center;
-	background-color: colors.var_token("gray", "100");
-	border: 1px solid colors.var_token("gray", "200");
+	background-color: colors.var_token("surface", "hover");
+	border: 1px solid colors.var_token("border", "subtle");
 	border-radius: 9999px;
 	box-sizing: border-box;
-	color: colors.var_token("gray", "800");
+	color: colors.var_token("body", "main");
 	display: inline-flex;
 	font-size: var(--pui-font-size-0, 0.75rem);
 	font-weight: var(--pui-font-weight-semibold, 600);
@@ -33,17 +33,17 @@ $semantic-colors: ("primary", "secondary", "tertiary", "success", "warning", "er
 
 .chip-outline {
 	background-color: transparent;
-	border-color: colors.var_token("gray", "300");
+	border-color: colors.var_token("border", "main");
 }
 
 .chip-soft {
-	background-color: colors.var_token("gray", "100");
-	border-color: colors.var_token("gray", "200");
+	background-color: colors.var_token("surface", "hover");
+	border-color: colors.var_token("border", "subtle");
 }
 
 @each $name in $semantic-colors {
 	$foreground: colors.var_token("white", "main");
-	$dark-foreground: color-mix(in srgb, colors.var_token($name, "main") 68%, colors.var_token("gray", "900"));
+	$dark-foreground: color-mix(in srgb, colors.var_token($name, "main") 68%, colors.var_token("background", "contrast"));
 	@if map.has-key(map.get(colors.$colors, $name), "contrast") {
 		$foreground: colors.var_token($name, "contrast");
 	}
@@ -61,8 +61,8 @@ $semantic-colors: ("primary", "secondary", "tertiary", "success", "warning", "er
 	}
 
 	.chip-soft-#{$name} {
-		background-color: color-mix(in srgb, colors.var_token($name, "main") 12%, colors.var_token("white", "main"));
-		border-color: color-mix(in srgb, colors.var_token($name, "main") 24%, colors.var_token("white", "main"));
+		background-color: color-mix(in srgb, colors.var_token($name, "main") 12%, colors.var_token("surface", "main"));
+		border-color: color-mix(in srgb, colors.var_token($name, "main") 24%, colors.var_token("surface", "main"));
 		color: $dark-foreground;
 	}
 }

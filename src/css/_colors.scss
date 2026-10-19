@@ -174,9 +174,11 @@ $colors: (
   ),
   "error": (
     "main": #b91c1c,
+    "contrast": #f8fafc,
   ),
   "success": (
     "main": #15803d,
+    "contrast": #f8fafc,
   ),
   "warning": (
     "main": #ca8a04,
@@ -184,6 +186,7 @@ $colors: (
   ),
   "info": (
     "main": #0369a1,
+    "contrast": #f8fafc,
   ),
   "primary": (
     "main": #2563eb,
@@ -191,22 +194,34 @@ $colors: (
   ),
   "secondary": (
     "main": #64748b,
+    "contrast": #f8fafc,
   ),
   "tertiary": (
     "main": #94a3b8,
     "contrast": #0f172a,
   ),
-  "body": (
-    "main": #64748b,
-  ),
-  "border": (
-    "main": #94a3b8,
-    "transparent": rgba(148, 163, 184, 0.25),
-  ),
   "background": (
     "main": #f8fafc,
     "contrast": #0f172a,
     "transparent": rgba(248, 250, 252, 0.5),
+  ),
+  "surface": (
+    "main": #ffffff,
+    "hover": #f1f5f9,
+    "active": #e2e8f0,
+    "contrast": #0f172a,
+  ),
+  "body": (
+    "main": #0f172a,
+  ),
+  "muted": (
+    "main": #475569,
+  ),
+  "border": (
+    "subtle": #e2e8f0,
+    "main": #cbd5e1,
+    "strong": #94a3b8,
+    "transparent": rgba(148, 163, 184, 0.25),
   ),
 );
 

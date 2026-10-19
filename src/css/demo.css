@@ -9,7 +9,7 @@
 
 .demo-theme-control {
   align-items: center;
-  color: var(--pui-color-gray-700);
+  color: var(--pui-color-muted-main);
   display: inline-flex;
   font-size: var(--pui-font-size-0, 0.75rem);
   font-weight: var(--pui-font-weight-semibold, 600);
@@ -18,10 +18,10 @@
 }
 
 .demo-theme-select {
-  background-color: var(--pui-color-white-main);
-  border: 1px solid var(--pui-color-gray-300);
+  background-color: var(--pui-color-surface-main);
+  border: 1px solid var(--pui-color-border-main);
   border-radius: var(--pui-border-radius-1, 0.25rem);
-  color: var(--pui-color-gray-900);
+  color: var(--pui-color-body-main);
   cursor: pointer;
   font: inherit;
   min-height: 2.25rem;

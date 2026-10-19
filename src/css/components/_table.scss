@@ -1,13 +1,13 @@
 @mixin tokens() {
-  --pui-table-text-color: var(--pui-color-gray-800);
-  --pui-table-border-color: var(--pui-color-gray-200);
-  --pui-table-header-background: var(--pui-color-gray-100);
-  --pui-table-header-text-color: var(--pui-color-gray-900);
-  --pui-table-stripe-background: var(--pui-color-gray-50);
-  --pui-table-hover-background: var(--pui-color-gray-100);
-  --pui-table-selected-background: color-mix(in srgb, var(--pui-color-primary-main) 10%, var(--pui-color-white-main));
-  --pui-table-selected-hover-background: color-mix(in srgb, var(--pui-color-primary-main) 16%, var(--pui-color-white-main));
-  --pui-table-selected-border-color: color-mix(in srgb, var(--pui-color-primary-main) 24%, var(--pui-color-white-main));
+  --pui-table-text-color: var(--pui-color-body-main);
+  --pui-table-border-color: var(--pui-color-border-subtle);
+  --pui-table-header-background: var(--pui-color-surface-hover);
+  --pui-table-header-text-color: var(--pui-color-body-main);
+  --pui-table-stripe-background: var(--pui-color-background-main);
+  --pui-table-hover-background: var(--pui-color-surface-hover);
+  --pui-table-selected-background: color-mix(in srgb, var(--pui-color-primary-main) 10%, var(--pui-color-surface-main));
+  --pui-table-selected-hover-background: color-mix(in srgb, var(--pui-color-primary-main) 16%, var(--pui-color-surface-main));
+  --pui-table-selected-border-color: color-mix(in srgb, var(--pui-color-primary-main) 24%, var(--pui-color-surface-main));
 }
 
 @mixin all() {

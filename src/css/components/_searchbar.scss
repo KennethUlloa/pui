@@ -3,8 +3,8 @@
 @use "../sizing" as sizing;
 
 @mixin tokens() {
-    --pui-searchbar-background: var(--pui-color-white-main);
-    --pui-searchbar-option-hover-background: var(--pui-color-gray-100);
+    --pui-searchbar-background: var(--pui-color-surface-main);
+    --pui-searchbar-option-hover-background: var(--pui-color-surface-hover);
 }
 
 .searchbar-options {

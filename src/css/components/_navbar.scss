@@ -1,10 +1,10 @@
 @mixin tokens() {
-  --pui-navbar-background: var(--pui-color-white-main);
-  --pui-navbar-border-color: var(--pui-color-gray-200);
-  --pui-navbar-text-color: var(--pui-color-gray-900);
-  --pui-navbar-link-color: var(--pui-color-gray-700);
-  --pui-navbar-link-hover-background: color-mix(in srgb, var(--pui-color-primary-main) 8%, var(--pui-color-white-main));
-  --pui-navbar-link-active-background: color-mix(in srgb, var(--pui-color-primary-main) 12%, var(--pui-color-white-main));
+  --pui-navbar-background: var(--pui-color-surface-main);
+  --pui-navbar-border-color: var(--pui-color-border-subtle);
+  --pui-navbar-text-color: var(--pui-color-body-main);
+  --pui-navbar-link-color: var(--pui-color-muted-main);
+  --pui-navbar-link-hover-background: color-mix(in srgb, var(--pui-color-primary-main) 8%, var(--pui-color-surface-main));
+  --pui-navbar-link-active-background: color-mix(in srgb, var(--pui-color-primary-main) 12%, var(--pui-color-surface-main));
 }
 
 .navbar {

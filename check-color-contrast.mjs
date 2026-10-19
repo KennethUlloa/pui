@@ -19,14 +19,14 @@ const lightColors = colorsFrom(lightTokenBlock);
 const darkColors = new Map([...lightColors, ...colorsFrom(darkTokenBlock)]);
 
 const pairs = [
-  { label: "body text", foreground: "gray-900", background: "gray-50" },
-  { label: "muted body text", foreground: "gray-600", background: "gray-50" },
-  { label: "error semantic color", foreground: "gray-50", background: "error-main" },
-  { label: "success semantic color", foreground: "gray-50", background: "success-main" },
+  { label: "body text", foreground: "body-main", background: "background-main" },
+  { label: "muted body text", foreground: "muted-main", background: "background-main" },
+  { label: "error semantic color", foreground: "error-contrast", background: "error-main" },
+  { label: "success semantic color", foreground: "success-contrast", background: "success-main" },
   { label: "warning semantic color", foreground: "warning-contrast", background: "warning-main" },
-  { label: "info semantic color", foreground: "gray-50", background: "info-main" },
+  { label: "info semantic color", foreground: "info-contrast", background: "info-main" },
   { label: "primary semantic color", foreground: "primary-contrast", background: "primary-main" },
-  { label: "secondary semantic color", foreground: "gray-50", background: "secondary-main" },
+  { label: "secondary semantic color", foreground: "secondary-contrast", background: "secondary-main" },
   { label: "tertiary semantic color", foreground: "tertiary-contrast", background: "tertiary-main" },
   { label: "primary button", foreground: "primary-contrast", background: "primary-main" },
 ];
@@ -68,7 +68,7 @@ for (const [theme, colors] of [["light", lightColors], ["dark", darkColors]]) {
 
 for (const scheme of primarySchemes) {
   const lightRatio = contrastRatio(lightColors.get("white-main"), lightColors.get(scheme.light));
-  const darkRatio = contrastRatio(darkColors.get("gray-50"), lightColors.get(scheme.dark));
+  const darkRatio = contrastRatio(darkColors.get("background-main"), lightColors.get(scheme.dark));
 
   assert.ok(lightRatio >= 4.5, `Light ${scheme.name} scheme contrast is ${lightRatio.toFixed(2)}:1; expected at least 4.5:1`);
   assert.ok(darkRatio >= 4.5, `Dark ${scheme.name} scheme contrast is ${darkRatio.toFixed(2)}:1; expected at least 4.5:1`);
