@@ -257,6 +257,35 @@
 
       <section class="mb-8">
         <div class="flex items-center justify-between gap-2 mb-2">
+          <h2 class="text-5 font-semibold">Dialog</h2>
+          <span class="text-1 text-gray-500">Modal dialog using the native &lt;dialog&gt; element</span>
+        </div>
+        <div class="border border-gray-200 rounded-3 bg-white p-4 flex flex-wrap gap-2">
+          <button class="btn btn-primary" type="button" onclick="document.querySelector('#demo-dialog').showModal()">Open dialog</button>
+        </div>
+        <pui-dialog id="demo-dialog">
+          <dialog class="dialog" aria-labelledby="demo-dialog-title">
+            <div class="dialog-header">
+              <h3 class="dialog-title" id="demo-dialog-title">Confirm action</h3>
+              <button class="dialog-close" type="button" data-dialog-close aria-label="Close dialog">
+                <svg width="1rem" height="1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+            <div class="dialog-content">
+              <p>This action cannot be undone. Do you want to proceed?</p>
+            </div>
+            <div class="dialog-footer">
+              <button class="btn btn-ghost" type="button" data-dialog-close>Cancel</button>
+              <button class="btn btn-primary" type="button" data-dialog-close>Proceed</button>
+            </div>
+          </dialog>
+        </pui-dialog>
+      </section>
+      <section class="mb-8">
+        <div class="flex items-center justify-between gap-2 mb-2">
           <h2 class="text-5 font-semibold">Popovers</h2>
           <span class="text-1 text-gray-500">Native popover API, zero JS</span>
         </div>

@@ -10,6 +10,7 @@
 @use "breadcrumb";
 @use "sidebar";
 @use "avatar";
+@use "dialog";
 
 @include input.all();
 @include table.all();

@@ -7,7 +7,7 @@ const sassEntry = resolve("src/css/index.scss");
 const cssOutput = resolve("dist/css/index.css");
 
 function compileStylesheet() {
-  const { css } = compile(sassEntry);
+  const { css } = compile(sassEntry, { style: "compressed" });
   mkdirSync(dirname(cssOutput), { recursive: true });
   writeFileSync(cssOutput, css);
 }

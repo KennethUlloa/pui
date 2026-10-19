@@ -75,6 +75,71 @@
       </section>
           <section class="mb-8">
         <div class="flex items-center justify-between gap-2 mb-2">
+          <h2 class="text-5 font-semibold">Dialog</h2>
+          <span class="text-1 text-gray-500">Native &lt;dialog&gt; with backdrop and close controls</span>
+        </div>
+        <div class="border border-gray-200 rounded-3 bg-white p-4 flex flex-wrap gap-2">
+          <button class="btn btn-primary" type="button" onclick="document.querySelector('#basic-dialog').showModal()">Open basic dialog</button>
+          <button class="btn btn-ghost-primary" type="button" onclick="document.querySelector('#size2-dialog').showModal()">Open large dialog</button>
+          <button class="btn btn-ghost-primary" type="button" id="open-confirm-dialog">Open a confirm dialog</button>
+        </div>
+        <pui-dialog id="basic-dialog">
+          <dialog class="dialog" aria-labelledby="dialog-title-1">
+            <div class="dialog-header">
+              <h3 class="dialog-title" id="dialog-title-1">Dialog title</h3>
+              <button class="dialog-close" type="button" data-dialog-close aria-label="Close dialog">
+                <svg width="1rem" height="1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+            <div class="dialog-content">
+              <p>This is a basic dialog using the native &lt;dialog&gt; element. You can close it by clicking the close button, pressing Escape, or clicking the backdrop if enabled.</p>
+            </div>
+            <div class="dialog-footer">
+              <button class="btn btn-ghost" type="button" data-dialog-close>Cancel</button>
+              <button class="btn btn-primary" type="button" data-dialog-close>Confirm</button>
+            </div>
+          </dialog>
+        </pui-dialog>
+        <pui-dialog id="size2-dialog">
+          <dialog class="dialog dialog-2" aria-labelledby="dialog-title-2">
+            <div class="dialog-header">
+              <h3 class="dialog-title" id="dialog-title-2">Large dialog</h3>
+              <button class="dialog-close" type="button" data-dialog-close aria-label="Close dialog">
+                <svg width="1rem" height="1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+            <div class="dialog-content">
+              <p>This dialog uses the <code>dialog-2</code> size modifier, which increases the width using the dialog CSS variables.</p>
+              <p>You can also control backdrop/escape behavior via attributes on <code>pui-dialog</code> (e.g. <code>backdrop-close="false"</code>, <code>escape-close="false"</code>).</p>
+            </div>
+            <div class="dialog-footer">
+              <button class="btn btn-ghost" type="button" data-dialog-close>Close</button>
+            </div>
+          </dialog>
+        </pui-dialog>
+        <pui-dialog id="confirm-dialog" backdrop-close="false" escape-close="false">
+          <dialog class="dialog" aria-labelledby="confirm-title-2">
+            <div class="dialog-header">
+              <h3 class="dialog-title" id="confirm-title-2">Confirm dialog</h3>
+            </div>
+            <div class="dialog-content">
+              <p>Are you sure you want to do this?</p>
+            </div>
+            <div class="dialog-footer">
+              <button class="btn btn-ghost-secondary" type="button" data-dialog-close>Cancel</button>
+              <button class="btn btn-primary" type="button" data-dialog-close="ok">Confirm</button>
+            </div>
+          </dialog>
+        </pui-dialog>
+      </section>
+      <section class="mb-8">
+        <div class="flex items-center justify-between gap-2 mb-2">
           <h2 class="text-5 font-semibold">Avatar</h2>
         </div>
         <div class="border border-gray-200 rounded-3 bg-white p-4">

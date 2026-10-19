@@ -16,6 +16,7 @@
 @use "components/navbar" as navbar;
 @use "components/breadcrumb" as breadcrumb;
 @use "components/sidebar" as sidebar;
+@use "components/dialog" as dialog;
 @use "themes" as themes;
 
 :root {
@@ -31,6 +32,7 @@
     @include navbar.tokens();
     @include breadcrumb.tokens();
     @include sidebar.tokens();
+    @include dialog.tokens();
     font-family: var(--pui-font-family-sans);
 }
 

@@ -57,6 +57,7 @@ $dark-theme-colors: (
     --pui-table-hover-background: var(--pui-color-gray-200);
     --pui-searchbar-option-hover-background: var(--pui-color-gray-200);
     --pui-table-hover-background: var(--pui-color-gray-200);
+    --pui-dialog-backdrop: rgba(55, 61, 78, 0.5);
 
     @each $name, $color in $dark-theme-colors {
       @each $level, $value in $color {

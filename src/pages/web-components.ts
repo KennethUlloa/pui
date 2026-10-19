@@ -6,6 +6,8 @@ import "../components/searchbar";
 import type { Searchbar } from "../components/searchbar";
 import "../components/avatar";
 import "@/components/sidebar"
+import "@/components/dialog";
+import type { PuiDialog as Dialog } from "../components/dialog";
 
 interface User {
   id: number;
@@ -264,5 +266,23 @@ function searchbarDemo() {
       });
 }
 
+function dialogDemo() {
+  const confirmDialog = document.querySelector("#confirm-dialog") as Dialog;
+  const button = document.querySelector("#open-confirm-dialog") as HTMLButtonElement;
+
+  button.addEventListener("click", () => {
+    console.log("open confirm dialog");
+    confirmDialog.showAndReturn().then((returnValue) => {
+      if (returnValue === "ok") {
+        console.log("confirmed");
+      } else {
+        console.log("cancelled");
+      }
+    })
+  })
+
+}
+
 datatableDemo();
 searchbarDemo();
+dialogDemo();
