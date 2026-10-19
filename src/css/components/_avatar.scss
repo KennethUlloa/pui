@@ -1,0 +1,85 @@
+@use "sass:map";
+@use "../colors" as colors;
+@use "../sizing" as sizing;
+
+$avatar-sizes: (
+  "0": sizing.size("0") * 4,
+  "1": sizing.size("1") * 2.5,
+  "2": sizing.size("2") * 2.5,
+  "3": sizing.size("3") * 2,
+  "4": sizing.size("4") * 2,
+  "5": sizing.size("5") * 2,
+  "6": sizing.size("6") * 2,
+  "7": sizing.size("7") * 2,
+  "8": sizing.size("8") * 2,
+  "9": sizing.size("9") * 2,
+);
+
+.avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--pui-avatar-bg, var(--pui-color-gray-200));
+  color: var(--pui-avatar-fg, var(--pui-color-gray-800));
+  font-weight: var(--pui-font-weight-semibold, 600);
+  font-family: var(--pui-font-family-sans, sans-serif);
+  vertical-align: middle;
+  user-select: none;
+  aspect-ratio: 1 / 1;
+}
+
+@each $name, $size in $avatar-sizes {
+  .avatar-#{$name} {
+    width: #{$size};
+    height: #{$size};
+    min-width: #{$size};
+    min-height: #{$size};
+    font-size: calc(#{$size} * 0.375);
+    line-height: 1;
+  }
+}
+
+.avatar-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.avatar-img-loaded .avatar-img {
+  display: block;
+}
+
+.avatar-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0.25rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.avatar-img-loaded .avatar-fallback {
+  display: none;
+}
+
+@each $name in ("primary", "secondary", "tertiary", "success", "warning", "error", "info") {
+  $foreground: colors.var_token("white", "main");
+  @if map.has-key(map.get(colors.$colors, $name), "contrast") {
+    $foreground: colors.var_token($name, "contrast");
+  }
+
+  .avatar-#{$name} {
+    background-color: colors.var_token($name, "main");
+    color: $foreground;
+  }
+}

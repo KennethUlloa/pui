@@ -138,6 +138,10 @@ $grid-template-values: (
         .#{$prefix}w-#{$name} {
             width: $value;
         }
+
+        .#{$prefix}h-#{$name} {
+            height: $value;
+        }
     }
 
     @each $name, $value in $max-width-values {

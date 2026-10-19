@@ -4,6 +4,8 @@ import "../components/pagination";
 import type { Pagination } from "../components/pagination";
 import "../components/searchbar";
 import type { Searchbar } from "../components/searchbar";
+import "../components/avatar";
+import "@/components/sidebar"
 
 interface User {
   id: number;
