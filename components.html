@@ -60,6 +60,57 @@
 
       <section class="mb-8">
         <div class="flex items-center justify-between gap-2 mb-2">
+          <h2 class="text-5 font-semibold">Sidebar</h2>
+          <span class="text-1 text-gray-500">Collapsible navigation</span>
+        </div>
+        <div class="border border-gray-200 rounded-3 bg-white p-3 grid grid-cols-1 md-grid-cols-2 gap-2">
+          <pui-sidebar class="sidebar" data-side="left" role="complementary" aria-label="Left workspace sidebar">
+            <details class="sidebar-disclosure" data-sidebar-disclosure open>
+              <summary class="sidebar-summary"><span class="sidebar-summary-label">Left sidebar</span></summary>
+              <div class="sidebar-content">
+                <nav class="sidebar-nav" aria-label="Left workspace navigation">
+                  <a class="sidebar-link" href="#overview" aria-current="page">Overview</a>
+                  <details class="sidebar-group" data-sidebar-disclosure>
+                    <summary class="sidebar-group-summary">Projects</summary>
+                    <div class="sidebar-group-content">
+                      <nav class="sidebar-subnav" aria-label="Projects">
+                        <a class="sidebar-link" href="#active-projects">Active projects</a>
+                        <a class="sidebar-link" href="#archived-projects">Archived</a>
+                      </nav>
+                    </div>
+                  </details>
+                  <a class="sidebar-link" href="#team">Team members</a>
+                  <a class="sidebar-link" href="#settings">Settings</a>
+                </nav>
+              </div>
+            </details>
+          </pui-sidebar>
+          <pui-sidebar class="sidebar" data-side="right" role="complementary" aria-label="Right workspace sidebar">
+            <details class="sidebar-disclosure" data-sidebar-disclosure open>
+              <summary class="sidebar-summary"><span class="sidebar-summary-label">Right sidebar</span></summary>
+              <div class="sidebar-content">
+                <nav class="sidebar-nav" aria-label="Right workspace navigation">
+                  <a class="sidebar-link" href="#overview">Overview</a>
+                  <details class="sidebar-group" data-sidebar-disclosure open>
+                    <summary class="sidebar-group-summary">Projects</summary>
+                    <div class="sidebar-group-content">
+                      <nav class="sidebar-subnav" aria-label="Projects">
+                        <a class="sidebar-link" href="#active-projects" aria-current="page">Active projects</a>
+                        <a class="sidebar-link" href="#archived-projects">Archived</a>
+                      </nav>
+                    </div>
+                  </details>
+                  <a class="sidebar-link" href="#team">Team members</a>
+                  <a class="sidebar-link" href="#settings">Settings</a>
+                </nav>
+              </div>
+            </details>
+          </pui-sidebar>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <div class="flex items-center justify-between gap-2 mb-2">
           <h2 class="text-5 font-semibold">Buttons</h2>
           <span class="text-1 text-gray-500">Variants, semantic colors, and sizes</span>
         </div>
@@ -402,5 +453,6 @@
       </section>
     </main>
     <script type="module" src="./src/pages/theme.ts"></script>
+    <script type="module" src="./src/components/sidebar/index.ts"></script>
   </body>
 </html>
