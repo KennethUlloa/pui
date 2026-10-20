@@ -429,6 +429,133 @@
           </div>
         </div>
       </section>
+
+      <section class="mb-8">
+        <div class="flex items-center justify-between gap-2 mb-2">
+          <h2 class="text-5 font-semibold">Accordion</h2>
+          <span class="text-1 text-muted">Disclosure sections built on native &lt;details&gt; and &lt;summary&gt;</span>
+        </div>
+        <div class="border border-border-subtle rounded-3 bg-surface p-4 grid gap-3">
+          <div class="grid gap-1">
+            <h3 class="text-1 font-semibold text-muted">Basics</h3>
+            <div class="accordion">
+              <details class="accordion-item" open>
+                <summary class="accordion-trigger">
+                  <span class="accordion-title">What is PUI?</span>
+                </summary>
+                <div class="accordion-panel">
+                  <p>PUI is a design system built with Vite, Sass, and Lit. It ships design tokens, visual components, and behavior web components.</p>
+                </div>
+              </details>
+              <details class="accordion-item">
+                <summary class="accordion-trigger">
+                  <span class="accordion-title">How do I install dependencies?</span>
+                </summary>
+                <div class="accordion-panel">
+                  <p>Run <code>pnpm install</code> in the project root. Always use pnpm instead of npm.</p>
+                  <p>Scripts are available through <code>pnpm build</code>, <code>pnpm check:sass</code>, and <code>pnpm test:contrast</code>.</p>
+                </div>
+              </details>
+              <details class="accordion-item">
+                <summary class="accordion-trigger">
+                  <span class="accordion-title">Can I theme the accordion?</span>
+                </summary>
+                <div class="accordion-panel">
+                  <p>Yes. Every color, radius, and duration is exposed as a <code>--pui-accordion-*</code> custom property, so overriding the tokens is enough.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+          <div class="grid gap-1">
+            <h3 class="text-1 font-semibold text-muted">Exclusive (single item open, zero JS)</h3>
+            <div class="accordion">
+              <details class="accordion-item" name="demo-accordion" open>
+                <summary class="accordion-trigger">
+                  <span class="accordion-title">General</span>
+                </summary>
+                <div class="accordion-panel">
+                  <p>Sharing the same <code>name</code> attribute on every <code>details</code> makes the browser close the others automatically.</p>
+                </div>
+              </details>
+              <details class="accordion-item" name="demo-accordion">
+                <summary class="accordion-trigger">
+                  <span class="accordion-title">Members</span>
+                </summary>
+                <div class="accordion-panel">
+                  <p>Three people currently have access to this project.</p>
+                </div>
+              </details>
+              <details class="accordion-item" name="demo-accordion">
+                <summary class="accordion-trigger">
+                  <span class="accordion-title">Danger zone</span>
+                </summary>
+                <div class="accordion-panel">
+                  <p>Deleting the project removes every environment and deployment record.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+          <div class="grid gap-1">
+            <h3 class="text-1 font-semibold text-muted">Sizes</h3>
+            <div class="grid grid-cols-1 md-grid-cols-3 gap-3">
+              <div class="accordion accordion-0">
+                <details class="accordion-item" open>
+                  <summary class="accordion-trigger">
+                    <span class="accordion-title">Small</span>
+                  </summary>
+                  <div class="accordion-panel">
+                    <p>Compact padding for dense layouts.</p>
+                  </div>
+                </details>
+                <details class="accordion-item">
+                  <summary class="accordion-trigger">
+                    <span class="accordion-title">Second item</span>
+                  </summary>
+                  <div class="accordion-panel">
+                    <p>Still compact.</p>
+                  </div>
+                </details>
+              </div>
+              <div class="accordion">
+                <details class="accordion-item" open>
+                  <summary class="accordion-trigger">
+                    <span class="accordion-title">Default</span>
+                  </summary>
+                  <div class="accordion-panel">
+                    <p>Standard padding for most content.</p>
+                  </div>
+                </details>
+                <details class="accordion-item">
+                  <summary class="accordion-trigger">
+                    <span class="accordion-title">Second item</span>
+                  </summary>
+                  <div class="accordion-panel">
+                    <p>Standard padding.</p>
+                  </div>
+                </details>
+              </div>
+              <div class="accordion accordion-2">
+                <details class="accordion-item" open>
+                  <summary class="accordion-trigger">
+                    <span class="accordion-title">Large</span>
+                  </summary>
+                  <div class="accordion-panel">
+                    <p>Roomier padding for prominent content.</p>
+                  </div>
+                </details>
+                <details class="accordion-item">
+                  <summary class="accordion-trigger">
+                    <span class="accordion-title">Second item</span>
+                  </summary>
+                  <div class="accordion-panel">
+                    <p>Roomier padding.</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <script type="module" src="./src/pages/theme.ts"></script>
     <script type="module" src="./src/components/sidebar/index.ts"></script>

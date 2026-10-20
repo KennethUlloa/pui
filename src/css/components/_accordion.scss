@@ -1,0 +1,146 @@
+@use "../colors" as colors;
+
+@mixin tokens() {
+	--pui-accordion-background: var(--pui-color-surface-main);
+	--pui-accordion-border-color: var(--pui-color-border-subtle);
+	--pui-accordion-text-color: var(--pui-color-body-main);
+	--pui-accordion-muted-color: var(--pui-color-muted-main);
+	--pui-accordion-hover-background: var(--pui-color-surface-hover);
+	--pui-accordion-radius: var(--pui-border-radius-3, 0.5rem);
+	--pui-accordion-trigger-padding-block: var(--pui-size-3, 1.125rem);
+	--pui-accordion-trigger-padding-inline: var(--pui-size-2, 1rem);
+	--pui-accordion-duration: 150ms;
+	interpolate-size: allow-keywords;
+}
+
+.accordion {
+	background-color: var(--pui-accordion-background, colors.var_token("surface", "main"));
+	border: 1px solid var(--pui-accordion-border-color, colors.var_token("border", "subtle"));
+	border-radius: var(--pui-accordion-radius, 0.5rem);
+	box-sizing: border-box;
+	color: var(--pui-accordion-text-color, colors.var_token("body", "main"));
+	overflow: hidden;
+	width: 100%;
+}
+
+.accordion-item {
+	display: block;
+}
+
+.accordion-item + .accordion-item {
+	border-top: 1px solid var(--pui-accordion-border-color, colors.var_token("border", "subtle"));
+}
+
+.accordion-trigger {
+	align-items: center;
+	background-color: transparent;
+	border: 0;
+	color: var(--pui-accordion-text-color, colors.var_token("body", "main"));
+	cursor: pointer;
+	display: flex;
+	font-size: var(--pui-font-size-1, 0.875rem);
+	font-weight: var(--pui-font-weight-semibold, 600);
+	gap: var(--pui-size-2, 1rem);
+	justify-content: space-between;
+	list-style: none;
+	padding: var(--pui-accordion-trigger-padding-block, 1.125rem) var(--pui-accordion-trigger-padding-inline, 1rem);
+	text-align: start;
+	transition: background-color var(--pui-accordion-duration, 150ms) ease;
+	width: 100%;
+}
+
+.accordion-trigger::-webkit-details-marker {
+	display: none;
+}
+
+.accordion-trigger:hover {
+	background-color: var(--pui-accordion-hover-background, colors.var_token("surface", "hover"));
+}
+
+.accordion-trigger:focus-visible {
+	outline: var(--pui-focus-ring-width, 3px) solid colors.var_token("primary", "main");
+	outline-offset: calc(var(--pui-focus-ring-width, 3px) * -1);
+}
+
+.accordion-trigger::after {
+	border-bottom: var(--pui-border-1, 0.125rem) solid currentColor;
+	border-right: var(--pui-border-1, 0.125rem) solid currentColor;
+	color: var(--pui-accordion-muted-color, colors.var_token("muted", "main"));
+	content: "";
+	flex: 0 0 auto;
+	height: 0.625rem;
+	transform: rotate(45deg);
+	transition:
+		transform var(--pui-accordion-duration, 150ms) ease,
+		color var(--pui-accordion-duration, 150ms) ease;
+	width: 0.625rem;
+}
+
+.accordion-trigger:hover::after {
+	color: colors.var_token("primary", "main");
+}
+
+.accordion-item[open] > .accordion-trigger::after {
+	transform: rotate(225deg);
+}
+
+.accordion-title {
+	min-width: 0;
+}
+
+.accordion-panel {
+	color: var(--pui-accordion-muted-color, colors.var_token("muted", "main"));
+	font-size: var(--pui-font-size-1, 0.875rem);
+	line-height: var(--pui-line-height-normal, 1.5);
+	padding-block-end: var(--pui-size-2, 1rem);
+	padding-inline: var(--pui-size-2, 1rem);
+
+	p + p {
+		margin-top: 0.5rem;
+	}
+}
+
+/* Progressive enhancement: animate the disclosure when the browser supports it */
+@supports (selector(::details-content)) {
+	.accordion-item::details-content {
+		block-size: 0;
+		content-visibility: hidden;
+		overflow: clip;
+		transition:
+			block-size var(--pui-accordion-duration, 150ms) ease,
+			content-visibility var(--pui-accordion-duration, 150ms) allow-discrete;
+	}
+
+	.accordion-item[open]::details-content {
+		block-size: auto;
+		content-visibility: visible;
+	}
+}
+
+.accordion-0 {
+	.accordion-trigger {
+		font-size: var(--pui-font-size-0, 0.75rem);
+		padding-block: var(--pui-size-2, 1rem);
+		padding-inline: var(--pui-size-1, 0.875rem);
+	}
+
+	.accordion-panel {
+		font-size: var(--pui-font-size-0, 0.75rem);
+		padding-block-end: var(--pui-size-1, 0.875rem);
+		padding-inline: var(--pui-size-1, 0.875rem);
+	}
+}
+
+.accordion-2 {
+	.accordion-trigger {
+		font-size: var(--pui-font-size-2, 1rem);
+		padding-block: var(--pui-size-4, 1.25rem);
+		padding-inline: var(--pui-size-3, 1.125rem);
+	}
+
+	.accordion-panel {
+		font-size: var(--pui-font-size-2, 1rem);
+		padding-block-end: var(--pui-size-3, 1.125rem);
+		padding-inline: var(--pui-size-3, 1.125rem);
+	}
+}
