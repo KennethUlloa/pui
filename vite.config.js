@@ -2,12 +2,12 @@ import { resolve } from "node:path";
 import { defineConfig } from "vite";
 import { sassPlugin } from "./plugins/sass.js";
 import { modifyHtmlFiles } from "./plugins/modifiers.js";
-import { PUI_VERSION, BASE_URL } from "./meta.js";
+import { KPUI_VERSION, BASE_URL } from "./meta.js";
 
-const outDir = PUI_VERSION ? "dist/" + PUI_VERSION : "dist";
+const outDir = KPUI_VERSION ? "dist/" + KPUI_VERSION : "dist";
 
 const cssOutput = resolve(`${outDir}/css/index.css`);
-let basePath = [BASE_URL, PUI_VERSION].filter(Boolean).join("/");
+let basePath = [BASE_URL, KPUI_VERSION].filter(Boolean).join("/");
 
 if (basePath.endsWith("/")) {
   basePath = basePath.slice(0, -1);
@@ -20,7 +20,7 @@ if (basePath && !basePath.startsWith("/")) {
 export default defineConfig({
   plugins: [
     sassPlugin({ cssOutput }),
-    modifyHtmlFiles((html) => html.replaceAll("{{version}}", PUI_VERSION).replaceAll("href=\"./",`href="${basePath}/`)),
+    modifyHtmlFiles((html) => html.replaceAll("{{version}}", KPUI_VERSION).replaceAll("href=\"./",`href="${basePath}/`)),
   ],
   css: {
     preprocessorOptions: {

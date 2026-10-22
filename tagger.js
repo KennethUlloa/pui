@@ -1,2 +1,2 @@
-import { PUI_VERSION } from "./meta.js";
-console.log(PUI_VERSION);
+import { KPUI_VERSION } from "./meta.js";
+console.log(KPUI_VERSION);

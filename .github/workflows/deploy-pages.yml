@@ -78,17 +78,17 @@ jobs:
         with:
           node-version: 22
 
-      - name: Read PUI version
+      - name: Read KPUI version
         id: pui-version
         run: |
           VERSION="$(node tagger.js | tr -d '[:space:]')"
           if [ -z "$VERSION" ]; then
-            echo "::error::Could not read PUI_VERSION from tagger.js"
+            echo "::error::Could not read KPUI_VERSION from tagger.js"
             exit 1
           fi
-          echo "PUI_VERSION=$VERSION" >> "$GITHUB_ENV"
+          echo "KPUI_VERSION=$VERSION" >> "$GITHUB_ENV"
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
-          echo "PUI version: $VERSION"
+          echo "KPUI version: $VERSION"
 
       - name: Create and push version tag
         env:
