@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync } from "node:fs";
-const { PUI_VERSION, BASE_URL } = process.env;
+import { PUI_VERSION, BASE_URL } from "./meta.js";
 
 const outDir = "dist";
 const baseUrl = BASE_URL || "";

@@ -1,0 +1,119 @@
+name: Deploy to GitHub Pages
+
+on:
+  workflow_dispatch:
+    inputs:
+      recreate_tag:
+        description: "Recreate the version tag on the latest commit (deletes the existing tag first). Set to false to keep the current tag untouched, useful when a failure did not require changing the tagged commit."
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 12
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build:redirect
+        env:
+          BASE_URL: ${{ github.event.repository.name }}
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  tag:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Read PUI version
+        id: pui-version
+        run: |
+          VERSION="$(node tagger.js | tr -d '[:space:]')"
+          if [ -z "$VERSION" ]; then
+            echo "::error::Could not read PUI_VERSION from tagger.js"
+            exit 1
+          fi
+          echo "PUI_VERSION=$VERSION" >> "$GITHUB_ENV"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "PUI version: $VERSION"
+
+      - name: Create and push version tag
+        env:
+          TAG: ${{ steps.pui-version.outputs.version }}
+          RECREATE_TAG: ${{ inputs.recreate_tag }}
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          RECREATE="${RECREATE_TAG:-true}"
+
+          if git ls-remote --exit-code --tags origin "refs/tags/$TAG" > /dev/null 2>&1; then
+            if [ "$RECREATE" = "false" ]; then
+              git fetch origin "refs/tags/$TAG:refs/tags/$TAG" --force 2> /dev/null || true
+              echo "::notice::Tag '$TAG' already exists and recreate_tag is false, keeping it as is."
+              echo "Tag '$TAG' points to $(git rev-list -n 1 "$TAG" 2> /dev/null || echo 'unknown'), HEAD is $(git rev-parse HEAD)."
+              exit 0
+            fi
+            echo "Tag '$TAG' already exists, deleting it..."
+            git push origin --delete "$TAG"
+            git tag -d "$TAG" 2> /dev/null || true
+          fi
+
+          git tag -a "$TAG" -m "Release $TAG" HEAD
+          git push origin "$TAG"
+          echo "Tag '$TAG' created at $(git rev-parse HEAD) and pushed to origin"

@@ -2,9 +2,7 @@ import { resolve } from "node:path";
 import { defineConfig } from "vite";
 import { sassPlugin } from "./plugins/sass.js";
 import { modifyHtmlFiles } from "./plugins/modifiers.js";
-
-const { BASE_URL } = process.env;
-const PUI_VERSION = "0.0.0-beta";
+import { PUI_VERSION, BASE_URL } from "./meta.js";
 
 const outDir = PUI_VERSION ? "dist/" + PUI_VERSION : "dist";
 
