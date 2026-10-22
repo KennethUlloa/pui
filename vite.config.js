@@ -3,7 +3,8 @@ import { defineConfig } from "vite";
 import { sassPlugin } from "./plugins/sass.js";
 import { modifyHtmlFiles } from "./plugins/modifiers.js";
 
-const { PUI_VERSION, BASE_URL } = process.env;
+const { BASE_URL } = process.env;
+const PUI_VERSION = "0.0.0-beta";
 
 const outDir = PUI_VERSION ? "dist/" + PUI_VERSION : "dist";
 
@@ -21,7 +22,7 @@ if (basePath && !basePath.startsWith("/")) {
 export default defineConfig({
   plugins: [
     sassPlugin({ cssOutput }),
-    modifyHtmlFiles((html) => html.replaceAll("{{version}}", PUI_VERSION)),
+    modifyHtmlFiles((html) => html.replaceAll("{{version}}", PUI_VERSION).replaceAll("href=\"./",`href="${basePath}/`)),
   ],
   css: {
     preprocessorOptions: {

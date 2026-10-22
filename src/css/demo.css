@@ -34,6 +34,25 @@
   outline-offset: 2px;
 }
 
+.demo-sidebar-stage {
+  background-color: var(--pui-color-background-main);
+  border: 1px solid var(--pui-color-border-subtle);
+  border-radius: var(--pui-border-radius-3, 0.5rem);
+  block-size: 24rem;
+  display: grid;
+  gap: var(--pui-size-8, 3rem);
+  grid-auto-rows: minmax(0, 1fr);
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(0, 1fr);
+  padding-inline: var(--pui-size-6, 1.875rem);
+}
+
+@media (min-width: 768px) {
+  .demo-sidebar-stage {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 40rem) {
   .demo-navbar-controls {
     align-items: flex-start;

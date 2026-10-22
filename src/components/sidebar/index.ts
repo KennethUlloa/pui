@@ -10,30 +10,46 @@ class PuiSidebar extends HTMLElement {
 
     const options = { signal: this.#listeners.signal };
 
-    for (const disclosure of this.querySelectorAll<HTMLDetailsElement>("details[data-sidebar-disclosure]")) {
-      const summary = disclosure.querySelector<HTMLElement>(":scope > summary");
-      const content = disclosure.querySelector<HTMLElement>(":scope > .sidebar-content, :scope > .sidebar-group-content");
-      if (!summary || !content) continue;
+    const content = this.querySelector<HTMLElement>(":scope > .sidebar-content");
+    const toggle = this.querySelector<HTMLButtonElement>(":scope > [data-sidebar-toggle]");
 
+    if (content && toggle) {
       if (!content.id) content.id = `pui-sidebar-content-${++nextPanelId}`;
-      summary.setAttribute("aria-controls", content.id);
+      toggle.setAttribute("aria-controls", content.id);
 
-      const isSidebarDisclosure = disclosure.parentElement === this;
-      const syncState = () => {
-        const collapsed = !disclosure.hasAttribute("open");
-        summary.setAttribute("aria-expanded", String(!collapsed));
-        if (isSidebarDisclosure) this.dataset.collapsed = String(collapsed);
+      const syncPanel = () => {
+        const collapsed = this.dataset.collapsed === "true";
+        toggle.setAttribute("aria-expanded", String(!collapsed));
         content.setAttribute("aria-hidden", String(collapsed));
         content.toggleAttribute("inert", collapsed);
       };
 
-      const toggleDisclosure = () => {
-        if (disclosure.hasAttribute("open")) {
-          disclosure.removeAttribute("open");
-        } else {
-          disclosure.setAttribute("open", "");
-        }
-        syncState();
+      toggle.addEventListener("click", () => {
+        this.dataset.collapsed = String(this.dataset.collapsed !== "true");
+        syncPanel();
+      }, options);
+
+      syncPanel();
+    }
+
+    for (const disclosure of this.querySelectorAll<HTMLDetailsElement>("details[data-sidebar-disclosure]")) {
+      const summary = disclosure.querySelector<HTMLElement>(":scope > summary");
+      const groupContent = disclosure.querySelector<HTMLElement>(":scope > .sidebar-group-content");
+      if (!summary || !groupContent) continue;
+
+      if (!groupContent.id) groupContent.id = `pui-sidebar-content-${++nextPanelId}`;
+      summary.setAttribute("aria-controls", groupContent.id);
+
+      const syncGroup = () => {
+        const collapsed = !disclosure.hasAttribute("open");
+        summary.setAttribute("aria-expanded", String(!collapsed));
+        groupContent.setAttribute("aria-hidden", String(collapsed));
+        groupContent.toggleAttribute("inert", collapsed);
+      };
+
+      const toggleGroup = () => {
+        disclosure.toggleAttribute("open");
+        syncGroup();
       };
 
       if (!supportsDetails) {
@@ -41,20 +57,20 @@ class PuiSidebar extends HTMLElement {
         summary.tabIndex = 0;
         summary.addEventListener("click", (event) => {
           event.preventDefault();
-          toggleDisclosure();
+          toggleGroup();
         }, options);
 
         summary.addEventListener("keydown", (event) => {
           if (event.key === "Enter" || event.key === " ") {
             event.preventDefault();
-            toggleDisclosure();
+            toggleGroup();
           }
         }, options);
       } else {
-        disclosure.addEventListener("toggle", syncState, options);
+        disclosure.addEventListener("toggle", syncGroup, options);
       }
 
-      syncState();
+      syncGroup();
     }
   }
 

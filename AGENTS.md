@@ -6,6 +6,7 @@ Always use `pnpm` for installing dependencies and running scripts (never `npm`).
 
 - Install: `pnpm install`
 - Run scripts: `pnpm <script>` (e.g. `pnpm build`, `pnpm dev`)
+- Avoid running multiple instances of `pnpm run dev` in different ports, ask the user if there's currently running an instance of the app in dev mode.
 
 ## Build / checks
 
