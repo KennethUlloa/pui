@@ -73,13 +73,13 @@ $avatar-sizes: (
 }
 
 @each $name in ("primary", "secondary", "tertiary", "success", "warning", "error", "info") {
-  $foreground: colors.var_token("white", "main");
+  $foreground: colors.color_token("white", "main");
   @if map.has-key(map.get(colors.$colors, $name), "contrast") {
-    $foreground: colors.var_token($name, "contrast");
+    $foreground: colors.color_token($name, "contrast");
   }
 
   .avatar-#{$name} {
-    background-color: colors.var_token($name, "main");
+    background-color: colors.color_token($name, "main");
     color: $foreground;
   }
 }

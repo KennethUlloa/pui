@@ -24,8 +24,8 @@ $widths: (
 .spinner {
     --s-size: 5rem;
     --s-width: 0.25rem;
-    --s-bg-color: #{colors.var_token("border", "transparent")};
-    --s-fg-color: #{colors.var_token("primary", "main")};
+    --s-bg-color: #{colors.color_token("border", "transparent")};
+    --s-fg-color: #{colors.color_token("primary", "main")};
     border: var(--s-width) solid var(--s-bg-color);
     border-radius: 50%;
     border-right-color: var(--s-fg-color);
@@ -35,7 +35,7 @@ $widths: (
 
     @each $color in colors.$semantic-colors {
         &-#{$color} {
-            --s-fg-color: #{colors.var_token($color, "main")};
+            --s-fg-color: #{colors.color_token($color, "main")};
         }
     }
 
@@ -95,6 +95,6 @@ $widths: (
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: colors.var_token("background", "transparent");
+        background-color: colors.color_token("background", "transparent");
     }
 }

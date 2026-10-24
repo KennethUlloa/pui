@@ -5,7 +5,7 @@
     @each $name, $color in colors.$colors {
         @each $level, $value in $color {
             .bg-#{colors.color-path($name, $level)} {
-                background: colors.var_token($name, $level);
+                background: colors.color_token($name, $level);
             }
         }
     }

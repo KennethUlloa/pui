@@ -14,12 +14,12 @@
 }
 
 .popover {
-	background-color: var(--pui-popover-background, colors.var_token("surface", "main"));
-	border: 1px solid var(--pui-popover-border-color, colors.var_token("border", "subtle"));
+	background-color: var(--pui-popover-background, colors.color_token("surface", "main"));
+	border: 1px solid var(--pui-popover-border-color, colors.color_token("border", "subtle"));
 	border-radius: var(--pui-popover-radius, 0.5rem);
 	box-shadow: var(--pui-popover-shadow);
 	box-sizing: border-box;
-	color: var(--pui-popover-text-color, colors.var_token("body", "main"));
+	color: var(--pui-popover-text-color, colors.color_token("body", "main"));
 	font-family: var(--pui-font-family-sans, sans-serif);
 	font-size: var(--pui-font-size-1, 0.875rem);
 	inset: 0;
@@ -56,7 +56,7 @@
 	}
 
 	p {
-		color: var(--pui-popover-muted-color, colors.var_token("muted", "main"));
+		color: var(--pui-popover-muted-color, colors.color_token("muted", "main"));
 		margin: 0;
 	}
 
@@ -65,7 +65,7 @@
 	}
 
 	strong {
-		color: var(--pui-popover-text-color, colors.var_token("body", "main"));
+		color: var(--pui-popover-text-color, colors.color_token("body", "main"));
 		display: block;
 		font-weight: var(--pui-font-weight-semibold, 600);
 	}
@@ -92,7 +92,7 @@
 }
 
 .popover-title {
-	color: var(--pui-popover-text-color, colors.var_token("body", "main"));
+	color: var(--pui-popover-text-color, colors.color_token("body", "main"));
 	font-size: var(--pui-font-size-1, 0.875rem);
 	font-weight: var(--pui-font-weight-semibold, 600);
 	line-height: 1.25;
@@ -104,7 +104,7 @@
 	background: transparent;
 	border: 0;
 	border-radius: var(--pui-border-radius-1, 0.25rem);
-	color: var(--pui-popover-muted-color, colors.var_token("muted", "main"));
+	color: var(--pui-popover-muted-color, colors.color_token("muted", "main"));
 	cursor: pointer;
 	display: inline-flex;
 	flex: 0 0 auto;
@@ -115,8 +115,8 @@
 	padding: 0.25rem;
 
 	&:hover {
-		background-color: colors.var_token("surface", "hover");
-		color: var(--pui-popover-text-color, colors.var_token("body", "main"));
+		background-color: colors.color_token("surface", "hover");
+		color: var(--pui-popover-text-color, colors.color_token("body", "main"));
 	}
 
 	@include interaction.focus-ring();

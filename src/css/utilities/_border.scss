@@ -45,7 +45,7 @@ $default-value: 0.25rem;
     @each $name, $color in colors.$colors {
         @each $level, $value in $color {
             .border-#{colors.color-path($name, $level)} {
-                border-color: colors.var_token($name, $level);
+                border-color: colors.color_token($name, $level);
             }
         }
     }

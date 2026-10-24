@@ -20,12 +20,12 @@
 }
 
 .dropdown {
-	background-color: var(--pui-dropdown-background, colors.var_token("surface", "main"));
-	border: 1px solid var(--pui-dropdown-border-color, colors.var_token("border", "subtle"));
+	background-color: var(--pui-dropdown-background, colors.color_token("surface", "main"));
+	border: 1px solid var(--pui-dropdown-border-color, colors.color_token("border", "subtle"));
 	border-radius: var(--pui-dropdown-radius, 0.375rem);
 	box-shadow: var(--pui-dropdown-shadow);
 	box-sizing: border-box;
-	color: var(--pui-dropdown-text-color, colors.var_token("body", "main"));
+	color: var(--pui-dropdown-text-color, colors.color_token("body", "main"));
 	font-family: var(--pui-font-family-sans, sans-serif);
 	font-size: var(--pui-font-size-1, 0.875rem);
 	inset: 0;
@@ -79,7 +79,7 @@
 	border: 0;
 	border-radius: var(--pui-border-radius-1, 0.25rem);
 	box-sizing: border-box;
-	color: var(--pui-dropdown-text-color, colors.var_token("body", "main"));
+	color: var(--pui-dropdown-text-color, colors.color_token("body", "main"));
 	cursor: pointer;
 	display: flex;
 	font: inherit;
@@ -90,11 +90,11 @@
 	width: 100%;
 
 	&:hover:not(:disabled):not([aria-disabled="true"]) {
-		background-color: var(--pui-dropdown-item-hover-background, colors.var_token("surface", "hover"));
+		background-color: var(--pui-dropdown-item-hover-background, colors.color_token("surface", "hover"));
 	}
 
 	&:active:not(:disabled):not([aria-disabled="true"]) {
-		background-color: var(--pui-dropdown-item-active-background, colors.var_token("surface", "active"));
+		background-color: var(--pui-dropdown-item-active-background, colors.color_token("surface", "active"));
 	}
 
 	&:disabled,
@@ -114,19 +114,19 @@
 }
 
 .dropdown-item-danger {
-	color: var(--pui-dropdown-item-danger-color, colors.var_token("error", "main"));
+	color: var(--pui-dropdown-item-danger-color, colors.color_token("error", "main"));
 
 	&:hover:not(:disabled):not([aria-disabled="true"]) {
-		background-color: color-mix(in srgb, colors.var_token("error", "main") 10%, transparent);
+		background-color: color-mix(in srgb, colors.color_token("error", "main") 10%, transparent);
 	}
 
 	&:active:not(:disabled):not([aria-disabled="true"]) {
-		background-color: color-mix(in srgb, colors.var_token("error", "main") 18%, transparent);
+		background-color: color-mix(in srgb, colors.color_token("error", "main") 18%, transparent);
 	}
 }
 
 .dropdown-item-icon {
-	color: var(--pui-dropdown-muted-color, colors.var_token("muted", "main"));
+	color: var(--pui-dropdown-muted-color, colors.color_token("muted", "main"));
 	display: inline-flex;
 	flex: 0 0 auto;
 }
@@ -136,7 +136,7 @@
 }
 
 .dropdown-label {
-	color: var(--pui-dropdown-muted-color, colors.var_token("muted", "main"));
+	color: var(--pui-dropdown-muted-color, colors.color_token("muted", "main"));
 	display: block;
 	font-size: var(--pui-font-size-0, 0.75rem);
 	font-weight: var(--pui-font-weight-semibold, 600);
@@ -145,7 +145,7 @@
 }
 
 .dropdown-divider {
-	background-color: var(--pui-dropdown-divider-color, colors.var_token("border", "subtle"));
+	background-color: var(--pui-dropdown-divider-color, colors.color_token("border", "subtle"));
 	border: 0;
 	height: 1px;
 	margin: 0.25rem 0;

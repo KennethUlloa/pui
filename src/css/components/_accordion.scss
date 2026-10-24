@@ -14,11 +14,11 @@
 }
 
 .accordion {
-	background-color: var(--pui-accordion-background, colors.var_token("surface", "main"));
-	border: 1px solid var(--pui-accordion-border-color, colors.var_token("border", "subtle"));
+	background-color: var(--pui-accordion-background, colors.color_token("surface", "main"));
+	border: 1px solid var(--pui-accordion-border-color, colors.color_token("border", "subtle"));
 	border-radius: var(--pui-accordion-radius, 0.5rem);
 	box-sizing: border-box;
-	color: var(--pui-accordion-text-color, colors.var_token("body", "main"));
+	color: var(--pui-accordion-text-color, colors.color_token("body", "main"));
 	overflow: hidden;
 	width: 100%;
 }
@@ -28,14 +28,14 @@
 }
 
 .accordion-item + .accordion-item {
-	border-top: 1px solid var(--pui-accordion-border-color, colors.var_token("border", "subtle"));
+	border-top: 1px solid var(--pui-accordion-border-color, colors.color_token("border", "subtle"));
 }
 
 .accordion-trigger {
 	align-items: center;
 	background-color: transparent;
 	border: 0;
-	color: var(--pui-accordion-text-color, colors.var_token("body", "main"));
+	color: var(--pui-accordion-text-color, colors.color_token("body", "main"));
 	cursor: pointer;
 	display: flex;
 	font-size: var(--pui-font-size-1, 0.875rem);
@@ -54,18 +54,18 @@
 }
 
 .accordion-trigger:hover {
-	background-color: var(--pui-accordion-hover-background, colors.var_token("surface", "hover"));
+	background-color: var(--pui-accordion-hover-background, colors.color_token("surface", "hover"));
 }
 
 .accordion-trigger:focus-visible {
-	outline: var(--pui-focus-ring-width, 3px) solid colors.var_token("primary", "main");
+	outline: var(--pui-focus-ring-width, 3px) solid colors.color_token("primary", "main");
 	outline-offset: calc(var(--pui-focus-ring-width, 3px) * -1);
 }
 
 .accordion-trigger::after {
 	border-bottom: var(--pui-border-1, 0.125rem) solid currentColor;
 	border-right: var(--pui-border-1, 0.125rem) solid currentColor;
-	color: var(--pui-accordion-muted-color, colors.var_token("muted", "main"));
+	color: var(--pui-accordion-muted-color, colors.color_token("muted", "main"));
 	content: "";
 	flex: 0 0 auto;
 	height: 0.625rem;
@@ -77,7 +77,7 @@
 }
 
 .accordion-trigger:hover::after {
-	color: colors.var_token("primary", "main");
+	color: colors.color_token("primary", "main");
 }
 
 .accordion-item[open] > .accordion-trigger::after {
@@ -89,7 +89,7 @@
 }
 
 .accordion-panel {
-	color: var(--pui-accordion-muted-color, colors.var_token("muted", "main"));
+	color: var(--pui-accordion-muted-color, colors.color_token("muted", "main"));
 	font-size: var(--pui-font-size-1, 0.875rem);
 	line-height: var(--pui-line-height-normal, 1.5);
 	padding-block-end: var(--pui-size-2, 1rem);

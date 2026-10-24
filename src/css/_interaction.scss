@@ -111,13 +111,13 @@ $cursors: (
 
       .hover-bg-#{$color-path} {
         &:hover:not(:disabled):not([aria-disabled="true"]) {
-          background-color: colors.var_token($name, $level);
+          background-color: colors.color_token($name, $level);
         }
       }
 
       .active-bg-#{$color-path} {
         &:active:not(:disabled):not([aria-disabled="true"]) {
-          background-color: colors.var_token($name, $level);
+          background-color: colors.color_token($name, $level);
         }
       }
     }

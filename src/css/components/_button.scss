@@ -42,64 +42,64 @@ $semantic-colors: ("primary", "secondary", "tertiary", "success", "warning", "er
 }
 
 @each $name in $semantic-colors {
-	$foreground: colors.var_token("white", "main");
+	$foreground: colors.color_token("white", "main");
 	@if map.has-key(map.get(colors.$colors, $name), "contrast") {
-		$foreground: colors.var_token($name, "contrast");
+		$foreground: colors.color_token($name, "contrast");
 	}
 
 	.btn-#{$name} {
-		background-color: colors.var_token($name, "main");
-		border-color: colors.var_token($name, "main");
+		background-color: colors.color_token($name, "main");
+		border-color: colors.color_token($name, "main");
 		color: $foreground;
 
 		&:hover:not(:disabled):not([aria-disabled="true"]) {
-			background-color: color-mix(in srgb, colors.var_token($name, "main") 88%, colors.var_token("background", "contrast"));
-			border-color: color-mix(in srgb, colors.var_token($name, "main") 88%, colors.var_token("background", "contrast"));
+			background-color: color-mix(in srgb, colors.color_token($name, "main") 88%, colors.color_token("background", "contrast"));
+			border-color: color-mix(in srgb, colors.color_token($name, "main") 88%, colors.color_token("background", "contrast"));
 		}
 
 		&:active:not(:disabled):not([aria-disabled="true"]) {
-			background-color: color-mix(in srgb, colors.var_token($name, "main") 78%, colors.var_token("background", "contrast"));
-			border-color: color-mix(in srgb, colors.var_token($name, "main") 78%, colors.var_token("background", "contrast"));
+			background-color: color-mix(in srgb, colors.color_token($name, "main") 78%, colors.color_token("background", "contrast"));
+			border-color: color-mix(in srgb, colors.color_token($name, "main") 78%, colors.color_token("background", "contrast"));
 		}
 	}
 
 	.btn-outline-#{$name} {
 		background-color: transparent;
-		border-color: colors.var_token($name, "main");
-		color: colors.var_token($name, "main");
+		border-color: colors.color_token($name, "main");
+		color: colors.color_token($name, "main");
 
 		&:hover:not(:disabled):not([aria-disabled="true"]) {
-			background-color: color-mix(in srgb, colors.var_token($name, "main") 10%, transparent);
+			background-color: color-mix(in srgb, colors.color_token($name, "main") 10%, transparent);
 		}
 
 		&:active:not(:disabled):not([aria-disabled="true"]) {
-			background-color: color-mix(in srgb, colors.var_token($name, "main") 18%, transparent);
+			background-color: color-mix(in srgb, colors.color_token($name, "main") 18%, transparent);
 		}
 	}
 
 	.btn-ghost-#{$name} {
 		background-color: transparent;
 		border-color: transparent;
-		color: colors.var_token($name, "main");
+		color: colors.color_token($name, "main");
 
 		&:hover:not(:disabled):not([aria-disabled="true"]) {
-			background-color: color-mix(in srgb, colors.var_token($name, "main") 10%, transparent);
+			background-color: color-mix(in srgb, colors.color_token($name, "main") 10%, transparent);
 		}
 
 		&:active:not(:disabled):not([aria-disabled="true"]) {
-			background-color: color-mix(in srgb, colors.var_token($name, "main") 18%, transparent);
+			background-color: color-mix(in srgb, colors.color_token($name, "main") 18%, transparent);
 		}
 	}
 }
 
 .btn-outline {
 	background-color: transparent;
-	border-color: colors.var_token("border", "strong");
-	color: colors.var_token("body", "main");
+	border-color: colors.color_token("border", "strong");
+	color: colors.color_token("body", "main");
 }
 
 .btn-ghost {
 	background-color: transparent;
 	border-color: transparent;
-	color: colors.var_token("body", "main");
+	color: colors.color_token("body", "main");
 }

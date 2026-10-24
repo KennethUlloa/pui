@@ -45,7 +45,7 @@ html * {
 }
 
 a {
-    color: colors.var_token("primary", "main");
+    color: colors.color_token("primary", "main");
     text-decoration: none;
 }
 /* Utilities */

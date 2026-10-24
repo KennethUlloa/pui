@@ -2,11 +2,11 @@
 @use "../interaction" as interaction;
 
 @mixin input-props() {
-  background-color: colors.var_token("surface", "main");
-  border: 1px solid colors.var_token("border", "main");
+  background-color: colors.color_token("surface", "main");
+  border: 1px solid colors.color_token("border", "main");
   border-radius: var(--pui-border-radius-2, 0.375rem);
   box-sizing: border-box;
-  color: colors.var_token("body", "main");
+  color: colors.color_token("body", "main");
   font-family: var(--pui-font-family-sans, sans-serif);
   font-size: var(--pui-font-size-2, 1rem);
   font-weight: var(--pui-font-weight-normal, 400);
@@ -23,8 +23,8 @@
   input:not([type="checkbox"]):not([type="radio"]),
   select,
   textarea {
-    background-color: colors.var_token("surface", "main");
-    color: colors.var_token("body", "main");
+    background-color: colors.color_token("surface", "main");
+    color: colors.color_token("body", "main");
   }
 
   .input,
@@ -33,11 +33,11 @@
     @include input-props();
     display: block;
     &:hover:not(:disabled):not([aria-disabled="true"]) {
-      border-color: colors.var_token("border", "strong");
+      border-color: colors.color_token("border", "strong");
     }
 
     &::placeholder {
-      color: colors.var_token("muted", "main");
+      color: colors.color_token("muted", "main");
       opacity: 1;
     }
 
@@ -60,7 +60,7 @@
       border: none;
 
       &::placeholder {
-        color: colors.var_token("muted", "main");
+        color: colors.color_token("muted", "main");
         opacity: 1;
       }
     }
@@ -92,7 +92,7 @@
 @mixin checkbox-radio-classes() {
   .checkbox,
   .radio {
-    accent-color: colors.var_token("primary", "main");
+    accent-color: colors.color_token("primary", "main");
     block-size: 1rem;
     cursor: pointer;
     flex: 0 0 auto;

@@ -3,8 +3,8 @@
 @use "../sizing" as sizing;
 
 @mixin tokens() {
-    --pui-card-border: borders.level_token("0") solid colors.var_token("border", "subtle");
-    --pui-card-background: colors.var_token("surface", "main");
+    --pui-card-border: borders.level_token("0") solid colors.color_token("border", "subtle");
+    --pui-card-background: colors.color_token("surface", "main");
     --pui-card-spacing: sizing.size_token("2");
 }
 

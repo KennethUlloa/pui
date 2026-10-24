@@ -18,12 +18,12 @@ pui-dialog {
 }
 
 .dialog {
-	background-color: var(--pui-dialog-background, colors.var_token("surface", "main"));
-	border: 1px solid var(--pui-dialog-border-color, colors.var_token("border", "subtle"));
+	background-color: var(--pui-dialog-background, colors.color_token("surface", "main"));
+	border: 1px solid var(--pui-dialog-border-color, colors.color_token("border", "subtle"));
 	border-radius: var(--pui-dialog-radius, 0.75rem);
 	box-shadow: var(--pui-dialog-shadow);
 	box-sizing: border-box;
-	color: var(--pui-dialog-text-color, colors.var_token("body", "main"));
+	color: var(--pui-dialog-text-color, colors.color_token("body", "main"));
 	font-family: var(--pui-font-family-sans, sans-serif);
 	font-size: var(--pui-font-size-1, 0.875rem);
 	line-height: var(--pui-line-height-normal, 1.5);
@@ -85,7 +85,7 @@ pui-dialog {
 
 .dialog-header {
 	align-items: flex-start;
-	border-bottom: 1px solid var(--pui-dialog-border-color, colors.var_token("border", "subtle"));
+	border-bottom: 1px solid var(--pui-dialog-border-color, colors.color_token("border", "subtle"));
 	display: flex;
 	gap: 0.75rem;
 	justify-content: space-between;
@@ -93,7 +93,7 @@ pui-dialog {
 }
 
 .dialog-title {
-	color: var(--pui-dialog-text-color, colors.var_token("body", "main"));
+	color: var(--pui-dialog-text-color, colors.color_token("body", "main"));
 	font-size: var(--pui-font-size-2, 1rem);
 	font-weight: var(--pui-font-weight-semibold, 600);
 	line-height: 1.3;
@@ -101,7 +101,7 @@ pui-dialog {
 }
 
 .dialog-content {
-	color: var(--pui-dialog-muted-color, colors.var_token("muted", "main"));
+	color: var(--pui-dialog-muted-color, colors.color_token("muted", "main"));
 	overflow-y: auto;
 	padding: 1.25rem;
 
@@ -116,8 +116,8 @@ pui-dialog {
 
 .dialog-footer {
 	align-items: center;
-	background-color: colors.var_token("background", "main");
-	border-top: 1px solid var(--pui-dialog-border-color, colors.var_token("border", "subtle"));
+	background-color: colors.color_token("background", "main");
+	border-top: 1px solid var(--pui-dialog-border-color, colors.color_token("border", "subtle"));
 	display: flex;
 	gap: 0.5rem;
 	justify-content: flex-end;
@@ -129,7 +129,7 @@ pui-dialog {
 	background: transparent;
 	border: 0;
 	border-radius: var(--pui-border-radius-1, 0.25rem);
-	color: var(--pui-dialog-muted-color, colors.var_token("muted", "main"));
+	color: var(--pui-dialog-muted-color, colors.color_token("muted", "main"));
 	cursor: pointer;
 	display: inline-flex;
 	flex: 0 0 auto;
@@ -140,8 +140,8 @@ pui-dialog {
 	padding: 0.25rem;
 
 	&:hover {
-		background-color: colors.var_token("surface", "hover");
-		color: var(--pui-dialog-text-color, colors.var_token("body", "main"));
+		background-color: colors.color_token("surface", "hover");
+		color: var(--pui-dialog-text-color, colors.color_token("body", "main"));
 	}
 
 	@include interaction.focus-ring();

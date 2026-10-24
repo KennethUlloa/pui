@@ -6,7 +6,7 @@ $alignments: ("left", "center", "right");
     @each $name, $color in colors.$colors {
         @each $level, $value in $color {
             .text-#{colors.color-path($name, $level)} {
-                color: colors.var_token($name, $level);
+                color: colors.color_token($name, $level);
             }
         }
     }
