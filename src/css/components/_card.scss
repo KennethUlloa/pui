@@ -1,0 +1,16 @@
+@use "../utilities/border" as borders;
+@use "../colors" as colors;
+@use "../sizing" as sizing;
+
+@mixin tokens() {
+    --pui-card-border: borders.level_token("0") solid colors.var_token("border", "subtle");
+    --pui-card-background: colors.var_token("surface", "main");
+    --pui-card-spacing: sizing.size_token("2");
+}
+
+
+.card {
+    border: var(--pui-card-border);
+    background: var(--pui-card-background);
+    padding: var(--pui-card-spacing);
+}

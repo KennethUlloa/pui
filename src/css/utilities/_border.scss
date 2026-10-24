@@ -1,6 +1,9 @@
+@use "sass:map";
 @use "../_colors" as colors;
 
+
 $levels: (
+    "0": 1px,
     "1": 0.125rem,
     "2": 0.25rem,
     "3": 0.375rem,
@@ -23,6 +26,10 @@ $radii: (
 );
 
 $default-value: 0.25rem;
+
+@function level_token($level) {
+    @return var(--pui-border-#{$level}, map.get($levels, $level));
+}
 
 @mixin tokens() {
     @each $name, $level in $levels {

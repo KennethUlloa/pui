@@ -3,108 +3,108 @@
 @mixin padding-classes() {
     @each $name, $value in sizing.$sizes {
         .p-#{$name} {
-            padding: sizing.token($name);
+            padding: sizing.size_token($name);
             &-i {
-                padding: sizing.token($name) !important;
+                padding: sizing.size_token($name) !important;
             }
         }
 
         .px-#{$name} {
-            padding-left: sizing.token($name);
-            padding-right: sizing.token($name);
+            padding-left: sizing.size_token($name);
+            padding-right: sizing.size_token($name);
             &-i {
-                padding-left: sizing.token($name) !important;
-                padding-right: sizing.token($name) !important;
+                padding-left: sizing.size_token($name) !important;
+                padding-right: sizing.size_token($name) !important;
             }
         }
 
         .py-#{$name} {
-            padding-top: sizing.token($name);
-            padding-bottom: sizing.token($name);
+            padding-top: sizing.size_token($name);
+            padding-bottom: sizing.size_token($name);
             &-i {
-                padding-top: sizing.token($name) !important;
-                padding-bottom: sizing.token($name) !important;
+                padding-top: sizing.size_token($name) !important;
+                padding-bottom: sizing.size_token($name) !important;
             }
         }
 
         .pt-#{$name} {
-            padding-top: sizing.token($name);
+            padding-top: sizing.size_token($name);
             &-i {
-                padding-top: sizing.token($name) !important;
+                padding-top: sizing.size_token($name) !important;
             }
         }
 
         .pb-#{$name} {
-            padding-bottom: sizing.token($name);
+            padding-bottom: sizing.size_token($name);
             &-i {
-                padding-bottom: sizing.token($name) !important;
+                padding-bottom: sizing.size_token($name) !important;
             }
         }
 
         .pl-#{$name} {
-            padding-left: sizing.token($name);
+            padding-left: sizing.size_token($name);
             &-i {
-                padding-left: sizing.token($name) !important;
+                padding-left: sizing.size_token($name) !important;
             }
         }
 
         .pr-#{$name} {
-            padding-right: sizing.token($name);
+            padding-right: sizing.size_token($name);
             &-i {
-                padding-right: sizing.token($name) !important;
+                padding-right: sizing.size_token($name) !important;
             }
         }
 
         .-p-#{$name} {
-            padding: calc(-1 * sizing.token($name));
+            padding: calc(-1 * sizing.size_token($name));
             &-i {
-                padding: calc(-1 * sizing.token($name)) !important;
+                padding: calc(-1 * sizing.size_token($name)) !important;
             }
         }
 
         .-px-#{$name} {
-            padding-left: calc(-1 * sizing.token($name));
-            padding-right: calc(-1 * sizing.token($name));
+            padding-left: calc(-1 * sizing.size_token($name));
+            padding-right: calc(-1 * sizing.size_token($name));
             &-i {
-                padding-left: calc(-1 * sizing.token($name)) !important;
-                padding-right: calc(-1 * sizing.token($name)) !important;
+                padding-left: calc(-1 * sizing.size_token($name)) !important;
+                padding-right: calc(-1 * sizing.size_token($name)) !important;
             }
         }
 
         .-py-#{$name} {
-            padding-top: calc(-1 * sizing.token($name));
-            padding-bottom: calc(-1 * sizing.token($name));
+            padding-top: calc(-1 * sizing.size_token($name));
+            padding-bottom: calc(-1 * sizing.size_token($name));
             &-i {
-                padding-top: calc(-1 * sizing.token($name)) !important;
-                padding-bottom: calc(-1 * sizing.token($name)) !important;
+                padding-top: calc(-1 * sizing.size_token($name)) !important;
+                padding-bottom: calc(-1 * sizing.size_token($name)) !important;
             }
         }
 
         .-pt-#{$name} {
-            padding-top: calc(-1 * sizing.token($name));
+            padding-top: calc(-1 * sizing.size_token($name));
             &-i {
-                padding-top: calc(-1 * sizing.token($name)) !important;
+                padding-top: calc(-1 * sizing.size_token($name)) !important;
             }
         }
 
         .-pb-#{$name} {
-            padding-bottom: calc(-1 * sizing.token($name));
+            padding-bottom: calc(-1 * sizing.size_token($name));
             &-i {
-                padding-bottom: calc(-1 * sizing.token($name)) !important;
+                padding-bottom: calc(-1 * sizing.size_token($name)) !important;
             }
         }
 
         .-pl-#{$name} {
-            padding-left: calc(-1 * sizing.token($name));
+            padding-left: calc(-1 * sizing.size_token($name));
             &-i {
-                padding-left: calc(-1 * sizing.token($name)) !important;
+                padding-left: calc(-1 * sizing.size_token($name)) !important;
             }
         }
 
         .-pr-#{$name} {
-            padding-right: calc(-1 * sizing.token($name));
+            padding-right: calc(-1 * sizing.size_token($name));
             &-i {
-                padding-right: calc(-1 * sizing.token($name)) !important;
+                padding-right: calc(-1 * sizing.size_token($name)) !important;
             }
         }
     }

@@ -33,7 +33,7 @@
             background-color: var(--pui-searchbar-option-hover-background);
         }
 
-        padding: sizing.token("0") sizing.token("1");
+        padding: sizing.size_token("0") sizing.size_token("1");
     }
 
     .show-more {

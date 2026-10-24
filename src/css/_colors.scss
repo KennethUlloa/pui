@@ -252,7 +252,7 @@ $named-colors: (
   "pink"
 );
 
-@function var_token($name, $level) {
+@function color_token($name, $level) {
   @return var(--pui-color-#{$name}-#{$level}, map.get($colors, $name, $level));
 }
 

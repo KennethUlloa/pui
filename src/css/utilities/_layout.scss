@@ -158,15 +158,15 @@ $grid-template-values: (
 
     @each $name, $value in sizing.$sizes {
         .#{$prefix}gap-#{$name} {
-            gap: sizing.token($name);
+            gap: sizing.size_token($name);
         }
 
         .#{$prefix}gap-x-#{$name} {
-            column-gap: sizing.token($name);
+            column-gap: sizing.size_token($name);
         }
 
         .#{$prefix}gap-y-#{$name} {
-            row-gap: sizing.token($name);
+            row-gap: sizing.size_token($name);
         }
     }
 
