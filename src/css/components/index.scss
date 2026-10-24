@@ -2,16 +2,30 @@
 @use "button";
 @use "chip";
 @use "dropdown";
-@use "input" as input;
+@use "input";
 @use "popover";
 @use "searchbar";
-@use "table" as table;
+@use "table";
 @use "spinner";
 @use "navbar";
 @use "breadcrumb";
 @use "sidebar";
 @use "avatar";
 @use "dialog";
+@use "card";
 
 @include input.all();
 @include table.all();
+
+@mixin tokens() {
+    @include accordion.tokens();
+    @include dropdown.tokens();
+    @include popover.tokens();
+    @include table.tokens();
+    @include searchbar.tokens();
+    @include navbar.tokens();
+    @include breadcrumb.tokens();
+    @include sidebar.tokens();
+    @include dialog.tokens();
+    @include card.tokens();
+}

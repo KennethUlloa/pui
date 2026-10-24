@@ -3,14 +3,15 @@
 @use "../sizing" as sizing;
 
 @mixin tokens() {
-    --pui-card-border: borders.level_token("0") solid colors.color_token("border", "subtle");
-    --pui-card-background: colors.color_token("surface", "main");
-    --pui-card-spacing: sizing.size_token("2");
+    --pui-card-border: #{borders.level_token("0")} solid #{colors.color_token("border", "subtle")};
+    --pui-card-background: #{colors.color_token("surface", "main")};
+    --pui-card-spacing: #{sizing.size_token("4")};
+    --pui-card-border-radius: #{borders.radius_token("3")};
 }
-
 
 .card {
     border: var(--pui-card-border);
     background: var(--pui-card-background);
     padding: var(--pui-card-spacing);
+    border-radius: var(--pui-card-border-radius);
 }

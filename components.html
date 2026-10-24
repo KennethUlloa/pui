@@ -5,8 +5,8 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Components | KPUI Design System</title>
-    <link rel="stylesheet" href="./dist/css/index.css" />
-    <link rel="stylesheet" href="./src/css/demo.css" />
+    <link rel="stylesheet" href="src/css/index.scss" />
+    <link rel="stylesheet" href="/demo.css" />
   </head>
   <body class="bg-background text-body font-sans">
     <header class="navbar">
@@ -48,7 +48,7 @@
           <h2 class="text-5 font-semibold">Breadcrumbs</h2>
           <span class="text-1 text-muted">Page hierarchy and current location</span>
         </div>
-        <div class="border border-border-subtle rounded-3 bg-surface p-3">
+        <div class="card">
           <nav class="breadcrumb" aria-label="Breadcrumb">
             <ol class="breadcrumb-list">
               <li class="breadcrumb-item"><a href="./">Home</a></li>
@@ -64,7 +64,7 @@
           <h2 class="text-5 font-semibold">Buttons</h2>
           <span class="text-1 text-muted">Variants, semantic colors, and sizes</span>
         </div>
-        <div class="border border-border-subtle rounded-3 bg-surface p-4 grid gap-4">
+        <div class="card grid gap-4">
           <div class="grid gap-1">
             <h3 class="text-1 font-semibold text-muted">Variants</h3>
             <div class="flex flex-wrap items-center gap-2">
@@ -120,7 +120,7 @@
           <h2 class="text-5 font-semibold">Chips</h2>
           <span class="text-1 text-muted">Labels and semantic status</span>
         </div>
-        <div class="border border-border-subtle rounded-3 bg-surface p-4 grid gap-3">
+        <div class="card grid gap-3">
           <div class="flex flex-wrap items-center gap-1">
             <span class="chip">Design</span>
             <span class="chip chip-primary">Primary</span>
@@ -220,7 +220,7 @@
       <section class="grid grid-cols-1 md-grid-cols-2 gap-4 mb-8">
         <div>
           <h2 class="text-5 font-semibold mb-2">Form controls</h2>
-          <form class="border border-border-subtle rounded-3 bg-surface p-4 grid gap-2">
+          <form class="card grid gap-2">
             <label class="grid gap-0 text-1 font-semibold">Project name
               <input type="text" value="Northstar refresh" class="input" />
             </label>
@@ -255,42 +255,12 @@
           </div>
         </div>
       </section>
-
-      <section class="mb-8">
-        <div class="flex items-center justify-between gap-2 mb-2">
-          <h2 class="text-5 font-semibold">Dialog</h2>
-          <span class="text-1 text-muted">Modal dialog using the native &lt;dialog&gt; element</span>
-        </div>
-        <div class="border border-border-subtle rounded-3 bg-surface p-4 flex flex-wrap gap-2">
-          <button class="btn btn-primary" type="button" onclick="document.querySelector('#demo-dialog').showModal()">Open dialog</button>
-        </div>
-        <pui-dialog id="demo-dialog">
-          <dialog class="dialog" aria-labelledby="demo-dialog-title">
-            <div class="dialog-header">
-              <h3 class="dialog-title" id="demo-dialog-title">Confirm action</h3>
-              <button class="dialog-close" type="button" data-dialog-close aria-label="Close dialog">
-                <svg width="1rem" height="1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-              </button>
-            </div>
-            <div class="dialog-content">
-              <p>This action cannot be undone. Do you want to proceed?</p>
-            </div>
-            <div class="dialog-footer">
-              <button class="btn btn-ghost" type="button" data-dialog-close>Cancel</button>
-              <button class="btn btn-primary" type="button" data-dialog-close>Proceed</button>
-            </div>
-          </dialog>
-        </pui-dialog>
-      </section>
       <section class="mb-8">
         <div class="flex items-center justify-between gap-2 mb-2">
           <h2 class="text-5 font-semibold">Popovers</h2>
           <span class="text-1 text-muted">Native popover API, zero JS</span>
         </div>
-        <div class="border border-border-subtle rounded-3 bg-surface p-4 grid gap-3">
+        <div class="card grid gap-3">
           <div class="grid gap-1">
             <h3 class="text-1 font-semibold text-muted">Basics</h3>
             <div class="flex flex-wrap items-center gap-2">
@@ -349,7 +319,7 @@
           <h2 class="text-5 font-semibold">Dropdowns</h2>
           <span class="text-1 text-muted">Popover-based menu, transparent backdrop</span>
         </div>
-        <div class="border border-border-subtle rounded-3 bg-surface p-4 grid gap-3">
+        <div class="card grid gap-3">
           <div class="grid gap-1">
             <h3 class="text-1 font-semibold text-muted">Menu with sections</h3>
             <div class="flex flex-wrap items-center gap-2">
@@ -436,7 +406,7 @@
           <h2 class="text-5 font-semibold">Accordion</h2>
           <span class="text-1 text-muted">Disclosure sections built on native &lt;details&gt; and &lt;summary&gt;</span>
         </div>
-        <div class="border border-border-subtle rounded-3 bg-surface p-4 grid gap-3">
+        <div class="card grid gap-3">
           <div class="grid gap-1">
             <h3 class="text-1 font-semibold text-muted">Basics</h3>
             <div class="accordion">

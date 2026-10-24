@@ -1,0 +1,402 @@
+[
+  {
+    "id": 1,
+    "name": "María García López",
+    "username": "maria.garcia",
+    "email": "maria.garcia@example.com",
+    "address": "Calle Mayor 15, Madrid, España",
+    "phone": "+34 600 100 001"
+  },
+  {
+    "id": 2,
+    "name": "Juan Martínez Ruiz",
+    "username": "juan.martinez",
+    "email": "juan.martinez@example.com",
+    "address": "Avenida del Sol 24, Barcelona, España",
+    "phone": "+34 600 100 002"
+  },
+  {
+    "id": 3,
+    "name": "Lucía Fernández Torres",
+    "username": "lucia.fernandez",
+    "email": "lucia.fernandez@example.com",
+    "address": "Calle Luna 8, Valencia, España",
+    "phone": "+34 600 100 003"
+  },
+  {
+    "id": 4,
+    "name": "Carlos Sánchez Romero",
+    "username": "carlos.sanchez",
+    "email": "carlos.sanchez@example.com",
+    "address": "Plaza Central 12, Sevilla, España",
+    "phone": "+34 600 100 004"
+  },
+  {
+    "id": 5,
+    "name": "Sofía Pérez Navarro",
+    "username": "sofia.perez",
+    "email": "sofia.perez@example.com",
+    "address": "Calle Olivo 31, Zaragoza, España",
+    "phone": "+34 600 100 005"
+  },
+  {
+    "id": 6,
+    "name": "Diego Gómez Castillo",
+    "username": "diego.gomez",
+    "email": "diego.gomez@example.com",
+    "address": "Avenida Andalucía 44, Málaga, España",
+    "phone": "+34 600 100 006"
+  },
+  {
+    "id": 7,
+    "name": "Valentina Díaz Morales",
+    "username": "valentina.diaz",
+    "email": "valentina.diaz@example.com",
+    "address": "Calle Jardín 19, Murcia, España",
+    "phone": "+34 600 100 007"
+  },
+  {
+    "id": 8,
+    "name": "Mateo Álvarez Jiménez",
+    "username": "mateo.alvarez",
+    "email": "mateo.alvarez@example.com",
+    "address": "Calle Roble 6, Palma, España",
+    "phone": "+34 600 100 008"
+  },
+  {
+    "id": 9,
+    "name": "Camila Romero Ortega",
+    "username": "camila.romero",
+    "email": "camila.romero@example.com",
+    "address": "Avenida Norte 52, Bilbao, España",
+    "phone": "+34 600 100 009"
+  },
+  {
+    "id": 10,
+    "name": "Daniel Herrera Molina",
+    "username": "daniel.herrera",
+    "email": "daniel.herrera@example.com",
+    "address": "Calle Río 17, Alicante, España",
+    "phone": "+34 600 100 010"
+  },
+  {
+    "id": 11,
+    "name": "Isabella Torres Vega",
+    "username": "isabella.torres",
+    "email": "isabella.torres@example.com",
+    "address": "Calle Encina 22, Córdoba, España",
+    "phone": "+34 600 100 011"
+  },
+  {
+    "id": 12,
+    "name": "Alejandro Ruiz Castro",
+    "username": "alejandro.ruiz",
+    "email": "alejandro.ruiz@example.com",
+    "address": "Avenida del Parque 10, Valladolid, España",
+    "phone": "+34 600 100 012"
+  },
+  {
+    "id": 13,
+    "name": "Emma Navarro Flores",
+    "username": "emma.navarro",
+    "email": "emma.navarro@example.com",
+    "address": "Calle Estrella 3, Vigo, España",
+    "phone": "+34 600 100 013"
+  },
+  {
+    "id": 14,
+    "name": "Gabriel Jiménez Soto",
+    "username": "gabriel.jimenez",
+    "email": "gabriel.jimenez@example.com",
+    "address": "Plaza del Mercado 7, Gijón, España",
+    "phone": "+34 600 100 014"
+  },
+  {
+    "id": 15,
+    "name": "Martina Morales León",
+    "username": "martina.morales",
+    "email": "martina.morales@example.com",
+    "address": "Calle Pino 28, Granada, España",
+    "phone": "+34 600 100 015"
+  },
+  {
+    "id": 16,
+    "name": "Pablo Castro Méndez",
+    "username": "pablo.castro",
+    "email": "pablo.castro@example.com",
+    "address": "Avenida Mar 41, A Coruña, España",
+    "phone": "+34 600 100 016"
+  },
+  {
+    "id": 17,
+    "name": "Julia Ortega Campos",
+    "username": "julia.ortega",
+    "email": "julia.ortega@example.com",
+    "address": "Calle Naranjo 14, Salamanca, España",
+    "phone": "+34 600 100 017"
+  },
+  {
+    "id": 18,
+    "name": "Adrián Molina Reyes",
+    "username": "adrian.molina",
+    "email": "adrian.molina@example.com",
+    "address": "Calle Prado 9, Toledo, España",
+    "phone": "+34 600 100 018"
+  },
+  {
+    "id": 19,
+    "name": "Elena Vega Cruz",
+    "username": "elena.vega",
+    "email": "elena.vega@example.com",
+    "address": "Avenida Castilla 36, Burgos, España",
+    "phone": "+34 600 100 019"
+  },
+  {
+    "id": 20,
+    "name": "Nicolás Flores Peña",
+    "username": "nicolas.flores",
+    "email": "nicolas.flores@example.com",
+    "address": "Calle Fuente 5, León, España",
+    "phone": "+34 600 100 020"
+  },
+  {
+    "id": 21,
+    "name": "Paula Reyes Vidal",
+    "username": "paula.reyes",
+    "email": "paula.reyes@example.com",
+    "address": "Calle Almendro 20, Cádiz, España",
+    "phone": "+34 600 100 021"
+  },
+  {
+    "id": 22,
+    "name": "Samuel Cruz Herrera",
+    "username": "samuel.cruz",
+    "email": "samuel.cruz@example.com",
+    "address": "Avenida del Lago 18, Santander, España",
+    "phone": "+34 600 100 022"
+  },
+  {
+    "id": 23,
+    "name": "Daniela Peña Rojas",
+    "username": "daniela.pena",
+    "email": "daniela.pena@example.com",
+    "address": "Calle Violeta 11, Tarragona, España",
+    "phone": "+34 600 100 023"
+  },
+  {
+    "id": 24,
+    "name": "Hugo Vidal Serrano",
+    "username": "hugo.vidal",
+    "email": "hugo.vidal@example.com",
+    "address": "Calle Acacia 26, Girona, España",
+    "phone": "+34 600 100 024"
+  },
+  {
+    "id": 25,
+    "name": "Alma Rojas Ibáñez",
+    "username": "alma.rojas",
+    "email": "alma.rojas@example.com",
+    "address": "Avenida Real 33, Logroño, España",
+    "phone": "+34 600 100 025"
+  },
+  {
+    "id": 26,
+    "name": "Leo Serrano Márquez",
+    "username": "leo.serrano",
+    "email": "leo.serrano@example.com",
+    "address": "Calle Cedro 16, Huelva, España",
+    "phone": "+34 600 100 026"
+  },
+  {
+    "id": 27,
+    "name": "Carla Ibáñez Prieto",
+    "username": "carla.ibanez",
+    "email": "carla.ibanez@example.com",
+    "address": "Plaza Nueva 4, Almería, España",
+    "phone": "+34 600 100 027"
+  },
+  {
+    "id": 28,
+    "name": "Marco Márquez Gil",
+    "username": "marco.marquez",
+    "email": "marco.marquez@example.com",
+    "address": "Calle Sierra 29, Jaén, España",
+    "phone": "+34 600 100 028"
+  },
+  {
+    "id": 29,
+    "name": "Aitana Prieto Santos",
+    "username": "aitana.prieto",
+    "email": "aitana.prieto@example.com",
+    "address": "Avenida del Bosque 21, Cáceres, España",
+    "phone": "+34 600 100 029"
+  },
+  {
+    "id": 30,
+    "name": "Bruno Gil Paredes",
+    "username": "bruno.gil",
+    "email": "bruno.gil@example.com",
+    "address": "Calle Azahar 13, Badajoz, España",
+    "phone": "+34 600 100 030"
+  },
+  {
+    "id": 31,
+    "name": "Clara Santos Fuentes",
+    "username": "clara.santos",
+    "email": "clara.santos@example.com",
+    "address": "Avenida del Río 27, Pamplona, España",
+    "phone": "+34 600 100 031"
+  },
+  {
+    "id": 32,
+    "name": "Iker Paredes Blanco",
+    "username": "iker.paredes",
+    "email": "iker.paredes@example.com",
+    "address": "Calle Arce 2, San Sebastián, España",
+    "phone": "+34 600 100 032"
+  },
+  {
+    "id": 33,
+    "name": "Nora Fuentes Lozano",
+    "username": "nora.fuentes",
+    "email": "nora.fuentes@example.com",
+    "address": "Calle Laurel 38, Vitoria, España",
+    "phone": "+34 600 100 033"
+  },
+  {
+    "id": 34,
+    "name": "Eric Blanco Domínguez",
+    "username": "eric.blanco",
+    "email": "eric.blanco@example.com",
+    "address": "Avenida del Puerto 45, Castellón, España",
+    "phone": "+34 600 100 034"
+  },
+  {
+    "id": 35,
+    "name": "Lara Lozano Pascual",
+    "username": "lara.lozano",
+    "email": "lara.lozano@example.com",
+    "address": "Calle Magnolia 23, Reus, España",
+    "phone": "+34 600 100 035"
+  },
+  {
+    "id": 36,
+    "name": "Álex Domínguez Cortés",
+    "username": "alex.dominguez",
+    "email": "alex.dominguez@example.com",
+    "address": "Calle Jazmín 30, Marbella, España",
+    "phone": "+34 600 100 036"
+  },
+  {
+    "id": 37,
+    "name": "Inés Pascual Rubio",
+    "username": "ines.pascual",
+    "email": "ines.pascual@example.com",
+    "address": "Avenida Central 39, Oviedo, España",
+    "phone": "+34 600 100 037"
+  },
+  {
+    "id": 38,
+    "name": "Mario Cortés Núñez",
+    "username": "mario.cortes",
+    "email": "mario.cortes@example.com",
+    "address": "Calle Girasol 12, Albacete, España",
+    "phone": "+34 600 100 038"
+  },
+  {
+    "id": 39,
+    "name": "Ariadna Rubio Esteban",
+    "username": "ariadna.rubio",
+    "email": "ariadna.rubio@example.com",
+    "address": "Calle Montaña 7, Segovia, España",
+    "phone": "+34 600 100 039"
+  },
+  {
+    "id": 40,
+    "name": "Óscar Núñez Ferrer",
+    "username": "oscar.nunez",
+    "email": "oscar.nunez@example.com",
+    "address": "Avenida del Carmen 16, Teruel, España",
+    "phone": "+34 600 100 040"
+  },
+  {
+    "id": 41,
+    "name": "Mía Esteban Aguilar",
+    "username": "mia.esteban",
+    "email": "mia.esteban@example.com",
+    "address": "Calle del Molino 25, Cuenca, España",
+    "phone": "+34 600 100 041"
+  },
+  {
+    "id": 42,
+    "name": "David Ferrer Pascual",
+    "username": "david.ferrer",
+    "email": "david.ferrer@example.com",
+    "address": "Plaza de España 9, Zamora, España",
+    "phone": "+34 600 100 042"
+  },
+  {
+    "id": 43,
+    "name": "Olivia Aguilar Martín",
+    "username": "olivia.aguilar",
+    "email": "olivia.aguilar@example.com",
+    "address": "Calle Trébol 18, Ávila, España",
+    "phone": "+34 600 100 043"
+  },
+  {
+    "id": 44,
+    "name": "Javier Martín Campos",
+    "username": "javier.martin",
+    "email": "javier.martin@example.com",
+    "address": "Avenida de la Paz 32, Soria, España",
+    "phone": "+34 600 100 044"
+  },
+  {
+    "id": 45,
+    "name": "Alicia Campos Benítez",
+    "username": "alicia.campos",
+    "email": "alicia.campos@example.com",
+    "address": "Calle Mirador 6, Huesca, España",
+    "phone": "+34 600 100 045"
+  },
+  {
+    "id": 46,
+    "name": "Fernando Benítez Soto",
+    "username": "fernando.benitez",
+    "email": "fernando.benitez@example.com",
+    "address": "Calle del Mercado 40, Ourense, España",
+    "phone": "+34 600 100 046"
+  },
+  {
+    "id": 47,
+    "name": "Sara Soto Márquez",
+    "username": "sara.soto",
+    "email": "sara.soto@example.com",
+    "address": "Avenida de Europa 14, Lugo, España",
+    "phone": "+34 600 100 047"
+  },
+  {
+    "id": 48,
+    "name": "Tomás Márquez León",
+    "username": "tomas.marquez",
+    "email": "tomas.marquez@example.com",
+    "address": "Calle del Parque 35, Pontevedra, España",
+    "phone": "+34 600 100 048"
+  },
+  {
+    "id": 49,
+    "name": "Noa León Vargas",
+    "username": "noa.leon",
+    "email": "noa.leon@example.com",
+    "address": "Calle Palmeras 10, Toledo, España",
+    "phone": "+34 600 100 049"
+  },
+  {
+    "id": 50,
+    "name": "Gabriela Vargas Ortiz",
+    "username": "gabriela.vargas",
+    "email": "gabriela.vargas@example.com",
+    "address": "Avenida de los Olmos 22, Madrid, España",
+    "phone": "+34 600 100 050"
+  }
+]

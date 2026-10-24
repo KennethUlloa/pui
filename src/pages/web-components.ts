@@ -5,42 +5,17 @@ import type { Pagination } from "../components/pagination";
 import "../components/searchbar";
 import type { Searchbar } from "../components/searchbar";
 import "../components/avatar";
-import "@/components/sidebar"
+import "@/components/sidebar";
 import "@/components/dialog";
 import type { PuiDialog as Dialog } from "../components/dialog";
-
-interface User {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: {
-      lat: string;
-      lng: string;
-    };
-  };
-  phone: string;
-  website: string;
-  company: {
-    name: string;
-    catchPhrase: string;
-    bs: string;
-  };
-}
+import { getArtists, getUsers, type Artist, type User } from "@/utils/data.mock";
 
 async function queryUsers(search: string, page: number, pageSize: number) {
-  const response = await fetch(
-    `https://jsonplaceholder.typicode.com/users?q=${search}&_page=${page}&_limit=${pageSize}`,
-  );
+  const response = await getUsers(search, page, pageSize);
   return {
-    users: await response.json(),
-    total: Number(response.headers.get("X-Total-Count")),
-  }
+    users: response.items,
+    total: response.total,
+  };
 }
 
 function datatableDemo() {
@@ -55,7 +30,7 @@ function datatableDemo() {
   let page = 1;
   let pageSize = 5;
   let q = "";
-  
+
   pagination.addEventListener("pagechange", (event: Event) => {
     page = (event as CustomEvent<{ page: number }>).detail.page;
     pageSize = (event as CustomEvent<{ pageSize: number }>).detail.pageSize;
@@ -64,7 +39,7 @@ function datatableDemo() {
       pagination.totalItems = total;
       datatable.rows = users;
     });
-  })
+  });
 
   datatable.rowId = (person: User) => String(person.id);
   datatable.isSelected = (person: User) => selected.has(String(person.id));
@@ -72,7 +47,8 @@ function datatableDemo() {
     {
       title: "Name",
       key: "name",
-      render: (row) => `<div>${row.name}<br/><span class="chip chip-soft chip-0">@${row.username}</span></div>`,
+      render: (row) =>
+        `<div>${row.name}<br/><span class="chip chip-soft chip-0">@${row.username}</span></div>`,
       sortable: true,
       sortDirection: () => sortModel.name,
     },
@@ -85,18 +61,15 @@ function datatableDemo() {
     {
       title: "Phone",
       key: "phone",
-      render: (row) => row.phone,
     },
     {
-        title:"Username",
-        key:"username",
-        render: (row) => row.username,
+      title: "Username",
+      key: "username",
     },
     {
-        title: "Address",
-        key: "address",
-        render: (row) => `${row.address.city}, ${row.address.street}`,
-    }
+      title: "Address",
+      key: "address",
+    },
   ];
 
   datatable.rowActions = (row) => [
@@ -107,7 +80,7 @@ function datatableDemo() {
     },
     {
       label: "Delete",
-      class: "text-error",
+      class: "dropdown-item-danger",
       action: (row) => {
         confirm("Are you sure?");
         console.log("delete", row);
@@ -186,89 +159,85 @@ function datatableDemo() {
   });
 }
 
-interface Todo {
-  id: number
-  userId: number
-  title: string
-  completed: boolean
-}
-
 function searchbarDemo() {
-    let timeout: ReturnType<typeof setTimeout> | undefined;
-    const searchbar = document.querySelector("#searchbar") as Searchbar<Todo>;
-    const selected = document.querySelector("#selected") as HTMLDivElement;
-    let page = 1;
-    let pageSize = 50;
-    let search = "";
-    let todos: Todo[] = [];
-    let total = 0;
+  let timeout: ReturnType<typeof setTimeout> | undefined;
+  const searchbar = document.querySelector("#searchbar") as Searchbar<Artist>;
+  const selected = document.querySelector("#selected") as HTMLDivElement;
+  let page = 1;
+  let pageSize = 20;
+  let search = "";
+  let todos: Artist[] = [];
+  let total = 0;
 
-    async function queryTodos(search: string, page: number, pageSize: number) {
-      const response = await fetch(
-        `https://jsonplaceholder.typicode.com/todos?q=${search}&_page=${page}&_limit=${pageSize}`,
-      );
-      return {
-        todos: await response.json(),
-        total: Number(response.headers.get("X-Total-Count")),
-      }
-    }
+  async function queryTodos(search: string, page: number, pageSize: number) {
+    const response = await getArtists(search, page, pageSize);
+    return {
+      todos: response.items,
+      total: response.total,
+    };
+  }
 
-    searchbar.addEventListener("search", (e: Event) => {
-      search = (e as CustomEvent<string>).detail || "";
-      page = 1;
+  searchbar.addEventListener("search", (e: Event) => {
+    search = (e as CustomEvent<string>).detail || "";
+    page = 1;
 
-      if (timeout !== undefined) clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        searchbar.loading = true;
-        queryTodos(search, page, pageSize)
-          .then(({ todos: todos_, total: total_ }) => {
-            todos = todos_;
-            total = total_;
-            searchbar.hasMore = todos.length < total;
-            searchbar.options = todos;
-          }).finally(() => {
-            searchbar.loading = false;
-          });
-      }, 500);
-    });
-
-    searchbar.addEventListener("show-more", () => {
+    if (timeout !== undefined) clearTimeout(timeout);
+    timeout = setTimeout(() => {
       searchbar.loading = true;
-      page += 1;
       queryTodos(search, page, pageSize)
         .then(({ todos: todos_, total: total_ }) => {
-          todos = [...todos, ...todos_];
+          todos = todos_;
           total = total_;
           searchbar.hasMore = todos.length < total;
           searchbar.options = todos;
-        }).finally(() => {
+        })
+        .finally(() => {
           searchbar.loading = false;
         });
-    })
+    }, 500);
+  });
 
-    searchbar.addEventListener("option-select", (e: Event) => {
-      const detail = (e as CustomEvent<{ option: Todo }>).detail;
-      console.log("option-select", detail.option);
-      selected.innerHTML = searchbar.renderOption(detail.option);
-    })
-
-    searchbar.optionId = (todo) => String(todo.id);
-    searchbar.renderOption = (todo) => todo.title;
-
-    queryTodos("", page, pageSize)
+  searchbar.addEventListener("show-more", () => {
+    searchbar.loading = true;
+    page += 1;
+    queryTodos(search, page, pageSize)
       .then(({ todos: todos_, total: total_ }) => {
-        todos = todos_;
+        todos = [...todos, ...todos_];
         total = total_;
         searchbar.hasMore = todos.length < total;
         searchbar.options = todos;
-      }).finally(() => {
+      })
+      .finally(() => {
         searchbar.loading = false;
       });
+  });
+
+  searchbar.addEventListener("option-select", (e: Event) => {
+    const detail = (e as CustomEvent<{ option: Artist }>).detail;
+    console.log("option-select", detail.option);
+    selected.innerHTML = searchbar.renderOption(detail.option);
+  });
+
+  searchbar.optionId = (todo) => String(todo.id);
+  searchbar.renderOption = (artist) => `<strong>${artist.name}</strong> <span class="text-muted">(${artist.genres}) - ${Math.round(artist.soldRecords / 1e6)}M Records</span>`;
+
+  queryTodos("", page, pageSize)
+    .then(({ todos: todos_, total: total_ }) => {
+      todos = todos_;
+      total = total_;
+      searchbar.hasMore = todos.length < total;
+      searchbar.options = todos;
+    })
+    .finally(() => {
+      searchbar.loading = false;
+    });
 }
 
 function dialogDemo() {
   const confirmDialog = document.querySelector("#confirm-dialog") as Dialog;
-  const button = document.querySelector("#open-confirm-dialog") as HTMLButtonElement;
+  const button = document.querySelector(
+    "#open-confirm-dialog",
+  ) as HTMLButtonElement;
 
   button.addEventListener("click", () => {
     console.log("open confirm dialog");
@@ -278,9 +247,8 @@ function dialogDemo() {
       } else {
         console.log("cancelled");
       }
-    })
-  })
-
+    });
+  });
 }
 
 datatableDemo();

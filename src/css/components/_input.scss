@@ -48,7 +48,7 @@
 
   .input-container {
     display: flex;
-	align-items: center;
+    align-items: center;
     gap: 0.25rem;
     @include input-props();
     padding: 0 0.25rem;
@@ -65,18 +65,18 @@
       }
     }
 
-	&:has(input:focus-visible) {
-		@include interaction.focus-ring-props();
-	}
+    &:has(input:focus-visible) {
+      @include interaction.focus-ring-props();
+    }
 
-	&:has(input:disabled),
-	&:has(input[aria-disabled="true"]) {
-		@include interaction.disabled-state-props();
-	}
+    &:has(input:disabled),
+    &:has(input[aria-disabled="true"]) {
+      @include interaction.disabled-state-props();
+    }
 
-	&:invalid {
-		@include interaction.invalid-state-props();
-	}
+    &:invalid {
+      @include interaction.invalid-state-props();
+    }
   }
 
   .select {

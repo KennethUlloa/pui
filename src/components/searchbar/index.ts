@@ -32,6 +32,9 @@ export class Searchbar<T extends object> extends LitElement {
   @property({ type: Boolean })
   hasMore: boolean = false;
 
+  @property({ type: Number })
+  maxHeight: number = 500;
+
   @state()
   get labels() {
     return this.#labels as SearchbarLabels;
@@ -70,7 +73,7 @@ export class Searchbar<T extends object> extends LitElement {
       window.innerWidth - viewportPadding * 2,
     );
     const maxHeight = Math.min(
-      options.scrollHeight,
+      this.maxHeight,
       window.innerHeight - viewportPadding * 2,
     );
     const spaceBelow = window.innerHeight - bounds.bottom - viewportPadding;
@@ -159,6 +162,7 @@ export class Searchbar<T extends object> extends LitElement {
         popover
         id="${id}"
         @toggle=${this.handleOptionsToggle}
+        style="max-height: ${this.maxHeight}px !important"
       >
         ${!this.options.length
           ? html`<p class="text-muted p-1">

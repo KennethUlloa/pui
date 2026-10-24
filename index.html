@@ -5,8 +5,8 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KPUI Design System {{version}}</title>
-    <link rel="stylesheet" href="./dist/css/index.css" />
-    <link rel="stylesheet" href="./src/css/demo.css" />
+    <link rel="stylesheet" href="src/css/index.scss" />
+    <link rel="stylesheet" href="/demo.css" />
   </head>
   <body class="bg-background text-body font-sans">
     <header class="navbar">
@@ -48,7 +48,7 @@
           <h2 class="text-5 font-semibold">Typography</h2>
           <span class="text-1 text-muted">Type scale and text behavior</span>
         </div>
-        <div class="border border-border-subtle rounded-3 bg-surface p-4 grid gap-3">
+        <div class="card grid gap-3">
           <div>
             <p class="text-0 font-semibold text-muted">Display / 8</p>
             <p class="text-8 font-bold leading-tight text-balance">Clarity at every size</p>
@@ -72,7 +72,7 @@
           <h2 class="text-5 font-semibold">Color palette</h2>
           <span class="text-1 text-muted">Scale: 50–900</span>
         </div>
-        <div class="border border-border-subtle rounded-3 bg-surface p-3">
+        <div class="card">
           <div id="color-palette" class="grid gap-3"></div>
             <p class="text-muted mt-2 text-0">The complete named palette is available as Sass maps and generated utility tokens.</p>
         </div>
@@ -81,7 +81,7 @@
       <section class="grid grid-cols-1 md-grid-cols-2 gap-4 mb-8">
         <div>
           <h2 class="text-5 font-semibold mb-2">Actions</h2>
-          <div class="border border-border-subtle rounded-3 bg-surface p-3 flex flex-wrap items-center gap-2">
+          <div class="card flex flex-wrap items-center gap-2">
             <button class="btn btn-primary">Create project</button>
             <button class="btn btn-outline-primary">View details</button>
             <button class="btn btn-ghost">Cancel</button>
@@ -90,7 +90,7 @@
         </div>
         <div>
           <h2 class="text-5 font-semibold mb-2">Form fields</h2>
-          <form class="border border-border-subtle rounded-3 bg-surface p-3 grid gap-2">
+          <form class="card grid gap-2">
             <label class="grid gap-0 text-1 font-semibold">Project name
               <input type="text" value="Northstar refresh" class="w-full border border-border rounded-2 px-2 py-1 text-body text-2 font-normal font-sans focus-ring" />
             </label>
@@ -118,7 +118,7 @@
 
       <section>
         <h2 class="text-5 font-semibold mb-2">Surface and border</h2>
-        <article class="border border-border-subtle rounded-3 bg-surface p-4 max-w-4">
+        <article class="card max-w-4">
           <div class="flex items-start justify-between gap-2">
             <div>
               <p class="text-muted text-0 font-bold uppercase">Workspace</p>

@@ -1,230 +1,254 @@
 <!doctype html>
 <html lang="en" data-theme="light">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Components | KPUI Design System</title>
-    <link rel="stylesheet" href="./dist/css/index.css" />
-    <link rel="stylesheet" href="./src/css/demo.css" />
-  </head>
-  <body class="bg-background text-body font-sans">
-    <header class="navbar">
-      <div class="navbar-inner">
-        <a href="./" class="navbar-brand">KPUI <span class="text-muted text-1">{{version}}</span></a>
-        <div class="demo-navbar-controls">
-          <nav aria-label="Main navigation" class="navbar-links">
-            <a href="./" class="navbar-link">Foundations</a>
-            <a href="./components.html" class="navbar-link">Components</a>
-            <a href="./web-components.html" class="navbar-link" aria-current="page">Web Components</a>
-          </nav>
-          <label class="demo-theme-control">Primary scheme
-            <select class="demo-theme-select" data-primary-scheme>
-              <option value="blue">Blue</option>
-              <option value="teal">Teal</option>
-              <option value="violet">Violet</option>
-              <option value="orange">Orange</option>
-            </select>
-          </label>
-          <label class="demo-theme-control">Appearance
-            <select class="demo-theme-select" data-theme-mode>
-              <option value="light">Light</option>
-              <option value="dark">Dark</option>
-            </select>
-          </label>
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Components | KPUI Design System</title>
+  <link rel="stylesheet" href="src/css/index.scss" />
+  <link rel="stylesheet" href="/demo.css" />
+</head>
+
+<body class="bg-background text-body font-sans">
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a href="./" class="navbar-brand">KPUI <span class="text-muted text-1">{{version}}</span></a>
+      <div class="demo-navbar-controls">
+        <nav aria-label="Main navigation" class="navbar-links">
+          <a href="./" class="navbar-link">Foundations</a>
+          <a href="./components.html" class="navbar-link">Components</a>
+          <a href="./web-components.html" class="navbar-link" aria-current="page">Web Components</a>
+        </nav>
+        <label class="demo-theme-control">Primary scheme
+          <select class="demo-theme-select" data-primary-scheme>
+            <option value="blue">Blue</option>
+            <option value="teal">Teal</option>
+            <option value="violet">Violet</option>
+            <option value="orange">Orange</option>
+          </select>
+        </label>
+        <label class="demo-theme-control">Appearance
+          <select class="demo-theme-select" data-theme-mode>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </label>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <main class="mx-auto max-w-9 px-3 pt-8 pb-9">
-      <section class="mb-8">
-        <p class="text-primary text-0 font-bold uppercase">KPUI / 03</p>
-        <h1 class="text-8 font-bold leading-tight text-balance mt-1">Web Components</h1>
-        <p class="text-muted max-w-prose mt-2 text-3 leading-relaxed text-pretty">A working view of the controls and feedback patterns in the KPUI system.</p>
-      </section>
+  <main class="mx-auto max-w-9 px-3 pt-8 pb-9">
+    <section class="mb-8">
+      <p class="text-primary text-0 font-bold uppercase">KPUI / 03</p>
+      <h1 class="text-8 font-bold leading-tight text-balance mt-1">Web Components</h1>
+      <p class="text-muted max-w-prose mt-2 text-3 leading-relaxed text-pretty">A working view of the controls and
+        feedback patterns in the KPUI system.</p>
+    </section>
 
-      <section class="mb-8">
-        <div class="flex items-center justify-between gap-2 mb-2">
-          <h2 class="text-5 font-semibold">Datatable</h2>
-          <span class="text-1 text-muted">Example and usage</span>
-        </div>
-        <div class="border border-border-subtle rounded-3 bg-surface p-4 grid gap-4">
-            <div class="border border-border-subtle rounded-3">
-                <div class="flex items-center justify-between gap-2 mb-2">
-                    <div class="input-container m-1">
-                        <svg class="text-muted" width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z" stroke="inherit" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                        <input type="text" placeholder="Search..." id="search">
-                    </div>
-                </div>
-                <pui-datatable checkable striped hoverable id="datatable"></pui-datatable>
-                <pui-pagination id="pagination" pagesize="10" totalitems="135"></pui-pagination>
-            </div>
-        </div>
-      </section>
-
-      <section class="mb-8">
-        <div class="flex items-center justify-between gap-2 mb-2">
-          <h2 class="text-5 font-semibold">Searchbar</h2>
-          <span class="text-1 text-muted">Example and usage</span>
-        </div>
-        <div class="border border-border-subtle rounded-3 bg-surface p-4 gap-4">
-            <div class="border border-border-subtle rounded-3">
-                <pui-searchbar id="searchbar"></pui-searchbar>
-            </div>
-            <span class="chip chip-2 mt-1" id="selected">Select one item from the search</span>
-        </div>
-      </section>
-          <section class="mb-8">
-        <div class="flex items-center justify-between gap-2 mb-2">
-          <h2 class="text-5 font-semibold">Dialog</h2>
-          <span class="text-1 text-muted">Native &lt;dialog&gt; with backdrop and close controls</span>
-        </div>
-        <div class="border border-border-subtle rounded-3 bg-surface p-4 flex flex-wrap gap-2">
-          <button class="btn btn-primary" type="button" onclick="document.querySelector('#basic-dialog').showModal()">Open basic dialog</button>
-          <button class="btn btn-ghost-primary" type="button" onclick="document.querySelector('#size2-dialog').showModal()">Open large dialog</button>
-          <button class="btn btn-ghost-primary" type="button" id="open-confirm-dialog">Open a confirm dialog</button>
-        </div>
-        <pui-dialog id="basic-dialog">
-          <dialog class="dialog" aria-labelledby="dialog-title-1">
-            <div class="dialog-header">
-              <h3 class="dialog-title" id="dialog-title-1">Dialog title</h3>
-              <button class="dialog-close" type="button" data-dialog-close aria-label="Close dialog">
-                <svg width="1rem" height="1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-              </button>
-            </div>
-            <div class="dialog-content">
-              <p>This is a basic dialog using the native &lt;dialog&gt; element. You can close it by clicking the close button, pressing Escape, or clicking the backdrop if enabled.</p>
-            </div>
-            <div class="dialog-footer">
-              <button class="btn btn-ghost" type="button" data-dialog-close>Cancel</button>
-              <button class="btn btn-primary" type="button" data-dialog-close>Confirm</button>
-            </div>
-          </dialog>
-        </pui-dialog>
-        <pui-dialog id="size2-dialog">
-          <dialog class="dialog dialog-2" aria-labelledby="dialog-title-2">
-            <div class="dialog-header">
-              <h3 class="dialog-title" id="dialog-title-2">Large dialog</h3>
-              <button class="dialog-close" type="button" data-dialog-close aria-label="Close dialog">
-                <svg width="1rem" height="1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-              </button>
-            </div>
-            <div class="dialog-content">
-              <p>This dialog uses the <code>dialog-2</code> size modifier, which increases the width using the dialog CSS variables.</p>
-              <p>You can also control backdrop/escape behavior via attributes on <code>pui-dialog</code> (e.g. <code>backdrop-close="false"</code>, <code>escape-close="false"</code>).</p>
-            </div>
-            <div class="dialog-footer">
-              <button class="btn btn-ghost" type="button" data-dialog-close>Close</button>
-            </div>
-          </dialog>
-        </pui-dialog>
-        <pui-dialog id="confirm-dialog" backdrop-close="false" escape-close="false">
-          <dialog class="dialog" aria-labelledby="confirm-title-2">
-            <div class="dialog-header">
-              <h3 class="dialog-title" id="confirm-title-2">Confirm dialog</h3>
-            </div>
-            <div class="dialog-content">
-              <p>Are you sure you want to do this?</p>
-            </div>
-            <div class="dialog-footer">
-              <button class="btn btn-ghost-secondary" type="button" data-dialog-close>Cancel</button>
-              <button class="btn btn-primary" type="button" data-dialog-close="ok">Confirm</button>
-            </div>
-          </dialog>
-        </pui-dialog>
-      </section>
-      <section class="mb-8">
-        <div class="flex items-center justify-between gap-2 mb-2">
-          <h2 class="text-5 font-semibold">Avatar</h2>
-        </div>
-        <div class="border border-border-subtle rounded-3 bg-surface p-4">
-          <div class="flex flex-wrap items-center gap-4">
-            <div class="flex flex-col items-center" style="height: 85px">
-              <div class="flex expanded items-center">
-                <pui-avatar text="JS" size="6"></pui-avatar>
-              </div>
-              <p class="text-1 text-muted">Size 6, no image</p>
-            </div>
-            <div class="flex flex-col items-center" style="height: 85px">
-              <div class="flex expanded items-center" >
-                <pui-avatar text="AM" size="5" color="primary"></pui-avatar>
-              </div>
-              <p class="text-1 text-muted">Size 5, primary color</p>
-            </div>
-            <div class="flex flex-col items-center" style="height: 85px">
-              <div class="flex expanded items-center" >
-                <pui-avatar color="tertiary" text="E R" size="4" src="https://example.com/nonexistent.jpg"></pui-avatar>
-              </div>
-              <p class="text-1 text-muted">Size 4, error image, tertiary color</p>
+    <section class="mb-8">
+      <div class="flex items-center justify-between gap-2 mb-2">
+        <h2 class="text-5 font-semibold">Datatable</h2>
+        <span class="text-1 text-muted">Example and usage</span>
+      </div>
+      <div class="grid gap-4">
+        <div class="card p-none">
+          <div class="flex items-center justify-between gap-2 p-3">
+            <div class="input-container">
+              <svg class="text-muted" width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"
+                    stroke="inherit" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+              </svg>
+              <input type="text" placeholder="Search..." id="search">
             </div>
           </div>
+          <pui-datatable checkable striped hoverable id="datatable"></pui-datatable>
+          <pui-pagination id="pagination" pagesize="10" totalitems="135"></pui-pagination>
         </div>
-      </section>
+      </div>
+    </section>
 
-            <section class="mb-8">
-        <div class="flex items-center justify-between gap-2 mb-2">
-          <h2 class="text-5 font-semibold">Sidebar</h2>
-          <span class="text-1 text-muted">Full-height navigation with a floating toggle</span>
+    <section class="mb-8">
+      <div class="flex items-center justify-between gap-2 mb-2">
+        <h2 class="text-5 font-semibold">Searchbar</h2>
+        <span class="text-1 text-muted">Example and usage</span>
+      </div>
+      <div class="card gap-4">
+        <div class="">
+          <pui-searchbar id="searchbar"></pui-searchbar>
         </div>
-        <div class="demo-sidebar-stage">
-          <pui-sidebar class="sidebar" data-side="left" data-collapsed="false" role="complementary" aria-label="Left workspace sidebar">
-            <button class="sidebar-toggle" type="button" data-sidebar-toggle aria-expanded="true">
-              <svg class="sidebar-toggle-icon" width="1rem" height="1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="15 18 9 12 15 6"></polyline>
+        <span class="chip chip-2 mt-1" id="selected">Select one item from the search</span>
+      </div>
+    </section>
+    <section class="mb-8">
+      <div class="flex items-center justify-between gap-2 mb-2">
+        <h2 class="text-5 font-semibold">Dialog</h2>
+        <span class="text-1 text-muted">Native &lt;dialog&gt; with backdrop and close controls</span>
+      </div>
+      <div class="card flex flex-wrap gap-2">
+        <button class="btn btn-primary" type="button" onclick="document.querySelector('#basic-dialog').showModal()">Open
+          basic dialog</button>
+        <button class="btn btn-ghost-primary" type="button"
+          onclick="document.querySelector('#size2-dialog').showModal()">Open large dialog</button>
+        <button class="btn btn-ghost-primary" type="button" id="open-confirm-dialog">Open a confirm dialog</button>
+      </div>
+      <pui-dialog id="basic-dialog">
+        <dialog class="dialog" aria-labelledby="dialog-title-1">
+          <div class="dialog-header">
+            <h3 class="dialog-title" id="dialog-title-1">Dialog title</h3>
+            <button class="dialog-close" type="button" data-dialog-close aria-label="Close dialog">
+              <svg width="1rem" height="1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
               </svg>
-              <span class="sidebar-toggle-label">Toggle left sidebar</span>
             </button>
-            <div class="sidebar-content">
-              <nav class="sidebar-nav" aria-label="Left workspace navigation">
-                <a class="sidebar-link" href="#overview" aria-current="page">Overview</a>
-                <details class="sidebar-group" data-sidebar-disclosure>
-                  <summary class="sidebar-group-summary">Projects</summary>
-                  <div class="sidebar-group-content">
-                    <nav class="sidebar-subnav" aria-label="Projects">
-                      <a class="sidebar-link" href="#active-projects">Active projects</a>
-                      <a class="sidebar-link" href="#archived-projects">Archived</a>
-                    </nav>
-                  </div>
-                </details>
-                <a class="sidebar-link" href="#team">Team members</a>
-                <a class="sidebar-link" href="#settings">Settings</a>
-              </nav>
-            </div>
-          </pui-sidebar>
-          <pui-sidebar class="sidebar" data-side="right" data-collapsed="false" role="complementary" aria-label="Right workspace sidebar">
-            <button class="sidebar-toggle" type="button" data-sidebar-toggle aria-expanded="true">
-              <svg class="sidebar-toggle-icon" width="1rem" height="1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="9 18 15 12 9 6"></polyline>
+          </div>
+          <div class="dialog-content">
+            <p>This is a basic dialog using the native &lt;dialog&gt; element. You can close it by clicking the close
+              button, pressing Escape, or clicking the backdrop if enabled.</p>
+          </div>
+          <div class="dialog-footer">
+            <button class="btn btn-ghost" type="button" data-dialog-close>Cancel</button>
+            <button class="btn btn-primary" type="button" data-dialog-close>Confirm</button>
+          </div>
+        </dialog>
+      </pui-dialog>
+      <pui-dialog id="size2-dialog">
+        <dialog class="dialog dialog-2" aria-labelledby="dialog-title-2">
+          <div class="dialog-header">
+            <h3 class="dialog-title" id="dialog-title-2">Large dialog</h3>
+            <button class="dialog-close" type="button" data-dialog-close aria-label="Close dialog">
+              <svg width="1rem" height="1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
               </svg>
-              <span class="sidebar-toggle-label">Toggle right sidebar</span>
             </button>
-            <div class="sidebar-content">
-              <nav class="sidebar-nav" aria-label="Right workspace navigation">
-                <a class="sidebar-link" href="#overview">Overview</a>
-                <details class="sidebar-group" data-sidebar-disclosure open>
-                  <summary class="sidebar-group-summary">Projects</summary>
-                  <div class="sidebar-group-content">
-                    <nav class="sidebar-subnav" aria-label="Projects">
-                      <a class="sidebar-link" href="#active-projects" aria-current="page">Active projects</a>
-                      <a class="sidebar-link" href="#archived-projects">Archived</a>
-                    </nav>
-                  </div>
-                </details>
-                <a class="sidebar-link" href="#team">Team members</a>
-                <a class="sidebar-link" href="#settings">Settings</a>
-              </nav>
+          </div>
+          <div class="dialog-content">
+            <p>This dialog uses the <code>dialog-2</code> size modifier, which increases the width using the dialog CSS
+              variables.</p>
+            <p>You can also control backdrop/escape behavior via attributes on <code>pui-dialog</code> (e.g.
+              <code>backdrop-close="false"</code>, <code>escape-close="false"</code>).</p>
+          </div>
+          <div class="dialog-footer">
+            <button class="btn btn-ghost" type="button" data-dialog-close>Close</button>
+          </div>
+        </dialog>
+      </pui-dialog>
+      <pui-dialog id="confirm-dialog" backdrop-close="false" escape-close="false">
+        <dialog class="dialog" aria-labelledby="confirm-title-2">
+          <div class="dialog-header">
+            <h3 class="dialog-title" id="confirm-title-2">Confirm dialog</h3>
+          </div>
+          <div class="dialog-content">
+            <p>Are you sure you want to do this?</p>
+          </div>
+          <div class="dialog-footer">
+            <button class="btn btn-ghost-secondary" type="button" data-dialog-close>Cancel</button>
+            <button class="btn btn-primary" type="button" data-dialog-close="ok">Confirm</button>
+          </div>
+        </dialog>
+      </pui-dialog>
+    </section>
+    <section class="mb-8">
+      <div class="flex items-center justify-between gap-2 mb-2">
+        <h2 class="text-5 font-semibold">Avatar</h2>
+      </div>
+      <div class="card">
+        <div class="flex flex-wrap items-center gap-4">
+          <div class="flex flex-col items-center" style="height: 85px">
+            <div class="flex expanded items-center">
+              <pui-avatar text="JS" size="6"></pui-avatar>
             </div>
-          </pui-sidebar>
+            <p class="text-1 text-muted">Size 6, no image</p>
+          </div>
+          <div class="flex flex-col items-center" style="height: 85px">
+            <div class="flex expanded items-center">
+              <pui-avatar text="AM" size="5" color="primary"></pui-avatar>
+            </div>
+            <p class="text-1 text-muted">Size 5, primary color</p>
+          </div>
+          <div class="flex flex-col items-center" style="height: 85px">
+            <div class="flex expanded items-center">
+              <pui-avatar color="tertiary" text="E R" size="4" src="https://example.com/nonexistent.jpg"></pui-avatar>
+            </div>
+            <p class="text-1 text-muted">Size 4, error image, tertiary color</p>
+          </div>
         </div>
-      </section>
-    </main>
-    <script type="module" src="./src/pages/theme.ts"></script>
-    <script type="module" src="./src/pages/web-components.ts"></script>
-  </body>
+      </div>
+    </section>
+
+    <section class="mb-8">
+      <div class="flex items-center justify-between gap-2 mb-2">
+        <h2 class="text-5 font-semibold">Sidebar</h2>
+        <span class="text-1 text-muted">Full-height navigation with a floating toggle</span>
+      </div>
+      <div class="demo-sidebar-stage">
+        <pui-sidebar class="sidebar" data-side="left" data-collapsed="false" role="complementary"
+          aria-label="Left workspace sidebar">
+          <button class="sidebar-toggle" type="button" data-sidebar-toggle aria-expanded="true">
+            <svg class="sidebar-toggle-icon" width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            <span class="sidebar-toggle-label">Toggle left sidebar</span>
+          </button>
+          <div class="sidebar-content">
+            <nav class="sidebar-nav" aria-label="Left workspace navigation">
+              <a class="sidebar-link" href="#overview" aria-current="page">Overview</a>
+              <details class="sidebar-group" data-sidebar-disclosure>
+                <summary class="sidebar-group-summary">Projects</summary>
+                <div class="sidebar-group-content">
+                  <nav class="sidebar-subnav" aria-label="Projects">
+                    <a class="sidebar-link" href="#active-projects">Active projects</a>
+                    <a class="sidebar-link" href="#archived-projects">Archived</a>
+                  </nav>
+                </div>
+              </details>
+              <a class="sidebar-link" href="#team">Team members</a>
+              <a class="sidebar-link" href="#settings">Settings</a>
+            </nav>
+          </div>
+        </pui-sidebar>
+        <pui-sidebar class="sidebar" data-side="right" data-collapsed="false" role="complementary"
+          aria-label="Right workspace sidebar">
+          <button class="sidebar-toggle" type="button" data-sidebar-toggle aria-expanded="true">
+            <svg class="sidebar-toggle-icon" width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <span class="sidebar-toggle-label">Toggle right sidebar</span>
+          </button>
+          <div class="sidebar-content">
+            <nav class="sidebar-nav" aria-label="Right workspace navigation">
+              <a class="sidebar-link" href="#overview">Overview</a>
+              <details class="sidebar-group" data-sidebar-disclosure open>
+                <summary class="sidebar-group-summary">Projects</summary>
+                <div class="sidebar-group-content">
+                  <nav class="sidebar-subnav" aria-label="Projects">
+                    <a class="sidebar-link" href="#active-projects" aria-current="page">Active projects</a>
+                    <a class="sidebar-link" href="#archived-projects">Archived</a>
+                  </nav>
+                </div>
+              </details>
+              <a class="sidebar-link" href="#team">Team members</a>
+              <a class="sidebar-link" href="#settings">Settings</a>
+            </nav>
+          </div>
+        </pui-sidebar>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="./src/pages/theme.ts"></script>
+  <script type="module" src="./src/pages/web-components.ts"></script>
+</body>
+
 </html>

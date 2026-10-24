@@ -20,7 +20,14 @@ if (basePath && !basePath.startsWith("/")) {
 export default defineConfig({
   plugins: [
     sassPlugin({ cssOutput }),
-    modifyHtmlFiles((html) => html.replaceAll("{{version}}", KPUI_VERSION).replaceAll("href=\"./",`href="${basePath}/`)),
+    modifyHtmlFiles((html, { isBuild }) => {
+      let h = html.replaceAll("{{version}}", KPUI_VERSION);
+      if (isBuild) {
+        h = h.replaceAll('href="./', `href="${basePath}/`);
+      }
+
+      return h;
+    }),
   ],
   css: {
     preprocessorOptions: {

@@ -1,0 +1,626 @@
+[
+  {
+    "id": 1,
+    "name": "The Beatles",
+    "genres": "Rock, pop",
+    "soldRecords": 500000000
+  },
+  {
+    "id": 2,
+    "name": "Michael Jackson",
+    "genres": "Pop, R&B, rock",
+    "soldRecords": 400000000
+  },
+  {
+    "id": 3,
+    "name": "Elvis Presley",
+    "genres": "Rock and roll, pop, country",
+    "soldRecords": 300000000
+  },
+  {
+    "id": 4,
+    "name": "Madonna",
+    "genres": "Pop, dance",
+    "soldRecords": 300000000
+  },
+  {
+    "id": 5,
+    "name": "Elton John",
+    "genres": "Pop rock, soft rock",
+    "soldRecords": 300000000
+  },
+  {
+    "id": 6,
+    "name": "Queen",
+    "genres": "Rock, hard rock",
+    "soldRecords": 300000000
+  },
+  {
+    "id": 7,
+    "name": "Rihanna",
+    "genres": "Pop, R&B, dancehall",
+    "soldRecords": 250000000
+  },
+  {
+    "id": 8,
+    "name": "Led Zeppelin",
+    "genres": "Hard rock, blues rock",
+    "soldRecords": 250000000
+  },
+  {
+    "id": 9,
+    "name": "Pink Floyd",
+    "genres": "Progressive rock, psychedelic rock",
+    "soldRecords": 250000000
+  },
+  {
+    "id": 10,
+    "name": "Mariah Carey",
+    "genres": "Pop, R&B, soul",
+    "soldRecords": 220000000
+  },
+  {
+    "id": 11,
+    "name": "Taylor Swift",
+    "genres": "Pop, country, folk",
+    "soldRecords": 200000000
+  },
+  {
+    "id": 12,
+    "name": "Eagles",
+    "genres": "Rock, country rock",
+    "soldRecords": 200000000
+  },
+  {
+    "id": 13,
+    "name": "Celine Dion",
+    "genres": "Pop, adult contemporary",
+    "soldRecords": 200000000
+  },
+  {
+    "id": 14,
+    "name": "AC/DC",
+    "genres": "Hard rock",
+    "soldRecords": 200000000
+  },
+  {
+    "id": 15,
+    "name": "The Rolling Stones",
+    "genres": "Rock, blues rock",
+    "soldRecords": 200000000
+  },
+  {
+    "id": 16,
+    "name": "Whitney Houston",
+    "genres": "Pop, R&B, soul",
+    "soldRecords": 200000000
+  },
+  {
+    "id": 17,
+    "name": "Eminem",
+    "genres": "Hip-hop, rap",
+    "soldRecords": 220000000
+  },
+  {
+    "id": 18,
+    "name": "Beyoncé",
+    "genres": "R&B, pop",
+    "soldRecords": 150000000
+  },
+  {
+    "id": 19,
+    "name": "Bruce Springsteen",
+    "genres": "Rock, heartland rock",
+    "soldRecords": 150000000
+  },
+  {
+    "id": 20,
+    "name": "Aerosmith",
+    "genres": "Hard rock, blues rock",
+    "soldRecords": 150000000
+  },
+  {
+    "id": 21,
+    "name": "Billy Joel",
+    "genres": "Pop rock, soft rock",
+    "soldRecords": 150000000
+  },
+  {
+    "id": 22,
+    "name": "Phil Collins",
+    "genres": "Pop rock, soft rock",
+    "soldRecords": 150000000
+  },
+  {
+    "id": 23,
+    "name": "U2",
+    "genres": "Rock, alternative rock",
+    "soldRecords": 150000000
+  },
+  {
+    "id": 24,
+    "name": "Garth Brooks",
+    "genres": "Country",
+    "soldRecords": 150000000
+  },
+  {
+    "id": 25,
+    "name": "Barbra Streisand",
+    "genres": "Pop, adult contemporary",
+    "soldRecords": 150000000
+  },
+  {
+    "id": 26,
+    "name": "ABBA",
+    "genres": "Pop, disco",
+    "soldRecords": 150000000
+  },
+  {
+    "id": 27,
+    "name": "Britney Spears",
+    "genres": "Pop, dance-pop",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 28,
+    "name": "Backstreet Boys",
+    "genres": "Pop, dance-pop",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 29,
+    "name": "Justin Bieber",
+    "genres": "Pop, R&B",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 30,
+    "name": "Ed Sheeran",
+    "genres": "Pop, folk-pop",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 31,
+    "name": "Kanye West",
+    "genres": "Hip-hop, rap",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 32,
+    "name": "Drake",
+    "genres": "Hip-hop, R&B",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 33,
+    "name": "Jay-Z",
+    "genres": "Hip-hop, rap",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 34,
+    "name": "Adele",
+    "genres": "Pop, soul",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 35,
+    "name": "Shakira",
+    "genres": "Pop, Latin pop",
+    "soldRecords": 95000000
+  },
+  {
+    "id": 36,
+    "name": "Lady Gaga",
+    "genres": "Pop, dance-pop",
+    "soldRecords": 90000000
+  },
+  {
+    "id": 37,
+    "name": "Katy Perry",
+    "genres": "Pop, dance-pop",
+    "soldRecords": 90000000
+  },
+  {
+    "id": 38,
+    "name": "Bruno Mars",
+    "genres": "Pop, R&B, funk",
+    "soldRecords": 90000000
+  },
+  {
+    "id": 39,
+    "name": "Coldplay",
+    "genres": "Alternative rock, pop rock",
+    "soldRecords": 90000000
+  },
+  {
+    "id": 40,
+    "name": "Metallica",
+    "genres": "Heavy metal, thrash metal",
+    "soldRecords": 90000000
+  },
+  {
+    "id": 41,
+    "name": "Nirvana",
+    "genres": "Grunge, alternative rock",
+    "soldRecords": 75000000
+  },
+  {
+    "id": 42,
+    "name": "Green Day",
+    "genres": "Punk rock, pop punk",
+    "soldRecords": 75000000
+  },
+  {
+    "id": 43,
+    "name": "Bon Jovi",
+    "genres": "Hard rock, glam metal",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 44,
+    "name": "Dire Straits",
+    "genres": "Rock, roots rock",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 45,
+    "name": "Fleetwood Mac",
+    "genres": "Rock, pop rock",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 46,
+    "name": "George Michael",
+    "genres": "Pop, soul",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 47,
+    "name": "Janet Jackson",
+    "genres": "Pop, R&B",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 48,
+    "name": "Lionel Richie",
+    "genres": "Pop, R&B, soul",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 49,
+    "name": "Rod Stewart",
+    "genres": "Rock, pop",
+    "soldRecords": 120000000
+  },
+  {
+    "id": 50,
+    "name": "Cher",
+    "genres": "Pop, dance, rock",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 51,
+    "name": "Tina Turner",
+    "genres": "Rock, pop, soul",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 52,
+    "name": "David Bowie",
+    "genres": "Rock, glam rock, art rock",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 53,
+    "name": "Bob Marley",
+    "genres": "Reggae, ska",
+    "soldRecords": 75000000
+  },
+  {
+    "id": 54,
+    "name": "The Who",
+    "genres": "Rock, hard rock",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 55,
+    "name": "Deep Purple",
+    "genres": "Hard rock, heavy metal",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 56,
+    "name": "Black Sabbath",
+    "genres": "Heavy metal, hard rock",
+    "soldRecords": 75000000
+  },
+  {
+    "id": 57,
+    "name": "The Beach Boys",
+    "genres": "Rock, surf rock, pop",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 58,
+    "name": "Bee Gees",
+    "genres": "Pop, disco, soft rock",
+    "soldRecords": 120000000
+  },
+  {
+    "id": 59,
+    "name": "Santana",
+    "genres": "Latin rock, blues rock",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 60,
+    "name": "Van Halen",
+    "genres": "Hard rock, glam metal",
+    "soldRecords": 80000000
+  },
+  {
+    "id": 61,
+    "name": "Journey",
+    "genres": "Rock, arena rock",
+    "soldRecords": 75000000
+  },
+  {
+    "id": 62,
+    "name": "Def Leppard",
+    "genres": "Hard rock, glam metal",
+    "soldRecords": 70000000
+  },
+  {
+    "id": 63,
+    "name": "Bonnie Tyler",
+    "genres": "Pop rock, rock",
+    "soldRecords": 50000000
+  },
+  {
+    "id": 64,
+    "name": "Dolly Parton",
+    "genres": "Country, country pop",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 65,
+    "name": "Kenny Rogers",
+    "genres": "Country, pop",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 66,
+    "name": "Shania Twain",
+    "genres": "Country pop, country",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 67,
+    "name": "George Strait",
+    "genres": "Country",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 68,
+    "name": "Alabama",
+    "genres": "Country, southern rock",
+    "soldRecords": 75000000
+  },
+  {
+    "id": 69,
+    "name": "Neil Diamond",
+    "genres": "Pop, soft rock",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 70,
+    "name": "Kenny G",
+    "genres": "Smooth jazz, instrumental",
+    "soldRecords": 75000000
+  },
+  {
+    "id": 71,
+    "name": "Enya",
+    "genres": "New age, Celtic, pop",
+    "soldRecords": 75000000
+  },
+  {
+    "id": 72,
+    "name": "Andrea Bocelli",
+    "genres": "Classical crossover, pop",
+    "soldRecords": 90000000
+  },
+  {
+    "id": 73,
+    "name": "Julio Iglesias",
+    "genres": "Latin pop, adult contemporary",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 74,
+    "name": "Luis Miguel",
+    "genres": "Latin pop, bolero",
+    "soldRecords": 60000000
+  },
+  {
+    "id": 75,
+    "name": "Juan Gabriel",
+    "genres": "Ranchera, Latin pop",
+    "soldRecords": 40000000
+  },
+  {
+    "id": 76,
+    "name": "Enrique Iglesias",
+    "genres": "Latin pop, dance-pop",
+    "soldRecords": 70000000
+  },
+  {
+    "id": 77,
+    "name": "Ricky Martin",
+    "genres": "Latin pop, dance",
+    "soldRecords": 70000000
+  },
+  {
+    "id": 78,
+    "name": "Marc Anthony",
+    "genres": "Salsa, Latin pop",
+    "soldRecords": 12000000
+  },
+  {
+    "id": 79,
+    "name": "Bad Bunny",
+    "genres": "Reggaeton, Latin trap",
+    "soldRecords": 20000000
+  },
+  {
+    "id": 80,
+    "name": "Daddy Yankee",
+    "genres": "Reggaeton, Latin urban",
+    "soldRecords": 20000000
+  },
+  {
+    "id": 81,
+    "name": "J Balvin",
+    "genres": "Reggaeton, Latin pop",
+    "soldRecords": 15000000
+  },
+  {
+    "id": 82,
+    "name": "Karol G",
+    "genres": "Reggaeton, Latin pop",
+    "soldRecords": 10000000
+  },
+  {
+    "id": 83,
+    "name": "Maná",
+    "genres": "Latin rock, pop rock",
+    "soldRecords": 40000000
+  },
+  {
+    "id": 84,
+    "name": "Soda Stereo",
+    "genres": "Rock en español, alternative rock",
+    "soldRecords": 20000000
+  },
+  {
+    "id": 85,
+    "name": "Shawn Mendes",
+    "genres": "Pop, pop rock",
+    "soldRecords": 20000000
+  },
+  {
+    "id": 86,
+    "name": "The Weeknd",
+    "genres": "R&B, pop, synth-pop",
+    "soldRecords": 75000000
+  },
+  {
+    "id": 87,
+    "name": "Ariana Grande",
+    "genres": "Pop, R&B",
+    "soldRecords": 85000000
+  },
+  {
+    "id": 88,
+    "name": "Nicki Minaj",
+    "genres": "Hip-hop, pop",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 89,
+    "name": "Kendrick Lamar",
+    "genres": "Hip-hop, conscious rap",
+    "soldRecords": 20000000
+  },
+  {
+    "id": 90,
+    "name": "Snoop Dogg",
+    "genres": "Hip-hop, G-funk",
+    "soldRecords": 35000000
+  },
+  {
+    "id": 91,
+    "name": "50 Cent",
+    "genres": "Hip-hop, gangsta rap",
+    "soldRecords": 30000000
+  },
+  {
+    "id": 92,
+    "name": "Usher",
+    "genres": "R&B, pop",
+    "soldRecords": 80000000
+  },
+  {
+    "id": 93,
+    "name": "Chris Brown",
+    "genres": "R&B, pop, hip-hop",
+    "soldRecords": 50000000
+  },
+  {
+    "id": 94,
+    "name": "Jennifer Lopez",
+    "genres": "Pop, dance, R&B",
+    "soldRecords": 80000000
+  },
+  {
+    "id": 95,
+    "name": "Cyndi Lauper",
+    "genres": "Pop, new wave",
+    "soldRecords": 50000000
+  },
+  {
+    "id": 96,
+    "name": "Duran Duran",
+    "genres": "New wave, pop rock",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 97,
+    "name": "Spice Girls",
+    "genres": "Pop, dance-pop",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 98,
+    "name": "One Direction",
+    "genres": "Pop, pop rock",
+    "soldRecords": 70000000
+  },
+  {
+    "id": 99,
+    "name": "Linkin Park",
+    "genres": "Alternative rock, nu metal",
+    "soldRecords": 100000000
+  },
+  {
+    "id": 100,
+    "name": "Red Hot Chili Peppers",
+    "genres": "Alternative rock, funk rock",
+    "soldRecords": 80000000
+  },
+  {
+    "id": 101,
+    "name": "Radiohead",
+    "genres": "Alternative rock, art rock",
+    "soldRecords": 30000000
+  },
+  {
+    "id": 102,
+    "name": "Oasis",
+    "genres": "Britpop, rock",
+    "soldRecords": 75000000
+  },
+  {
+    "id": 103,
+    "name": "The Police",
+    "genres": "Rock, new wave, reggae rock",
+    "soldRecords": 75000000
+  },
+  {
+    "id": 104,
+    "name": "The Doors",
+    "genres": "Rock, psychedelic rock",
+    "soldRecords": 50000000
+  }
+]

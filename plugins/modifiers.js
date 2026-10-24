@@ -3,6 +3,9 @@
  * @param {(content: string) => string} callback 
  */
 export function modifyHtmlFiles(callback) {
+  const state = {
+    isBuild: false
+  }
 
   return {
     name: 'modify-specific-html-files',
@@ -13,8 +16,11 @@ export function modifyHtmlFiles(callback) {
       handler(html, ctx) {
         if (!ctx.path.endsWith('.html')) return
 
-        return callback(html)
+        return callback(html, state)
       },
     },
+    buildStart() {
+      state.isBuild = true;
+    }
   }
 }
