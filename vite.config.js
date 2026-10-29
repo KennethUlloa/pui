@@ -1,21 +1,36 @@
-import { resolve } from "node:path";
+import { resolve, relative, extname, sep } from "node:path";
 import { defineConfig } from "vite";
 import { sassPlugin } from "./plugins/sass.js";
 import { modifyHtmlFiles } from "./plugins/modifiers.js";
+import { globSync } from "tinyglobby";
 import { KPUI_VERSION, BASE_URL } from "./meta.js";
 
-const outDir = KPUI_VERSION ? "dist/" + KPUI_VERSION : "dist";
+const outDir = "dist";
 
 const cssOutput = resolve(`${outDir}/css/index.css`);
-let basePath = [BASE_URL, KPUI_VERSION].filter(Boolean).join("/");
+const basePath = BASE_URL || "";
 
-if (basePath.endsWith("/")) {
-  basePath = basePath.slice(0, -1);
-}
-
-if (basePath && !basePath.startsWith("/")) {
-  basePath = `/${basePath}`;
-}
+const components = Object.fromEntries(
+  globSync("src/web-components/**/*.ts").map((file) => [
+    // This removes `src/` as well as the file extension from each
+    // file, so e.g. src/nested/foo.js becomes nested/foo, and
+    // normalizes Windows backslashes to forward slashes.
+    "wc/" +
+      relative(
+        "src/web-components",
+        file.slice(
+          0,
+          file.length -
+            (extname(file).length + (file.endsWith("index.ts") ? 5 : 0)),
+        ),
+      )
+        .split(sep)
+        .join("/"),
+    // This expands the relative paths to absolute paths, so e.g.
+    // src/nested/foo.js becomes /project/src/nested/foo.js
+    resolve(file),
+  ]),
+);
 
 export default defineConfig({
   plugins: [
@@ -39,7 +54,7 @@ export default defineConfig({
   base: basePath,
   build: {
     outDir,
-    rollupOptions: {
+    rolldownOptions: {
       output: {
         assetFileNames: (assetInfo) => {
           if (assetInfo.names && assetInfo.names.length > 0) {
@@ -61,27 +76,14 @@ export default defineConfig({
           return "assets/[name]-[hash][extname]";
         },
         chunkFileNames: (chunkInfo) => {
-          if (
-            chunkInfo.name.startsWith("wc/") ||
-            chunkInfo.name.startsWith("vendor")
-          ) {
-            return `js/${chunkInfo.name}.js`;
-          }
-          return "js/[name]-[hash].js";
+          return "js/[name].js";
         },
         entryFileNames: (chunkInfo) => {
-          return "js/[name]-[hash].js";
+          return "js/[name].js";
         },
         advancedChunks: {
           groups: [
             { name: "vendor", test: /[\\/]node_modules[\\/]/ },
-            {
-              debugName: "components",
-              name: (id) => {
-                const m = id.match(/\/src\/components\/([^/]+)\//);
-                return m ? "wc/" + m[1] : undefined;
-              },
-            },
           ],
         },
       },
@@ -89,6 +91,7 @@ export default defineConfig({
         main: resolve("index.html"),
         components: resolve("components.html"),
         "web-components": resolve("web-components.html"),
+        ...components,
       },
     },
   },

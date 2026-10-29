@@ -1,14 +1,20 @@
-import "../components/datatable";
-import type { DataTable } from "../components/datatable";
-import "../components/pagination";
-import type { Pagination } from "../components/pagination";
-import "../components/searchbar";
-import type { Searchbar } from "../components/searchbar";
-import "../components/avatar";
-import "@/components/sidebar";
-import "@/components/dialog";
-import type { PuiDialog as Dialog } from "../components/dialog";
-import { getArtists, getUsers, type Artist, type User } from "@/utils/data.mock";
+import "@/web-components/datatable";
+import type { DataTable } from "../web-components/datatable";
+import "@/web-components/pagination";
+import type { Pagination } from "../web-components/pagination";
+import "@/web-components/searchbar";
+import type { Searchbar } from "@/web-components/searchbar";
+import "@/web-components/avatar";
+import "@/web-components/sidebar";
+import "@/web-components/dialog";
+import "@/web-components/button/toggle-password";
+import type { PuiDialog as Dialog } from "@/web-components/dialog";
+import {
+  getArtists,
+  getUsers,
+  type Artist,
+  type User,
+} from "@/utils/data.mock";
 
 async function queryUsers(search: string, page: number, pageSize: number) {
   const response = await getUsers(search, page, pageSize);
@@ -219,7 +225,8 @@ function searchbarDemo() {
   });
 
   searchbar.optionId = (todo) => String(todo.id);
-  searchbar.renderOption = (artist) => `<strong>${artist.name}</strong> <span class="text-muted">(${artist.genres}) - ${Math.round(artist.soldRecords / 1e6)}M Records</span>`;
+  searchbar.renderOption = (artist) =>
+    `<strong>${artist.name}</strong> <span class="text-muted">(${artist.genres}) - ${Math.round(artist.soldRecords / 1e6)}M Records</span>`;
 
   queryTodos("", page, pageSize)
     .then(({ todos: todos_, total: total_ }) => {

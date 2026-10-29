@@ -221,25 +221,26 @@
         <div>
           <h2 class="text-5 font-semibold mb-2">Form controls</h2>
           <form class="card grid gap-2">
-            <label class="grid gap-0 text-1 font-semibold">Project name
-              <input type="text" value="Northstar refresh" class="input" />
+            <label class="text-1 font-semibold">
+              Project name
+              <input type="text" placeholder="Enter a name" class="input input-1 form-invalid error-ring" minlength="8" required/>
             </label>
-            <label class="grid gap-0 text-1 font-semibold">Visibility
-              <select class="select">
+            <label class="text-1 font-semibold">Visibility
+              <select class="select input-1">
                 <option>Private</option>
                 <option>Team</option>
                 <option>Public</option>
               </select>
             </label>
             <label class="grid gap-0 text-1 font-semibold">Description
-              <textarea rows="3" placeholder="Add a short description" class="textarea"></textarea>
+              <textarea rows="3" required placeholder="Add a short description" class="textarea input-1"></textarea>
             </label>
             <label class="flex items-center gap-1 text-1"><input type="checkbox" class="checkbox" checked /> Notify collaborators</label>
             <label class="flex items-center gap-1 text-1"><input type="radio" name="radio-example" value="1" class="radio" checked /> Daily</label>
             <label class="flex items-center gap-1 text-1"><input type="radio" name="radio-example" value="2" class="radio" checked /> Weekly</label>
             <label class="flex items-center gap-1 text-1"><input type="radio" name="radio-example" value="3" class="radio" checked /> Daily</label>
             <div class="flex flex-wrap items-center gap-2">
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="submit" class="btn btn-primary">Save changes</button>
               <button type="reset" class="btn btn-ghost">Cancel</button>
             </div>
           </form>
@@ -529,6 +530,5 @@
       </section>
     </main>
     <script type="module" src="./src/pages/theme.ts"></script>
-    <script type="module" src="./src/components/sidebar/index.ts"></script>
   </body>
 </html>

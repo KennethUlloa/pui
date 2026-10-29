@@ -47,10 +47,9 @@ $align-values: (
     "stretch": stretch
 );
 
-$width-values: (
+$sizing-values: (
     "auto": auto,
     "full": 100%,
-    "screen": 100vw,
     "fit": fit-content,
     "min": min-content,
     "max": max-content,
@@ -61,7 +60,7 @@ $width-values: (
     "3-4": 75%
 );
 
-$max-width-values: (
+$max-sizing-values: (
     "none": none,
     "0": 20rem,
     "1": 24rem,
@@ -74,17 +73,15 @@ $max-width-values: (
     "8": 64rem,
     "9": 72rem,
     "full": 100%,
-    "screen": 100vw,
     "prose": 65ch
 );
 
-$min-width-values: (
+$min-sizing-values: (
     "0": 0,
     "min": min-content,
     "max": max-content,
     "fit": fit-content,
     "full": 100%,
-    "screen": 100vw
 );
 
 $grid-template-values: (
@@ -134,7 +131,7 @@ $grid-template-values: (
         }
     }
 
-    @each $name, $value in $width-values {
+    @each $name, $value in $sizing-values {
         .#{$prefix}w-#{$name} {
             width: $value;
         }
@@ -144,15 +141,47 @@ $grid-template-values: (
         }
     }
 
-    @each $name, $value in $max-width-values {
+    .#{$prefix}w-screen {
+        width: 100svw;
+    }
+
+    .#{$prefix}min-w-screen {
+        min-width: 100svw;
+    }
+
+    .#{$prefix}min-w-screen {
+        max-width: 100svw;
+    }
+
+    .#{$prefix}h-screen {
+        height: 100svh;
+    }
+
+    .#{$prefix}min-h-screen {
+        min-height: 100svw;
+    }
+
+    .#{$prefix}min-h-screen {
+        max-height: 100svw;
+    }
+
+    @each $name, $value in $max-sizing-values {
         .#{$prefix}max-w-#{$name} {
             max-width: $value;
         }
+
+        .#{$prefix}max-h-#{$name} {
+            max-height: $value;
+        }
     }
 
-    @each $name, $value in $min-width-values {
+    @each $name, $value in $min-sizing-values {
         .#{$prefix}min-w-#{$name} {
             min-width: $value;
+        }
+
+        .#{$prefix}max-h-#{$name} {
+            max-height: $value;
         }
     }
 

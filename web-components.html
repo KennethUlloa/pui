@@ -136,7 +136,8 @@
             <p>This dialog uses the <code>dialog-2</code> size modifier, which increases the width using the dialog CSS
               variables.</p>
             <p>You can also control backdrop/escape behavior via attributes on <code>pui-dialog</code> (e.g.
-              <code>backdrop-close="false"</code>, <code>escape-close="false"</code>).</p>
+              <code>backdrop-close="false"</code>, <code>escape-close="false"</code>).
+            </p>
           </div>
           <div class="dialog-footer">
             <button class="btn btn-ghost" type="button" data-dialog-close>Close</button>
@@ -244,6 +245,32 @@
             </nav>
           </div>
         </pui-sidebar>
+      </div>
+    </section>
+    <section>
+      <div class="flex items-center justify-between gap-2 mb-2">
+        <h2 class="text-5 font-semibold">Password Visibility Toggle</h2>
+        <span class="text-1 text-muted">Toggle between "text" and "password"</span>
+      </div>
+      <div class="card flex flex-col gap-2">
+        <div>
+          <label for="password">
+            Hidden password
+          </label>
+          <div class="input-container input-1">
+            <input type="password" name="" id="password" placeholder="Password toggle visibility...">
+            <pui-password-visibility></pui-password-visibility>
+          </div>
+        </div>
+        <div>
+          <label for="password2">
+            Visible password
+          </label>
+          <div class="input-container input-1">
+            <input type="text" name="" id="password2" placeholder="Password toggle visibility...">
+            <pui-password-visibility target="password2" visible></pui-password-visibility>
+          </div>
+        </div>
       </div>
     </section>
   </main>

@@ -1,6 +1,12 @@
 @use "../colors" as colors;
 @use "../interaction" as interaction;
 
+$label-levels: (
+  '1': 0.35em,
+  '2': 0.50em,
+  '3': 0.75em
+);
+
 @mixin input-props() {
   background-color: colors.color_token("surface", "main");
   border: 1px solid colors.color_token("border", "main");
@@ -25,6 +31,19 @@
   textarea {
     background-color: colors.color_token("surface", "main");
     color: colors.color_token("body", "main");
+  }
+
+  .password-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1.3em;
+    border-radius: var(--pui-border-radius-2, 0.375rem);
+
+    @include interaction.focus-ring();
   }
 
   .input,
@@ -86,6 +105,12 @@
   .textarea {
     min-height: 8rem;
     resize: vertical;
+  }
+
+  @each $name, $value in $label-levels {
+    .input-#{$name} {
+        margin-top: #{$value};
+    }
   }
 }
 
