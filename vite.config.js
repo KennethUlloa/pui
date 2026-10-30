@@ -8,7 +8,11 @@ import { KPUI_VERSION, BASE_URL } from "./meta.js";
 const outDir = "dist";
 
 const cssOutput = resolve(`${outDir}/css/index.css`);
-const basePath = BASE_URL || "";
+let basePath = BASE_URL || "";
+
+if (!basePath.startsWith("/")) {
+  basePath = "/" + basePath
+}
 
 const components = Object.fromEntries(
   globSync("src/web-components/**/*.ts").map((file) => [
